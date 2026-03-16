@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldScope Media — all news · view more</title>
+    <!-- Fonts: Merriweather + Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111111;
+            font-family: 'Roboto', sans-serif;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #000000;
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+            max-width: 280px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: #B11226;
+        }
+
+        .nav-menu a.active {
+            color: #B11226;
+            border-bottom: 2px solid #B11226;
+            padding-bottom: 4px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .hamburger:hover {
+            color: #B11226;
+        }
+
+        /* Mobile menu panel */
+        .mobile-menu {
+            position: fixed;
+            top: 94px; /* height of navbar + border */
+            left: 0;
+            width: 100%;
+            background-color: #111;
+            border-bottom: 2px solid #B11226;
+            padding: 20px 0;
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 999;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #B11226;
+            color: white;
+        }
+
+        .mobile-menu a.active {
+            color: #B11226;
+            font-weight: 600;
+        }
+
+        .mobile-menu a.active:hover {
+            color: white;
+        }
+
+        /* overlay when mobile menu is open */
+        .menu-overlay {
+            position: fixed;
+            top: 94px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 94px);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(3px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* page header */
+        .page-header {
+            margin: 50px 0 30px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #aaa;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* filter section */
+        .filter-section {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px 30px;
+        }
+
+        .filter-label {
+            color: #B11226;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #ddd;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #B11226;
+            border-color: #B11226;
+            color: white;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #252525;
+            border-radius: 60px;
+            padding: 4px 4px 4px 20px;
+            border: 1px solid #444;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 0;
+            font-size: 1rem;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: #888;
+        }
+
+        .search-box button {
+            background-color: #B11226;
+            border: none;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #9e0f21;
+        }
+
+        /* news grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 35px;
+            margin: 40px 0 30px;
+        }
+
+        .news-card {
+            background-color: #1E1E1E;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #2f2f2f;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            border-color: #B11226;
+        }
+
+        .news-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-card-img {
+            transform: scale(1.02);
+        }
+
+        .news-card-content {
+            padding: 28px 24px 32px;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .news-category {
+            background-color: #B11226;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .news-date {
+            color: #888;
+        }
+
+        .news-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .news-description {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #B11226;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* view more button */
+        .view-more-container {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .view-more-btn {
+            background-color: transparent;
+            border: 2px solid #B11226;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .view-more-btn:hover {
+            background-color: #B11226;
+            transform: translateY(-2px);
+        }
+
+        .view-more-btn i {
+            transition: transform 0.3s;
+        }
+
+        .view-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* footer */
+        .footer {
+            background-color: #000000;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+            border-top: 4px solid #B11226;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            height: 90px;
+            width: auto;
+            max-width: 280px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            color: #aaa;
+            max-width: 240px;
+        }
+
+        .footer-heading {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-left: 3px solid #B11226;
+            padding-left: 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2.3;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #B11226;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 2rem;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #B11226;
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #666;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        /* responsive */
+        @media (max-width: 1000px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .hamburger { display: block; }
+            .filter-container { flex-direction: column; align-items: stretch; }
+            .search-box { width: 100%; }
+            .page-header h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            .logo { height: 58px; }
+            .footer-logo { height: 70px; }
+            .news-grid { grid-template-columns: 1fr; }
+            .view-more-btn { padding: 14px 32px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img class="logo" src="images/logo.webp" alt="WorldScope Media" onerror="this.onerror=null; this.src='https://placehold.co/280x70/B11226/white?text=WorldScope'">
+            <ul class="nav-menu">
+                <li><a href="index.html">Latest News</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Latest News</a></li>
+            <li><a href="news.html" class="active">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <div class="page-header">
+        <h1>All News</h1>
+        <p>Comprehensive coverage from every corner of the globe</p>
+    </div>
+
+    <!-- filter section -->
+    <div class="filter-section">
+        <div class="filter-container">
+            <span class="filter-label">Filter by</span>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="World">World</button>
+                <button class="filter-btn" data-filter="Business">Business</button>
+                <button class="filter-btn" data-filter="Tech">Tech</button>
+                <button class="filter-btn" data-filter="Science">Science</button>
+                <button class="filter-btn" data-filter="Opinion">Opinion</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search news...">
+                <button id="searchBtn">Go</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- news grid -->
+        <div class="news-grid" id="newsGrid"></div>
+        
+        <!-- view more button -->
+        <div class="view-more-container">
+            <button class="view-more-btn" id="viewMoreBtn">
+                <span>View More Articles</span>
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo" src="images/logo.webp" alt="WorldScope" onerror="this.src='https://placehold.co/280x90/B11226/white?text=WorldScope'">
+                    <p class="footer-tagline">Independent. Global. Essential.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Sections</h4>
+                    <div class="footer-links">
+                        <a href="#">World</a><br><a href="#">Business</a><br><a href="#">Tech</a><br><a href="#">Science</a><br><a href="#">Opinion</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="#">About</a><br><a href="#">Careers</a><br><a href="#">Contact</a><br><a href="#">Privacy</a><br><a href="#">Terms</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Follow</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 WorldScope Media. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // ========== NAVBAR FUNCTIONALITY ==========
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('menuOverlay');
+            
+            // Toggle mobile menu
+            function toggleMenu() {
+                mobileMenu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                
+                // Change icon based on menu state
+                const icon = hamburger.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+            
+            // Open/close on hamburger click
+            if (hamburger) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+            
+            // Close on overlay click
+            if (overlay) {
+                overlay.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            }
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+            
+            // Handle window resize - close mobile menu if window becomes larger than 900px
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 900 && mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+            
+            // Logo click - navigate to home
+            document.querySelector('.logo').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+            
+            // Active link highlighting for mobile menu
+            const currentPath = window.location.pathname.split('/').pop() || 'news.html';
+            const navLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('active');
+                } else if (currentPath === '' && href === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+
+            // ========== NEWS GRID FUNCTIONALITY ==========
+            // Expanded news database with 24 articles
+            const allNews = [
+                // World (8 articles)
+                { id:1, category:'World', title:'Pacific Islands split over China pact', desc:'Leaders fail to reach consensus as Beijing expands police cooperation.', date:'June 12, 2025', img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070&auto=format&fit=crop' },
+                { id:2, category:'World', title:'EU defence fund clears first €10bn', desc:'Joint procurement of air defence systems approved by member states.', date:'June 11, 2025', img:'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2069&auto=format&fit=crop' },
+                { id:8, category:'World', title:'G7 leaders pledge $50bn for Ukraine', desc:'Loan backed by frozen Russian assets, announced at summit.', date:'June 10, 2025', img:'https://images.unsplash.com/photo-1489447068241-b3490214e879?q=80&w=2070&auto=format&fit=crop' },
+                { id:9, category:'World', title:'Mexico elects first female president', desc:'Climate scientist Claudia Sheinbaum wins historic landslide.', date:'June 9, 2025', img:'https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?q=80&w=2072&auto=format&fit=crop' },
+                { id:17, category:'World', title:'UN warns of famine in Sudan', desc:'Fighting blocks aid as millions face starvation.', date:'June 8, 2025', img:'https://images.unsplash.com/photo-1547407139-3c921a66005c?q=80&w=2070&auto=format&fit=crop' },
+                { id:18, category:'World', title:'NATO expands exercise program', desc:'Alliance announces largest drills since Cold War.', date:'June 7, 2025', img:'https://images.unsplash.com/photo-1547234935-80c7145ec969?q=80&w=2074&auto=format&fit=crop' },
+                { id:19, category:'World', title:'Japan launches defense rethink', desc:'New strategy focuses on missile capabilities.', date:'June 6, 2025', img:'https://images.unsplash.com/photo-1549693578-d047fb4716c9?q=80&w=1974&auto=format&fit=crop' },
+                { id:20, category:'World', title:'Brazil hosts Amazon summit', desc:'Regional leaders agree to combat deforestation.', date:'June 5, 2025', img:'https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1974&auto=format&fit=crop' },
+                
+                // Business (6 articles)
+                { id:3, category:'Business', title:'SoftBank shifts to AI investments', desc:'Masayoshi Son announces "rebirth" as AI-focused fund.', date:'June 12, 2025', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop' },
+                { id:10, category:'Business', title:'Nvidia surpasses Apple in market cap', desc:'Chipmaker now world\'s second most valuable company.', date:'June 11, 2025', img:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop' },
+                { id:11, category:'Business', title:'Saudi wealth fund targets US sports', desc:'PIF in talks to buy stake in WWE and NBA franchises.', date:'June 8, 2025', img:'https://images.unsplash.com/photo-1504457047772-27faf1c00561?q=80&w=2070&auto=format&fit=crop' },
+                { id:21, category:'Business', title:'Eurozone inflation drops to 2.1%', desc:'ECB signals rate cut as price pressures ease.', date:'June 7, 2025', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop' },
+                { id:22, category:'Business', title:'SpaceX valuation hits $250bn', desc:'Starlink profits drive investor enthusiasm.', date:'June 6, 2025', img:'https://images.unsplash.com/photo-1517976547714-720226b864c1?q=80&w=2070&auto=format&fit=crop' },
+                { id:23, category:'Business', title:'US adds 272,000 jobs in May', desc:'Labor market remains resilient despite high rates.', date:'June 5, 2025', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop' },
+                
+                // Tech (5 articles)
+                { id:4, category:'Tech', title:'New quantum computing record set', desc:'Google\'s Willow chip solves problem in minutes.', date:'June 11, 2025', img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop' },
+                { id:12, category:'Tech', title:'Apple reveals AI strategy at WWDC', desc:'"Apple Intelligence" integrates generative AI across devices.', date:'June 10, 2025', img:'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop' },
+                { id:13, category:'Tech', title:'EU investigates Microsoft over Teams', desc:'Antitrust regulators say bundling may violate competition rules.', date:'June 9, 2025', img:'https://images.unsplash.com/photo-1642132652859-3ef5a1048fd1?q=80&w=2070&auto=format&fit=crop' },
+                { id:24, category:'Tech', title:'Tesla unveils robotaxi prototype', desc:'Musk says self-driving vehicle to enter production.', date:'June 4, 2025', img:'https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop' },
+                
+                // Science (5 articles)
+                { id:5, category:'Science', title:'Brain implant restores movement', desc:'Experimental device reads neural signals with high accuracy.', date:'June 10, 2025', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format&fit=crop' },
+                { id:14, category:'Science', title:'China\'s lunar mission returns samples', desc:'Chang\'e-6 brings back first rocks from far side of moon.', date:'June 8, 2025', img:'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop' },
+                { id:15, category:'Science', title:'CRISPR cures sickle cell in second patient', desc:'Long-term follow-up shows durable results, researchers say.', date:'June 7, 2025', img:'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop' },
+                
+                // Opinion (5 articles)
+                { id:6, category:'Opinion', title:'The Global South is done taking sides', desc:'Ngozi Okonjo-Iweala on why developing nations seek new paths.', date:'June 9, 2025', img:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop' },
+                { id:7, category:'Opinion', title:'Nuclear risk highest since 1962', desc:'Beatrice Fihn argues disarmament is more urgent than ever.', date:'June 8, 2025', img:'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2069&auto=format&fit=crop' },
+                { id:16, category:'Opinion', title:'AI needs a new kind of regulation', desc:'Why existing laws are insufficient for generative AI.', date:'June 6, 2025', img:'https://images.unsplash.com/photo-1677442136019-21780a5c6b6e?q=80&w=2070&auto=format&fit=crop' }
+            ];
+
+            const grid = document.getElementById('newsGrid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+
+            let currentFilter = 'all';
+            let searchTerm = '';
+            let visibleCount = 9; // initially show 9 articles
+            let currentDisplayedNews = [];
+
+            function filterNews() {
+                return allNews.filter(item => {
+                    if (currentFilter !== 'all' && item.category !== currentFilter) return false;
+                    if (searchTerm.trim() !== '') {
+                        return (item.title + ' ' + item.desc).toLowerCase().includes(searchTerm.toLowerCase());
+                    }
+                    return true;
+                });
+            }
+
+            function renderNews() {
+                const filtered = filterNews();
+                currentDisplayedNews = filtered;
+                const visibleNews = filtered.slice(0, visibleCount);
+                
+                if (filtered.length === 0) {
+                    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px; color:#aaa;"><i class="fas fa-newspaper" style="font-size:3rem; opacity:0.4; margin-bottom:20px;"></i><p>No articles match your criteria.</p></div>';
+                    viewMoreBtn.style.display = 'none';
+                    return;
+                }
+
+                let html = '';
+                visibleNews.forEach(item => {
+                    html += `
+                        <article class="news-card">
+                            <img class="news-card-img" src="${item.img}" alt="${item.category}">
+                            <div class="news-card-content">
+                                <div class="news-meta">
+                                    <span class="news-category">${item.category}</span>
+                                    <span class="news-date"><i class="far fa-calendar-alt"></i> ${item.date}</span>
+                                </div>
+                                <h3>${item.title}</h3>
+                                <p class="news-description">${item.desc}</p>
+                                <a href="#" class="read-more">Read full story <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    `;
+                });
+                grid.innerHTML = html;
+
+                // Show/hide view more button
+                if (visibleCount >= filtered.length) {
+                    viewMoreBtn.style.display = 'none';
+                } else {
+                    viewMoreBtn.style.display = 'inline-flex';
+                }
+
+                // Add click handlers to read more links (prevent default)
+                document.querySelectorAll('.read-more').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        alert('This would open the full article (demo)');
+                    });
+                });
+            }
+
+            // Initial render
+            renderNews();
+
+            // Filter button clicks
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    visibleCount = 9; // reset count on filter change
+                    renderNews();
+                });
+            });
+
+            // Search function
+            function performSearch() {
+                searchTerm = searchInput.value;
+                visibleCount = 9; // reset on search
+                renderNews();
+            }
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', e => { if(e.key === 'Enter') performSearch(); });
+
+            // View More button
+            viewMoreBtn.addEventListener('click', function() {
+                visibleCount += 6; // load 6 more articles
+                renderNews();
+            });
+
+            // Handle footer links (prevent default for demo)
+            document.querySelectorAll('.footer-links a, .social-icons a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

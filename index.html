@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldScope Media — clean · no shadows · simplified nav</title>
+    <!-- Fonts: Merriweather + Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111111;
+            font-family: 'Roboto', sans-serif;
+            color: #E0E0E0;
+            line-height: 1.6;
+            transition: background-color 0.4s, color 0.3s;
+        }
+
+        /* light mode */
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #222;
+        }
+        body.light-mode .navbar,
+        body.light-mode .footer {
+            background-color: #ffffff;
+            color: #222;
+            border-color: #ddd;
+        }
+        body.light-mode .nav-menu a {
+            color: #222;
+        }
+        body.light-mode .nav-menu a:hover {
+            color: #B11226;
+        }
+        body.light-mode .article-card {
+            background-color: #ffffff;
+            border-color: #e0e0e0;
+        }
+        body.light-mode .card-title {
+            color: #111;
+        }
+        body.light-mode .card-description {
+            color: #555;
+        }
+        body.light-mode .sidebar-widget {
+            background-color: #ffffff;
+            border-color: #ddd;
+        }
+        body.light-mode .filter-section {
+            background-color: #e9ecef;
+            border-bottom-color: #ccc;
+        }
+        body.light-mode .filter-btn {
+            color: #333;
+            border-color: #aaa;
+        }
+        body.light-mode .search-box {
+            background-color: white;
+            border-color: #ccc;
+        }
+        body.light-mode .search-box input {
+            color: #222;
+        }
+        body.light-mode .footer-links a {
+            color: #555;
+        }
+        body.light-mode .footer-links a:hover {
+            color: #B11226;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- NAVBAR (no shadows) ---------- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #000000;
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+            max-width: 280px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: #B11226;
+        }
+
+        .nav-menu a.active {
+            color: #B11226;
+            border-bottom: 2px solid #B11226;
+            padding-bottom: 4px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .hamburger:hover {
+            color: #B11226;
+        }
+
+        /* Mobile menu panel */
+        .mobile-menu {
+            position: fixed;
+            top: 94px;
+            left: 0;
+            width: 100%;
+            background-color: #111;
+            border-bottom: 2px solid #B11226;
+            padding: 20px 0;
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 999;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #B11226;
+            color: white;
+        }
+
+        .mobile-menu a.active {
+            color: #B11226;
+            font-weight: 600;
+        }
+
+        .mobile-menu a.active:hover {
+            color: white;
+        }
+
+        /* overlay when mobile menu is open */
+        .menu-overlay {
+            position: fixed;
+            top: 94px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 94px);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(3px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ---------- FILTER SECTION ---------- */
+        .filter-section {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px 30px;
+        }
+
+        .filter-label {
+            color: #B11226;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #ddd;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #B11226;
+            border-color: #B11226;
+            color: white;
+        }
+
+        .search-box {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            background-color: #252525;
+            border-radius: 60px;
+            padding: 4px 4px 4px 20px;
+            border: 1px solid #444;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px 0;
+            font-size: 1rem;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: #888;
+        }
+
+        .search-box button {
+            background-color: #B11226;
+            border: none;
+            color: white;
+            padding: 10px 26px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #9e0f21;
+        }
+
+        /* ---------- MARQUEE ---------- */
+        .breaking-ticker {
+            background-color: #B11226;
+            color: white;
+            padding: 14px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid #8a0e1d;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marqueeScroll 35s linear infinite;
+            font-weight: 500;
+        }
+
+        .marquee-content span {
+            margin-right: 48px;
+        }
+
+        .marquee-content i {
+            margin-right: 8px;
+            color: #ffd6d6;
+        }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .breaking-ticker:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero-section {
+            margin: 45px 0 55px;
+        }
+
+        .hero-card {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            border: 1px solid #2c2c2c;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: clamp(340px, 68vh, 620px);
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: transform 7s ease;
+        }
+
+        .hero-card:hover .hero-img {
+            transform: scale(1.02);
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.98) 5%, transparent);
+            padding: 50px 45px 40px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            color: white;
+            max-width: 1000px;
+            text-shadow: 0 4px 15px black;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #CCCCCC;
+            max-width: 800px;
+            margin-top: 15px;
+        }
+
+        .category-tag {
+            background-color: #B11226;
+            color: white;
+            padding: 6px 22px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        /* section title */
+        .section-title {
+            font-size: 2.4rem;
+            color: white;
+            margin: 60px 0 25px;
+            border-left: 6px solid #B11226;
+            padding-left: 22px;
+        }
+
+        /* article cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 32px;
+        }
+
+        .article-card {
+            background-color: #1E1E1E;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #2f2f2f;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            border-color: #B11226;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .article-card:hover .card-img {
+            transform: scale(1.02);
+        }
+
+        .card-content {
+            padding: 26px 22px 30px;
+        }
+
+        .card-category {
+            background-color: #B11226;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 18px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        /* sidebar */
+        .home-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 45px;
+            margin: 45px 0;
+        }
+
+        .sidebar-widget {
+            background-color: #2A2A2A;
+            border-radius: 28px;
+            padding: 32px 28px;
+            margin-bottom: 40px;
+            border: 1px solid #444;
+        }
+
+        .widget-title {
+            color: white;
+            font-size: 2rem;
+            border-bottom: 2px solid #B11226;
+            padding-bottom: 16px;
+            margin-bottom: 26px;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 22px;
+            align-items: center;
+        }
+
+        .trending-number {
+            background-color: #B11226;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 16px 22px;
+            border-radius: 60px;
+            border: none;
+            background: #1a1a1a;
+            color: white;
+            margin: 20px 0 18px;
+            border: 1px solid #555;
+        }
+
+        .btn {
+            background-color: #B11226;
+            color: white;
+            border: none;
+            padding: 14px 34px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn:hover {
+            background-color: #9e0f21;
+            transform: translateY(-2px);
+        }
+
+        /* featured sections */
+        .featured-section {
+            margin: 60px 0;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .featured-item {
+            background: #1E1E1E;
+            border-radius: 24px;
+            padding: 28px;
+            border-left: 4px solid #B11226;
+            transition: transform 0.3s;
+        }
+
+        .featured-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .featured-item h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .featured-item p {
+            color: #aaa;
+        }
+
+        .insights-section {
+            background: #1A1A1A;
+            border-radius: 32px;
+            padding: 45px;
+            margin: 50px 0;
+            border: 1px solid #333;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .insight-card {
+            background: #252525;
+            border-radius: 24px;
+            padding: 30px;
+        }
+
+        .insight-card h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .insight-card p {
+            color: #aaa;
+        }
+
+        /* footer */
+        .footer {
+            background-color: #000000;
+            padding: 80px 0 40px;
+            margin-top: 80px;
+            border-top: 4px solid #B11226;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            height: 100px;
+            width: auto;
+            max-width: 340px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .footer-tagline {
+            color: #aaa;
+            max-width: 260px;
+            line-height: 1.5;
+        }
+
+        .footer-heading {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            border-left: 3px solid #B11226;
+            padding-left: 16px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2.4;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #B11226;
+            transform: translateX(4px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 2.2rem;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #B11226;
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #666;
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        /* dark mode toggle */
+        .mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e1e1e;
+            color: white;
+            border: 2px solid #B11226;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            font-size: 1.8rem;
+            transition: 0.3s;
+        }
+
+        .mode-toggle:hover {
+            background-color: #B11226;
+            transform: rotate(180deg);
+        }
+
+        /* responsive */
+        @media (max-width: 1000px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .featured-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .hamburger { display: block; }
+            .home-layout { grid-template-columns: 1fr; }
+            .filter-container { flex-direction: column; align-items: stretch; }
+            .search-box { margin-left: 0; width: 100%; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .insights-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text { padding: 30px 20px; }
+            .logo { height: 58px; }
+            .footer-logo { height: 80px; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img class="logo" src="images/logo.webp" alt="WorldScope Media" onerror="this.onerror=null; this.src='https://placehold.co/280x70/B11226/white?text=WorldScope'">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Latest News</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html" class="active">Latest News</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- filter section -->
+    <div class="filter-section">
+        <div class="filter-container">
+            <span class="filter-label">Filter</span>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="World">World</button>
+                <button class="filter-btn" data-filter="Business">Business</button>
+                <button class="filter-btn" data-filter="Tech">Tech</button>
+                <button class="filter-btn" data-filter="Science">Science</button>
+                <button class="filter-btn" data-filter="Opinion">Opinion</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search articles...">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- marquee -->
+    <div class="breaking-ticker">
+        <div class="marquee-content">
+            <span><i class="fas fa-bolt"></i> G7 approves $50bn loan for Ukraine</span>
+            <span><i class="fas fa-chart-line"></i> Nvidia surpasses Apple in market cap</span>
+            <span><i class="fas fa-handshake"></i> Sudan ceasefire talks resume in Jeddah</span>
+            <span><i class="fas fa-moon"></i> China's lunar mission returns with samples</span>
+            <span><i class="fas fa-bolt"></i> G7 approves $50bn loan for Ukraine</span>
+            <span><i class="fas fa-chart-line"></i> Nvidia surpasses Apple in market cap</span>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- hero -->
+        <section class="hero-section">
+            <div class="hero-card">
+                <img class="hero-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop" alt="global news">
+                <div class="hero-text">
+                    <span class="category-tag">EXCLUSIVE</span>
+                    <h1>The Kremlin’s war economy: sanctions and resilience</h1>
+                    <p>Russian factories run at full capacity — but at what cost? A ground report from Yekaterinburg.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- main content + sidebar -->
+        <div class="home-layout">
+            <div class="main-content" id="articlesContainer">
+                <h2 class="section-title">Latest stories</h2>
+                <div class="card-grid" id="articleGrid"></div>
+            </div>
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Trending</h3>
+                    <div class="trending-item"><span class="trending-number">1</span><span>Mexico's first female president</span></div>
+                    <div class="trending-item"><span class="trending-number">2</span><span>French Open final results</span></div>
+                    <div class="trending-item"><span class="trending-number">3</span><span>Apple AI plans revealed</span></div>
+                    <div class="trending-item"><span class="trending-number">4</span><span>Bitcoin reaches all-time high</span></div>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Daily Brief</h3>
+                    <input class="newsletter-input" type="email" placeholder="Your email">
+                    <button class="btn" style="width:100%;">Subscribe</button>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Editor's picks</h3>
+                    <div class="trending-item"><span>•</span><span>The new space race</span></div>
+                    <div class="trending-item"><span>•</span><span>Inside the chip shortage</span></div>
+                    <div class="trending-item"><span>•</span><span>Yemen after the war</span></div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- featured insights -->
+        <div class="featured-section">
+            <h2 class="section-title">Featured Insights</h2>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <h3>The Future of Energy</h3>
+                    <p>How renewable investments are reshaping geopolitics. Analysis by Maria Santos.</p>
+                </div>
+                <div class="featured-item">
+                    <h3>AI & Democracy</h3>
+                    <p>Deepfakes, elections, and the fight for truth. Special report.</p>
+                </div>
+                <div class="featured-item">
+                    <h3>Global South Rising</h3>
+                    <p>Why developing nations are forging new alliances. Exclusive data.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- in-depth analysis -->
+        <div class="insights-section">
+            <h2 class="section-title" style="border-left: none; text-align: center; margin-top: 0;">In-Depth Analysis</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>Semiconductor Wars</h3>
+                    <p>The battle for chip supremacy between US, China, and Taiwan. A two-part investigation.</p>
+                </div>
+                <div class="insight-card">
+                    <h3>Climate Migration</h3>
+                    <p>By 2050, 200 million could be displaced. What happens when borders close?</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer with large logo -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo" src="images/logo.webp" alt="WorldScope" onerror="this.src='https://placehold.co/340x100/B11226/white?text=WorldScope'">
+                    <p class="footer-tagline">Independent. Global. Essential. News without borders.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Sections</h4>
+                    <div class="footer-links">
+                        <a href="#">World</a><br><a href="#">Business</a><br><a href="#">Tech</a><br><a href="#">Science</a><br><a href="#">Opinion</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="#">About</a><br><a href="#">Careers</a><br><a href="#">Contact</a><br><a href="#">Privacy</a><br><a href="#">Terms</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Follow</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 WorldScope Media. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- dark mode toggle -->
+    <div class="mode-toggle" id="modeToggle"><i class="fas fa-moon"></i></div>
+
+    <script>
+        (function() {
+            // ========== NAVBAR FUNCTIONALITY ==========
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('menuOverlay');
+            
+            // Toggle mobile menu
+            function toggleMenu() {
+                mobileMenu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                
+                // Change icon based on menu state
+                const icon = hamburger.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+            
+            // Open/close on hamburger click
+            if (hamburger) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+            
+            // Close on overlay click
+            if (overlay) {
+                overlay.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            }
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+            
+            // Handle window resize - close mobile menu if window becomes larger than 900px
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 900 && mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+            
+            // Logo click - navigate to home
+            document.querySelector('.logo').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+            
+            // Footer logo click
+            document.querySelector('.footer-logo').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+            
+            // Active link highlighting for mobile menu
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('active');
+                } else if (currentPath === '' && href === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+
+            // ========== ARTICLE GRID FUNCTIONALITY ==========
+            const articles = [
+                { id:1, category:'World', title:'Pacific Islands split over China pact', desc:'Leaders fail to reach consensus as Beijing expands police cooperation.', img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070&auto=format&fit=crop' },
+                { id:2, category:'World', title:'EU defence fund clears first €10bn', desc:'Joint procurement of air defence systems approved.', img:'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2069&auto=format&fit=crop' },
+                { id:3, category:'Business', title:'SoftBank shifts to AI investments', desc:'Masayoshi Son announces "rebirth" as AI-focused fund.', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop' },
+                { id:4, category:'Tech', title:'New quantum computing record set', desc:'Google\'s Willow chip solves problem in minutes.', img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop' },
+                { id:5, category:'Science', title:'Brain implant restores movement', desc:'Experimental device reads neural signals.', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format&fit=crop' },
+                { id:6, category:'Opinion', title:'The Global South is done taking sides', desc:'by Ngozi Okonjo-Iweala', img:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop' },
+                { id:7, category:'Opinion', title:'Nuclear risk highest since 1962', desc:'by Beatrice Fihn', img:'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2069&auto=format&fit=crop' }
+            ];
+
+            const grid = document.getElementById('articleGrid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+
+            let currentFilter = 'all';
+            let searchTerm = '';
+
+            function renderArticles() {
+                let filtered = articles.filter(a => {
+                    if (currentFilter !== 'all' && a.category !== currentFilter) return false;
+                    if (searchTerm.trim() !== '') {
+                        return (a.title + ' ' + a.desc).toLowerCase().includes(searchTerm.toLowerCase());
+                    }
+                    return true;
+                });
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px; color:#aaa;">No matching articles</div>';
+                    return;
+                }
+
+                let html = '';
+                filtered.forEach(a => {
+                    html += `
+                        <article class="article-card">
+                            <img class="card-img" src="${a.img}" alt="${a.category}">
+                            <div class="card-content">
+                                <span class="card-category">${a.category}</span>
+                                <h3 class="card-title">${a.title}</h3>
+                                <div class="card-description">${a.desc}</div>
+                            </div>
+                        </article>
+                    `;
+                });
+                grid.innerHTML = html;
+            }
+
+            renderArticles();
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    renderArticles();
+                });
+            });
+
+            function performSearch() {
+                searchTerm = searchInput.value;
+                renderArticles();
+            }
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', e => { if(e.key === 'Enter') performSearch(); });
+
+            // dark mode toggle
+            const toggle = document.getElementById('modeToggle');
+            toggle.addEventListener('click', function() {
+                document.body.classList.toggle('light-mode');
+                const icon = toggle.querySelector('i');
+                if (document.body.classList.contains('light-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Handle footer links (prevent default for demo)
+            document.querySelectorAll('.footer-links a, .social-icons a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
