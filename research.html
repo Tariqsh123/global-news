@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GBER | Research — Academic Papers, Case Studies & Research Insights</title>
+    <meta name="description" content="GBER Research: Peer-reviewed academic papers, business case studies, research methodologies, and publication guidelines for global researchers.">
+    <meta name="keywords" content="academic research, research papers, case studies, research methodology, publication, GBER research, business research">
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
+    <link rel="shortcut icon" type="image/webp" href="images/favicon.webp">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0A0C12;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #EDF2F9;
+            line-height: 1.55;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --navy-bg: #050A12;
+            --navy-card: #0F1622;
+            --gold-primary: #D4AF37;
+            --gold-dark: #B4941C;
+            --gray-border: #2A2F3E;
+            --text-muted: #9AA9C1;
+            --text-light: #EFF3F8;
+        }
+
+        h1, h2, h3, h4, .section-title, .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F1622; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 10px; }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 10, 18, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px 0;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 32px;
+            gap: 20px;
+            flex-wrap: nowrap;
+        }
+        .logo-area {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--gold-primary);
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+            background: #1A2332;
+            border-radius: 60px;
+            padding: 5px 5px 5px 18px;
+            border: 1px solid var(--gray-border);
+            transition: 0.2s;
+            flex-shrink: 1;
+            min-width: 240px;
+        }
+        .nav-search:focus-within {
+            border-color: var(--gold-primary);
+        }
+        .nav-search input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            width: 100%;
+            outline: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .nav-search input::placeholder {
+            color: var(--text-muted);
+        }
+        .nav-search button {
+            background: var(--gold-primary);
+            border: none;
+            color: #0A0C12;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+        }
+        .nav-search button:hover {
+            background: var(--gold-dark);
+        }
+        .user-icon {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+        .user-icon:hover { color: var(--gold-primary); }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            flex-shrink: 0;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: #0A0F1A;
+            border-bottom: 2px solid var(--gold-primary);
+            transform: translateY(-150%);
+            transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            z-index: 999;
+            padding: 24px 20px;
+            text-align: center;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+        .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu ul { 
+            list-style: none; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .mobile-menu li { width: 100%; text-align: center; }
+        .mobile-menu a { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 1rem; 
+            font-weight: 500;
+            display: inline-block;
+            padding: 8px 0;
+        }
+        .mobile-menu a.active { color: var(--gold-primary); }
+        .mobile-search {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .mobile-search input {
+            flex: 1;
+            padding: 12px 18px;
+            border-radius: 60px;
+            background: #1A2332;
+            border: 1px solid var(--gray-border);
+            color: white;
+            font-family: inherit;
+            outline: none;
+        }
+        .mobile-search button {
+            background: var(--gold-primary);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #0A0C12;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+        }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            margin: 50px 0 30px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 16px;
+        }
+        .page-header h1 i {
+            color: var(--gold-primary);
+            margin-right: 12px;
+        }
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Category Pills */
+        .categories-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0 40px;
+        }
+        .cat-pill {
+            background: #1A2332;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .cat-pill i { margin-right: 8px; }
+        .cat-pill:hover, .cat-pill.active {
+            background: var(--gold-primary);
+            color: #0A0C12;
+        }
+
+        /* Mobile Dropdown */
+        .mobile-category-dropdown {
+            display: none;
+            margin: 20px 0 30px;
+        }
+        .mobile-category-dropdown select {
+            width: 100%;
+            padding: 14px 20px;
+            background: #1A2332;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50px;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 20px;
+        }
+
+        /* Search Info */
+        .search-info {
+            text-align: center;
+            padding: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 60px;
+            margin-bottom: 24px;
+            display: none;
+            color: var(--gold-primary);
+            font-weight: 500;
+        }
+        .search-info.active { display: block; }
+
+        /* Featured Section */
+        .featured-section {
+            margin: 40px 0 50px;
+        }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .featured-card {
+            background: var(--navy-card);
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--gray-border);
+            transition: 0.3s;
+        }
+        .featured-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        .featured-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        .featured-content {
+            padding: 28px;
+        }
+        .featured-badge {
+            display: inline-block;
+            background: var(--gold-primary);
+            color: #0A0C12;
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .featured-title {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        /* Article Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+            margin: 40px 0;
+        }
+        .news-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid var(--gray-border);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content { padding: 24px; }
+        .card-category {
+            color: var(--gold-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .card-category i { margin-right: 6px; }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+        .card-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-bottom: 12px;
+        }
+        .highlight {
+            background-color: rgba(212, 175, 55, 0.3);
+            color: var(--gold-primary);
+            padding: 0 2px;
+            border-radius: 4px;
+        }
+
+        /* Research Stats Dashboard */
+        .research-dashboard {
+            background: var(--navy-card);
+            border-radius: 28px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid var(--gray-border);
+        }
+        .dashboard-title {
+            font-size: 1.8rem;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .dashboard-card {
+            background: #1A2332;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+        }
+        .dashboard-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+            margin: 12px 0;
+        }
+
+        /* Publication Guidelines Section */
+        .guidelines-section {
+            background: linear-gradient(135deg, #0F1826, #0B101A);
+            border-radius: 28px;
+            padding: 48px;
+            margin: 50px 0;
+            border: 1px solid var(--gray-border);
+        }
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .guideline-card {
+            background: #1A2332;
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+        }
+        .guideline-card i {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 16px;
+        }
+
+        /* Call for Papers */
+        .call-papers-section {
+            background: var(--navy-card);
+            border-radius: 28px;
+            padding: 48px;
+            margin: 50px 0;
+            border: 1px solid var(--gray-border);
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: #03070F;
+            margin-top: 70px;
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--gold-primary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+        }
+        .footer-logo-img {
+            height: 48px;
+            width: auto;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .footer-links a i { margin-right: 8px; width: 20px; }
+        .footer-links a:hover { color: var(--gold-primary); transform: translateX(3px); }
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover { color: var(--gold-primary); transform: translateY(-3px); }
+        .contact-info-footer p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info-footer i {
+            color: var(--gold-primary);
+            width: 24px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 24px;
+            border-top: 1px solid #222A36;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 1000px) {
+            .featured-grid, .dashboard-grid, .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .categories-bar { display: none; }
+            .mobile-category-dropdown { display: block; }
+        }
+        @media (max-width: 900px) {
+            .nav-menu, .nav-search, .user-icon { display: none; }
+            .hamburger { display: block; }
+            .container { padding: 0 20px; }
+        }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.2rem; }
+            .footer-grid {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+            }
+            .footer-grid > div .social-icons { justify-content: center; }
+            .contact-info-footer p { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-area" onclick="location.href='index.html'">
+                <img class="logo-img" src="images/logo-white.webp" alt="GBER Logo" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="business.html">Business</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="ai-and-tech.html">AI & Tech</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publish.html">Publish</a></li>
+            </ul>
+            <div class="nav-search">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
+                <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <a href="account.html" class="user-icon" id="userIconBtn">
+                <i class="fas fa-user"></i>
+                <span class="auth-badge" id="authBadge"></span>
+            </a>
+            <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="business.html">Business</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="ai-and-tech.html">AI & Tech</a></li>
+            <li><a href="economy.html">Economy</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publish.html">Publish</a></li>
+            <li><a href="account.html">Account</a></li>
+        </ul>
+        <div class="mobile-search">
+            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+            <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main>
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header" data-aos="fade-up">
+                <h1><i class="fas fa-graduation-cap"></i> Research & Publications</h1>
+                <p>Peer-reviewed academic papers, business case studies, research methodologies, and insights from leading global scholars.</p>
+            </div>
+
+            <!-- Category Pills - Desktop -->
+            <div class="categories-bar" id="categoryFilter">
+                <div class="cat-pill active" data-cat="all"><i class="fas fa-newspaper"></i> All Research</div>
+                <div class="cat-pill" data-cat="Working Papers"><i class="fas fa-file-alt"></i> Working Papers</div>
+                <div class="cat-pill" data-cat="Case Studies"><i class="fas fa-chart-simple"></i> Case Studies</div>
+                <div class="cat-pill" data-cat="Literature Review"><i class="fas fa-book-open"></i> Literature Reviews</div>
+                <div class="cat-pill" data-cat="Methodology"><i class="fas fa-chart-line"></i> Research Methodology</div>
+                <div class="cat-pill" data-cat="Policy Briefs"><i class="fas fa-landmark"></i> Policy Briefs</div>
+            </div>
+
+            <!-- Mobile Dropdown -->
+            <div class="mobile-category-dropdown">
+                <select id="mobileCategorySelect">
+                    <option value="all">📚 All Research Topics</option>
+                    <option value="Working Papers">📄 Working Papers</option>
+                    <option value="Case Studies">📊 Case Studies</option>
+                    <option value="Literature Review">📖 Literature Reviews</option>
+                    <option value="Methodology">🔬 Research Methodology</option>
+                    <option value="Policy Briefs">🏛️ Policy Briefs</option>
+                </select>
+            </div>
+
+            <!-- Search Info -->
+            <div class="search-info" id="searchInfo">
+                <i class="fas fa-search"></i> <span id="searchInfoText"></span>
+            </div>
+
+            <!-- Featured Section -->
+            <div class="featured-section" data-aos="fade-up">
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <img class="featured-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format" alt="Agentic AI Research">
+                        <div class="featured-content">
+                            <span class="featured-badge"><i class="fas fa-fire"></i> FEATURED RESEARCH</span>
+                            <h2 class="featured-title">Agentic AI in Corporate Strategy: The Autonomous Enterprise</h2>
+                            <p>How autonomous agents optimize supply chains, M&A, and strategic decision-making. A comprehensive analysis of implementation frameworks.</p>
+                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Download PDF <i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="featured-card">
+                        <img class="featured-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format" alt="Education Research">
+                        <div class="featured-content">
+                            <span class="featured-badge"><i class="fas fa-chart-line"></i> OPEN ACCESS</span>
+                            <h2 class="featured-title">The Future Classroom: AI Tutors & Emotional Intelligence</h2>
+                            <p>Blending artificial and emotional intelligence for holistic learning outcomes. Longitudinal study across 50 schools.</p>
+                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Paper <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Stats Dashboard -->
+            <div class="research-dashboard" data-aos="fade-up">
+                <h2 class="dashboard-title"><i class="fas fa-chart-simple"></i> GBER Research Impact</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <i class="fas fa-file-alt" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div class="dashboard-value">2,450+</div>
+                        <div>Research Articles</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-users" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div class="dashboard-value">520+</div>
+                        <div>Global Contributors</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div class="dashboard-value">4.8M</div>
+                        <div>Monthly Readers</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <i class="fas fa-quote-right" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div class="dashboard-value">12,500+</div>
+                        <div>Academic Citations</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articlesGrid" data-aos="fade-up"></div>
+
+            <!-- Publication Guidelines Section -->
+            <div class="guidelines-section" data-aos="fade-up">
+                <h2 style="font-size: 1.8rem; text-align: center;"><i class="fas fa-pen-nib"></i> Publication Guidelines</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Manuscript Preparation</h3>
+                        <p>Submit in APA 7th edition format. Include abstract, keywords, and up to 8,000 words. All submissions undergo double-blind peer review.</p>
+                    </div>
+                    <div class="guideline-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Research Ethics</h3>
+                        <p>All research must adhere to ethical guidelines. Include consent statements, conflict of interest declarations, and funding acknowledgments.</p>
+                    </div>
+                    <div class="guideline-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Review Process</h3>
+                        <p>Initial review within 2 weeks. Peer review completed within 6-8 weeks. Accepted articles published within 30 days.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call for Papers -->
+            <div class="call-papers-section" data-aos="fade-up">
+                <i class="fas fa-bullhorn" style="font-size: 3rem; color: var(--gold-primary); margin-bottom: 20px;"></i>
+                <h2 style="font-size: 1.8rem; margin-bottom: 16px;">Call for Papers: Special Issue on AI & Future Work</h2>
+                <p style="max-width: 700px; margin: 0 auto 24px; color: var(--text-muted);">GBER invites submissions for a special issue on the impact of Agentic AI on business models, workforce dynamics, and education systems. Submission deadline: June 30, 2026.</p>
+                <a href="#" style="background: var(--gold-primary); color: #0A0C12; padding: 12px 32px; border-radius: 60px; text-decoration: none; font-weight: 600; display: inline-block;">Submit Your Paper <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Top Cited Section -->
+            <div class="featured-section">
+                <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-chart-line"></i> Most Cited Papers</h2>
+                <div class="articles-grid" style="margin-top: 20px;">
+                    <div class="news-card">
+                        <img class="card-img" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format" alt="Agentic AI">
+                        <div class="card-content">
+                            <div class="card-category"><i class="fas fa-file-alt"></i> Working Paper</div>
+                            <h3 class="card-title">Agentic AI: A Framework for Autonomous Systems</h3>
+                            <div class="card-date">Cited 1,245 times</div>
+                            <p>Comprehensive framework for understanding and implementing autonomous AI systems.</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="card-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format" alt="Future Skills">
+                        <div class="card-content">
+                            <div class="card-category"><i class="fas fa-graduation-cap"></i> Literature Review</div>
+                            <h3 class="card-title">Future Skills 2030-2050: A Systematic Review</h3>
+                            <div class="card-date">Cited 892 times</div>
+                            <p>Meta-analysis of skills required for the AI-driven workforce.</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="card-img" src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format" alt="Economic Development">
+                        <div class="card-content">
+                            <div class="card-category"><i class="fas fa-chart-line"></i> Policy Brief</div>
+                            <h3 class="card-title">Pakistan's Economic Transformation: A Roadmap to 2035</h3>
+                            <div class="card-date">Cited 567 times</div>
+                            <p>Strategic framework for sustainable economic development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo-img" src="images/logo-white.webp" alt="GBER" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+                    <p style="margin-top:12px; color:#9aa9c1;">Global Business & Education Review<br>“Intelligence for the Future of Business & Education”</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-cubes"></i> Platform</h4>
+                    <div class="footer-links">
+                        <a href="index.html"><i class="fas fa-arrow-right"></i>Home</a>
+                        <a href="news.html"><i class="fas fa-arrow-right"></i>News</a>
+                        <a href="contact-us.html"><i class="fas fa-arrow-right"></i>Contact</a>
+                        <a href="publish.html"><i class="fas fa-arrow-right"></i>Publish</a>
+                        <a href="account.html"><i class="fas fa-arrow-right"></i>Account</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-database"></i> Resources</h4>
+                    <div class="footer-links">
+                        <a href="business.html"><i class="fas fa-arrow-right"></i> Business</a>
+                        <a href="education.html"><i class="fas fa-arrow-right"></i> Education</a>
+                        <a href="ai-and-tech.html"><i class="fas fa-arrow-right"></i>AI & Tech</a>
+                        <a href="economy.html"><i class="fas fa-arrow-right"></i>Economy </a>
+                        <a href="research.html"><i class="fas fa-arrow-right"></i>Research</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-envelope"></i> Connect</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-map-marker-alt"></i> Dubai | Karachi | London</p>
+                        <p><i class="fas fa-envelope"></i> gberglobal@mail.com</p>
+                        <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright"><i class="far fa-copyright"></i> 2026 Global Business & Education Review. All rights reserved. The Voice of Intelligent Research.</div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true });
+
+        // Research Articles Database
+        const researchArticles = [
+            { id:1, category:'Working Papers', title:'Agentic AI: A Framework for Autonomous Systems', desc:'Comprehensive framework for understanding and implementing autonomous AI systems in business contexts.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
+            { id:2, category:'Case Studies', title:'Digital Transformation in Emerging Markets: A Case Study', desc:'Analysis of successful digital transformation initiatives across 15 companies in Pakistan and GCC.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format' },
+            { id:3, category:'Literature Review', title:'Future Skills 2030-2050: A Systematic Review', desc:'Meta-analysis of 250+ studies on skills required for the AI-driven workforce.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format' },
+            { id:4, category:'Methodology', title:'Mixed Methods Research in Business Education', desc:'Best practices for combining quantitative and qualitative approaches in business education research.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
+            { id:5, category:'Policy Briefs', title:'Pakistan\'s Economic Transformation: A Roadmap to 2035', desc:'Strategic framework for sustainable economic development and institutional reform.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' },
+            { id:6, category:'Working Papers', title:'AI Ethics and Governance: A Comparative Analysis', desc:'Comparative study of AI regulatory frameworks across EU, US, and Asia.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
+            { id:7, category:'Case Studies', title:'Startup Ecosystems in South Asia: Pakistan vs Bangladesh', desc:'Comparative case study of factors driving startup success in emerging economies.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format' },
+            { id:8, category:'Literature Review', title:'The Impact of AI on Higher Education: A Systematic Review', desc:'Analysis of 180 studies on AI integration in universities and learning outcomes.', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format' },
+            { id:9, category:'Policy Briefs', title:'Green Transition in South Asia: Policy Recommendations', desc:'Policy framework for sustainable energy transition and climate resilience.', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format' }
+        ];
+
+        const articlesGrid = document.getElementById('articlesGrid');
+        let activeCategory = 'all';
+        let currentSearchTerm = '';
+
+        function highlightText(text, term) {
+            if (!term || term.trim() === '') return text;
+            const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function renderArticles() {
+            let filtered = researchArticles;
+            if (activeCategory !== 'all') {
+                filtered = filtered.filter(a => a.category === activeCategory);
+            }
+            if (currentSearchTerm.trim() !== '') {
+                const searchLower = currentSearchTerm.toLowerCase().trim();
+                filtered = filtered.filter(a => 
+                    a.title.toLowerCase().includes(searchLower) || 
+                    a.desc.toLowerCase().includes(searchLower) ||
+                    a.category.toLowerCase().includes(searchLower)
+                );
+            }
+            
+            const searchInfo = document.getElementById('searchInfo');
+            const searchInfoText = document.getElementById('searchInfoText');
+            if (currentSearchTerm.trim() !== '') {
+                searchInfo.classList.add('active');
+                searchInfoText.innerHTML = `Showing ${filtered.length} result(s) for "${currentSearchTerm}"`;
+            } else {
+                searchInfo.classList.remove('active');
+            }
+            
+            if (filtered.length === 0) {
+                articlesGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-search"></i> No research papers found. Try different keywords.</div>';
+                return;
+            }
+            
+            let html = '';
+            filtered.forEach(art => {
+                html += `<div class="news-card">
+                            <img class="card-img" src="${art.img}" alt="${art.category}">
+                            <div class="card-content">
+                                <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
+                                <div class="card-title">${highlightText(art.title, currentSearchTerm)}</div>
+                                <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
+                                <p style="color: #b9c6e0;">${highlightText(art.desc, currentSearchTerm)}</p>
+                                <a href="#" style="color: #D4AF37; font-weight: 600; display: inline-block; margin-top: 12px;">Download PDF <i class="fas fa-download"></i></a>
+                            </div>
+                        </div>`;
+            });
+            articlesGrid.innerHTML = html;
+        }
+
+        function performSearch(term) {
+            currentSearchTerm = term;
+            renderArticles();
+        }
+
+        // Desktop search
+        const navbarSearchInput = document.getElementById('navbarSearchInput');
+        const navbarSearchBtn = document.getElementById('navbarSearchBtn');
+        if (navbarSearchInput && navbarSearchBtn) {
+            navbarSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
+            navbarSearchBtn.addEventListener('click', () => performSearch(navbarSearchInput.value));
+        }
+
+        // Mobile search
+        const mobileSearchInput = document.getElementById('mobileSearchInput');
+        const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+        if (mobileSearchInput && mobileSearchBtn) {
+            mobileSearchInput.addEventListener('input', (e) => { performSearch(e.target.value); if(navbarSearchInput) navbarSearchInput.value = e.target.value; });
+            mobileSearchBtn.addEventListener('click', () => { performSearch(mobileSearchInput.value); if(navbarSearchInput) navbarSearchInput.value = mobileSearchInput.value; });
+        }
+
+        // Category filters
+        document.querySelectorAll('.cat-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                activeCategory = this.getAttribute('data-cat');
+                renderArticles();
+                const mobileSelect = document.getElementById('mobileCategorySelect');
+                if (mobileSelect) mobileSelect.value = activeCategory;
+            });
+        });
+
+        const mobileSelect = document.getElementById('mobileCategorySelect');
+        if (mobileSelect) {
+            mobileSelect.addEventListener('change', function() {
+                activeCategory = this.value;
+                renderArticles();
+                document.querySelectorAll('.cat-pill').forEach(pill => {
+                    if (pill.getAttribute('data-cat') === activeCategory) {
+                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                    } else if (activeCategory === 'all' && pill.getAttribute('data-cat') === 'all') {
+                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('menuOverlay');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        if (hamburger) {
+            hamburger.addEventListener('click', toggleMenu);
+            if (overlay) overlay.addEventListener('click', toggleMenu);
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) toggleMenu(); });
+
+        // Active link highlighting
+        const currentPath = window.location.pathname.split('/').pop() || 'research.html';
+        document.querySelectorAll('.nav-menu a, .mobile-menu a').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath) {
+                link.classList.add('active');
+            }
+        });
+
+        // Logo click
+        document.querySelectorAll('.logo-img, .footer-logo-img').forEach(logo => {
+            logo.addEventListener('click', () => window.location.href = 'index.html');
+        });
+
+        // Footer links demo
+        document.querySelectorAll('.footer-links a, .social-icons a, .contact-info-footer a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        renderArticles();
+    </script>
+</body>
+</html>

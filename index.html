@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorldScope Media — clean · no shadows · simplified nav</title>
-    <!-- Fonts: Merriweather + Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GBER | Global Business & Education Review — Intelligence for the Future</title>
+    <meta name="description" content="Global Business & Education Review: World-class research platform bridging academia and industry. Agentic AI, future skills, economic intelligence, and next-gen education insights.">
+    <meta name="keywords" content="GBER, business research, education innovation, Agentic AI, future skills, Pakistan economy, global trends">
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
+    <link rel="shortcut icon" type="image/webp" href="images/favicon.webp">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,1064 +23,1083 @@
         }
 
         body {
-            background-color: #111111;
-            font-family: 'Roboto', sans-serif;
-            color: #E0E0E0;
-            line-height: 1.6;
-            transition: background-color 0.4s, color 0.3s;
+            background-color: #0A0C12;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #EDF2F9;
+            line-height: 1.55;
+            scroll-behavior: smooth;
         }
 
-        /* light mode */
-        body.light-mode {
-            background-color: #f8f9fa;
-            color: #222;
-        }
-        body.light-mode .navbar,
-        body.light-mode .footer {
-            background-color: #ffffff;
-            color: #222;
-            border-color: #ddd;
-        }
-        body.light-mode .nav-menu a {
-            color: #222;
-        }
-        body.light-mode .nav-menu a:hover {
-            color: #B11226;
-        }
-        body.light-mode .article-card {
-            background-color: #ffffff;
-            border-color: #e0e0e0;
-        }
-        body.light-mode .card-title {
-            color: #111;
-        }
-        body.light-mode .card-description {
-            color: #555;
-        }
-        body.light-mode .sidebar-widget {
-            background-color: #ffffff;
-            border-color: #ddd;
-        }
-        body.light-mode .filter-section {
-            background-color: #e9ecef;
-            border-bottom-color: #ccc;
-        }
-        body.light-mode .filter-btn {
-            color: #333;
-            border-color: #aaa;
-        }
-        body.light-mode .search-box {
-            background-color: white;
-            border-color: #ccc;
-        }
-        body.light-mode .search-box input {
-            color: #222;
-        }
-        body.light-mode .footer-links a {
-            color: #555;
-        }
-        body.light-mode .footer-links a:hover {
-            color: #B11226;
+        :root {
+            --navy-bg: #050A12;
+            --navy-card: #0F1622;
+            --gold-primary: #D4AF37;
+            --gold-dark: #B4941C;
+            --gray-border: #2A2F3E;
+            --text-muted: #9AA9C1;
+            --text-light: #EFF3F8;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Merriweather', serif;
+        h1, h2, h3, h4, .section-title, .card-title, .hero-title {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
             letter-spacing: -0.02em;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
 
-        /* ---------- NAVBAR (no shadows) ---------- */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F1622; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 10px; }
+
+        /* ========== NAVBAR - SINGLE ROW DESKTOP ========== */
         .navbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: #000000;
-            padding: 12px 0;
-            border-bottom: 1px solid #2a2a2a;
+            background: rgba(5, 10, 18, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px 0;
         }
-
         .nav-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
+            gap: 20px;
+            flex-wrap: nowrap;
         }
-
-        .logo {
-            height: 70px;
-            width: auto;
-            max-width: 280px;
-            object-fit: contain;
+        .logo-area {
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
         }
-
+        .logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
         .nav-menu {
             display: flex;
-            align-items: center;
-            gap: 36px;
+            gap: 24px;
             list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
         }
-
         .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
             font-weight: 500;
-            color: #FFFFFF;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.2s;
-        }
-
-        .nav-menu a:hover {
-            color: #B11226;
-        }
-
-        .nav-menu a.active {
-            color: #B11226;
-            border-bottom: 2px solid #B11226;
-            padding-bottom: 4px;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .hamburger:hover {
-            color: #B11226;
-        }
-
-        /* Mobile menu panel */
-        .mobile-menu {
-            position: fixed;
-            top: 94px;
-            left: 0;
-            width: 100%;
-            background-color: #111;
-            border-bottom: 2px solid #B11226;
-            padding: 20px 0;
-            transform: translateY(-150%);
-            transition: transform 0.3s ease-in-out;
-            z-index: 999;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .mobile-menu.active {
-            transform: translateY(0);
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0 20px;
-        }
-
-        .mobile-menu li {
-            margin-bottom: 15px;
-        }
-
-        .mobile-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: block;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.2s;
-        }
-
-        .mobile-menu a:hover {
-            background-color: #B11226;
-            color: white;
-        }
-
-        .mobile-menu a.active {
-            color: #B11226;
-            font-weight: 600;
-        }
-
-        .mobile-menu a.active:hover {
-            color: white;
-        }
-
-        /* overlay when mobile menu is open */
-        .menu-overlay {
-            position: fixed;
-            top: 94px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 94px);
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(3px);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ---------- FILTER SECTION ---------- */
-        .filter-section {
-            background-color: #1a1a1a;
-            padding: 20px 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .filter-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20px 30px;
-        }
-
-        .filter-label {
-            color: #B11226;
-            font-weight: 600;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            transition: 0.2s;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--gold-primary);
         }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid #444;
-            color: #ddd;
-            padding: 8px 24px;
-            border-radius: 40px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: #B11226;
-            border-color: #B11226;
-            color: white;
-        }
-
-        .search-box {
-            margin-left: auto;
+        .nav-search {
             display: flex;
             align-items: center;
-            background-color: #252525;
+            background: #1A2332;
             border-radius: 60px;
-            padding: 4px 4px 4px 20px;
-            border: 1px solid #444;
-            min-width: 300px;
+            padding: 5px 5px 5px 18px;
+            border: 1px solid var(--gray-border);
+            transition: 0.2s;
+            flex-shrink: 1;
+            min-width: 240px;
         }
-
-        .search-box input {
+        .nav-search:focus-within {
+            border-color: var(--gold-primary);
+        }
+        .nav-search input {
             background: transparent;
             border: none;
             color: white;
-            padding: 12px 0;
-            font-size: 1rem;
-            flex: 1;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            width: 100%;
             outline: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-
-        .search-box input::placeholder {
-            color: #888;
+        .nav-search input::placeholder {
+            color: var(--text-muted);
         }
-
-        .search-box button {
-            background-color: #B11226;
+        .nav-search button {
+            background: var(--gold-primary);
             border: none;
-            color: white;
-            padding: 10px 26px;
+            color: #0A0C12;
+            padding: 6px 18px;
             border-radius: 60px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
-        }
-
-        .search-box button:hover {
-            background-color: #9e0f21;
-        }
-
-        /* ---------- MARQUEE ---------- */
-        .breaking-ticker {
-            background-color: #B11226;
-            color: white;
-            padding: 14px 0;
-            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
             white-space: nowrap;
-            border-bottom: 1px solid #8a0e1d;
+        }
+        .nav-search button:hover {
+            background: var(--gold-dark);
+        }
+        .user-icon {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+        .user-icon:hover { color: var(--gold-primary); }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            flex-shrink: 0;
         }
 
-        .marquee-content {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marqueeScroll 35s linear infinite;
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: #0A0F1A;
+            border-bottom: 2px solid var(--gold-primary);
+            transform: translateY(-150%);
+            transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            z-index: 999;
+            padding: 24px 20px;
+            text-align: center;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+        .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu ul { 
+            list-style: none; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .mobile-menu li { width: 100%; text-align: center; }
+        .mobile-menu a { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 1rem; 
             font-weight: 500;
+            display: inline-block;
+            padding: 8px 0;
         }
-
-        .marquee-content span {
-            margin-right: 48px;
+        .mobile-menu a.active { color: var(--gold-primary); }
+        
+        .mobile-search {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
         }
-
-        .marquee-content i {
-            margin-right: 8px;
-            color: #ffd6d6;
+        .mobile-search input {
+            flex: 1;
+            padding: 12px 18px;
+            border-radius: 60px;
+            background: #1A2332;
+            border: 1px solid var(--gray-border);
+            color: white;
+            font-family: inherit;
+            outline: none;
         }
+        .mobile-search button {
+            background: var(--gold-primary);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #0A0C12;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+        }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
 
-        @keyframes marqueeScroll {
+        /* ========== BREAKING TICKER ========== */
+        .breaking {
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark));
+            color: #0A0C12;
+            padding: 10px 0;
+            font-weight: 700;
+            overflow: hidden;
+        }
+        .ticker {
+            white-space: nowrap;
+            display: inline-block;
+            animation: tickerScroll 50s linear infinite;
+        }
+        .ticker span { margin-right: 48px; }
+        .ticker i { margin-right: 8px; }
+        @keyframes tickerScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        .breaking-ticker:hover .marquee-content {
-            animation-play-state: paused;
-        }
-
-        /* ---------- HERO ---------- */
-        .hero-section {
-            margin: 45px 0 55px;
-        }
-
-        .hero-card {
-            position: relative;
-            border-radius: 28px;
-            overflow: hidden;
-            background-color: #1a1a1a;
-            border: 1px solid #2c2c2c;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: clamp(340px, 68vh, 620px);
-            object-fit: cover;
-            filter: brightness(0.7);
-            transition: transform 7s ease;
-        }
-
-        .hero-card:hover .hero-img {
-            transform: scale(1.02);
-        }
-
-        .hero-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.98) 5%, transparent);
-            padding: 50px 45px 40px;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            color: white;
-            max-width: 1000px;
-            text-shadow: 0 4px 15px black;
-            line-height: 1.2;
-        }
-
-        .hero-text p {
-            font-size: 1.3rem;
-            color: #CCCCCC;
-            max-width: 800px;
-            margin-top: 15px;
-        }
-
-        .category-tag {
-            background-color: #B11226;
-            color: white;
-            padding: 6px 22px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
-        }
-
-        /* section title */
-        .section-title {
-            font-size: 2.4rem;
-            color: white;
-            margin: 60px 0 25px;
-            border-left: 6px solid #B11226;
-            padding-left: 22px;
-        }
-
-        /* article cards */
-        .card-grid {
+        /* ========== HERO ========== */
+        .hero { padding: 48px 0 40px; }
+        .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            grid-template-columns: 1.3fr 0.7fr;
             gap: 32px;
         }
-
-        .article-card {
-            background-color: #1E1E1E;
-            border-radius: 24px;
+        .hero-main {
+            background: linear-gradient(145deg, #0F1826, #0A101C);
+            border-radius: 28px;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            border: 1px solid #2f2f2f;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
-
-        .article-card:hover {
-            transform: translateY(-4px);
-            border-color: #B11226;
-        }
-
-        .card-img {
+        .hero-img {
             width: 100%;
-            height: 210px;
+            height: 400px;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: 0.5s;
         }
-
-        .article-card:hover .card-img {
-            transform: scale(1.02);
-        }
-
-        .card-content {
-            padding: 26px 22px 30px;
-        }
-
-        .card-category {
-            background-color: #B11226;
-            color: white;
+        .hero-main:hover .hero-img { transform: scale(1.02); }
+        .hero-content { padding: 32px; }
+        .hero-badge {
+            color: var(--gold-primary);
+            text-transform: uppercase;
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 5px 18px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
         }
-
-        .card-title {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            line-height: 1.3;
+        .hero-badge i { margin-right: 6px; }
+        .hero-title {
+            font-size: 2.2rem;
+            margin: 14px 0 10px;
+            line-height: 1.2;
         }
-
-        .card-description {
-            color: #b0b0b0;
-            font-size: 0.95rem;
-        }
-
-        /* sidebar */
-        .home-layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 45px;
-            margin: 45px 0;
-        }
-
-        .sidebar-widget {
-            background-color: #2A2A2A;
-            border-radius: 28px;
-            padding: 32px 28px;
-            margin-bottom: 40px;
-            border: 1px solid #444;
-        }
-
-        .widget-title {
-            color: white;
-            font-size: 2rem;
-            border-bottom: 2px solid #B11226;
-            padding-bottom: 16px;
-            margin-bottom: 26px;
-        }
-
-        .trending-item {
+        .hero-side {
             display: flex;
-            gap: 16px;
-            margin-bottom: 22px;
-            align-items: center;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .side-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            padding: 24px;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .stat-item {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 12px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold-primary);
         }
 
-        .trending-number {
-            background-color: #B11226;
-            color: white;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
+        /* Section Headers */
+        .section-header {
             display: flex;
-            align-items: center;
+            justify-content: space-between;
+            align-items: baseline;
+            margin: 56px 0 28px;
+            border-bottom: 2px solid var(--gray-border);
+            padding-bottom: 14px;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            border-left: 4px solid var(--gold-primary);
+            padding-left: 18px;
+        }
+        .section-header h2 i { margin-right: 12px; color: var(--gold-primary); }
+        .view-all {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Desktop Categories Pills */
+        .categories-bar {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            font-weight: 700;
+            gap: 12px;
+            margin: 40px 0 28px;
         }
-
-        .newsletter-input {
-            width: 100%;
-            padding: 16px 22px;
-            border-radius: 60px;
-            border: none;
-            background: #1a1a1a;
-            color: white;
-            margin: 20px 0 18px;
-            border: 1px solid #555;
-        }
-
-        .btn {
-            background-color: #B11226;
-            color: white;
-            border: none;
-            padding: 14px 34px;
+        .cat-pill {
+            background: #1A2332;
+            padding: 8px 26px;
             border-radius: 60px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        .cat-pill i { margin-right: 8px; }
+        .cat-pill:hover, .cat-pill.active {
+            background: var(--gold-primary);
+            color: #0A0C12;
         }
 
-        .btn:hover {
-            background-color: #9e0f21;
-            transform: translateY(-2px);
+        /* Mobile Category Dropdown - separate section above articles */
+        .mobile-category-dropdown {
+            display: none;
+            margin: 24px 0 20px;
+        }
+        .mobile-category-dropdown select {
+            width: 100%;
+            padding: 14px 20px;
+            background: #1A2332;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50px;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 20px;
+        }
+        .mobile-category-dropdown select option {
+            background: #0A0F1A;
+            color: white;
         }
 
-        /* featured sections */
-        .featured-section {
-            margin: 60px 0;
+        /* Search Info Bar */
+        .search-info {
+            text-align: center;
+            padding: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 60px;
+            margin-bottom: 24px;
+            display: none;
+            color: var(--gold-primary);
+            font-weight: 500;
+        }
+        .search-info i { margin-right: 8px; }
+        .search-info.active { display: block; }
+
+        /* Article Grid */
+        .articles-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 28px;
+        }
+        .news-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+            width: 350px;
+            border: 1px solid var(--gray-border);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content { padding: 22px; }
+        .card-category {
+            color: var(--gold-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .card-category i { margin-right: 6px; }
+        .card-title {
+            font-size: 1.25rem;
+            margin: 10px 0 6px;
+        }
+        .highlight {
+            background-color: rgba(212, 175, 55, 0.3);
+            color: var(--gold-primary);
+            font-weight: 600;
+            padding: 0 2px;
+            border-radius: 4px;
         }
 
-        .featured-grid {
+        /* Double Column */
+        .double-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 48px 0;
+        }
+        .insight-box {
+            background: linear-gradient(135deg, #0F1622, #0B101A);
+            border-radius: 28px;
+            padding: 32px;
+            border: 1px solid var(--gray-border);
+        }
+        .insight-box:hover { border-color: var(--gold-primary); }
+        .insight-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gold-primary);
+        }
+        .insight-box h3 i { margin-right: 12px; }
+        .list-items { list-style: none; }
+        .list-items li {
+            margin-bottom: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .list-items i {
+            color: var(--gold-primary);
+            width: 24px;
+        }
+
+        /* Stats Dashboard */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 48px 0;
+        }
+        .dashboard-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid var(--gray-border);
+        }
+        .dashboard-card i { font-size: 2rem; color: var(--gold-primary); margin-bottom: 12px; display: block; }
+        .dashboard-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+        }
+
+        /* Editorial */
+        .editorial {
+            background: linear-gradient(145deg, #0C1320, #080E18);
+            border-radius: 28px;
+            padding: 48px;
+            margin: 48px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .editor-img {
+            border-radius: 20px;
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        /* Featured Events Section */
+        .events-section {
+            background: var(--navy-card);
+            border-radius: 28px;
+            padding: 40px;
+            margin: 48px 0;
+            border: 1px solid var(--gray-border);
+        }
+        .events-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 25px;
+            gap: 28px;
+            margin-top: 28px;
+        }
+        .event-card {
+            background: #1A2332;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+        }
+        .event-date {
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
-        .featured-item {
-            background: #1E1E1E;
+        /* Testimonials */
+        .testimonials-section {
+            margin: 48px 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .testimonial-card {
+            background: var(--navy-card);
             border-radius: 24px;
             padding: 28px;
-            border-left: 4px solid #B11226;
-            transition: transform 0.3s;
+            border: 1px solid var(--gray-border);
         }
-
-        .featured-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .featured-item h3 {
-            color: white;
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-
-        .featured-item p {
-            color: #aaa;
-        }
-
-        .insights-section {
-            background: #1A1A1A;
-            border-radius: 32px;
-            padding: 45px;
-            margin: 50px 0;
-            border: 1px solid #333;
-        }
-
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 35px;
-            margin-top: 30px;
-        }
-
-        .insight-card {
-            background: #252525;
-            border-radius: 24px;
-            padding: 30px;
-        }
-
-        .insight-card h3 {
-            color: white;
-            margin-bottom: 12px;
-        }
-
-        .insight-card p {
-            color: #aaa;
-        }
-
-        /* footer */
-        .footer {
-            background-color: #000000;
-            padding: 80px 0 40px;
-            margin-top: 80px;
-            border-top: 4px solid #B11226;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
-            gap: 40px;
-        }
-
-        .footer-logo {
-            height: 100px;
-            width: auto;
-            max-width: 340px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-
-        .footer-tagline {
-            color: #aaa;
-            max-width: 260px;
-            line-height: 1.5;
-        }
-
-        .footer-heading {
-            color: white;
-            font-size: 1.4rem;
-            margin-bottom: 22px;
-            border-left: 3px solid #B11226;
-            padding-left: 16px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 2.4;
-            transition: color 0.2s;
+        .testimonial-card i {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 16px;
             display: inline-block;
         }
 
-        .footer-links a:hover {
-            color: #B11226;
-            transform: translateX(4px);
+        /* Footer */
+        .footer {
+            background: #03070F;
+            margin-top: 70px;
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--gold-primary);
         }
-
-        .social-icons {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
         }
-
-        .social-icons a {
-            color: white;
-            font-size: 2.2rem;
-            transition: 0.2s;
+        .footer-logo-img {
+            height: 48px;
+            width: auto;
+            margin-bottom: 16px;
         }
-
-        .social-icons a:hover {
-            color: #B11226;
-            transform: scale(1.1);
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
         }
-
+        .footer-links a i { margin-right: 8px; width: 20px; }
+        .footer-links a:hover { color: var(--gold-primary); }
         .copyright {
             text-align: center;
-            color: #666;
-            margin-top: 70px;
-            padding-top: 30px;
-            border-top: 1px solid #2a2a2a;
+            margin-top: 50px;
+            padding-top: 24px;
+            border-top: 1px solid #222A36;
+            color: var(--text-muted);
+            font-size: 0.8rem;
         }
-
-        /* dark mode toggle */
-        .mode-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #1e1e1e;
-            color: white;
-            border: 2px solid #B11226;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 9999;
-            font-size: 1.8rem;
-            transition: 0.3s;
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-right: 18px;
+            display: inline-block;
         }
+        .social-icons a:hover { color: var(--gold-primary); }
 
-        .mode-toggle:hover {
-            background-color: #B11226;
-            transform: rotate(180deg);
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .nav-menu { gap: 16px; }
+            .nav-search { min-width: 200px; }
+            .nav-menu a { font-size: 0.75rem; }
         }
-
-        /* responsive */
         @media (max-width: 1000px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .featured-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 900px) {
-            .nav-menu { display: none; }
+            .nav-menu, .nav-search, .user-icon { display: none; }
             .hamburger { display: block; }
-            .home-layout { grid-template-columns: 1fr; }
-            .filter-container { flex-direction: column; align-items: stretch; }
-            .search-box { margin-left: 0; width: 100%; }
-            .featured-grid { grid-template-columns: 1fr; }
-            .insights-grid { grid-template-columns: 1fr; }
+            .nav-container { justify-content: space-between; }
+            .hero-grid, .double-column, .editorial-grid, .stats-dashboard, .events-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .container { padding: 0 20px; }
+            .editorial { padding: 28px; text-align: center; }
+            .section-header { flex-direction: column; gap: 10px; align-items: center; text-align: center; }
+            .section-header h2 { border-left: none; border-bottom: 2px solid var(--gold-primary); padding-bottom: 8px; display: inline-block; }
+            .hero-content { text-align: center; }
+            .hero-content .stat-item { text-align: center; }
+            .insight-box { text-align: center; }
+            .list-items li { justify-content: center; }
+            .categories-bar { display: none; }
+            .mobile-category-dropdown { display: block; }
         }
-
+        @media (max-width: 768px) {
+            .footer-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+            }
+            .footer-grid > div:first-child {
+                text-align: center;
+            }
+            .footer-grid > div:first-child .social-icons {
+                justify-content: center;
+            }
+            .footer-grid > div:not(:first-child) {
+                text-align: left;
+                padding-left: 20px;
+            }
+            .footer-grid > div:not(:first-child) h4 {
+                text-align: left;
+            }
+            .footer-grid > div:not(:first-child) .footer-links a {
+                text-align: left;
+            }
+        }
         @media (max-width: 600px) {
-            .hero-text h1 { font-size: 2rem; }
-            .hero-text { padding: 30px 20px; }
-            .logo { height: 58px; }
-            .footer-logo { height: 80px; }
-            .section-title { font-size: 2rem; }
+            .hero-title { font-size: 1.6rem; }
+            .hero-img { height: 240px; }
+            .hero-content { padding: 20px; }
+            .stat-number { font-size: 1.4rem; }
+            .dashboard-card { padding: 20px; }
+            .dashboard-number { font-size: 1.8rem; }
+            .event-card { padding: 18px; }
+            .footer-grid > div:not(:first-child) {
+                padding-left: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <img class="logo" src="images/logo.webp" alt="WorldScope Media" onerror="this.onerror=null; this.src='https://placehold.co/280x70/B11226/white?text=WorldScope'">
+            <div class="logo-area" onclick="location.href='index.html'">
+                <img class="logo-img" src="images/logo-white.webp" alt="GBER Logo" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+            </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Latest News</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="business.html">Business</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="ai-and-tech.html">AI & Tech</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publish.html">Publish</a></li>
             </ul>
-            <div class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></div>
+            <div class="nav-search">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
+                <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <a href="account.html" class="user-icon" id="userIconBtn">
+                <i class="fas fa-user"></i>
+                <span class="auth-badge" id="authBadge"></span>
+            </a>
+            <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
-
-    <!-- Mobile Menu Panel -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.html" class="active">Latest News</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="business.html">Business</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="ai-and-tech.html">AI & Tech</a></li>
+            <li><a href="economy.html">Economy</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publish.html">Publish</a></li>
+            <li><a href="account.html">Account</a></li>
         </ul>
-    </div>
-
-    <!-- Overlay -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-    <!-- filter section -->
-    <div class="filter-section">
-        <div class="filter-container">
-            <span class="filter-label">Filter</span>
-            <div class="filter-buttons" id="filterButtons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="World">World</button>
-                <button class="filter-btn" data-filter="Business">Business</button>
-                <button class="filter-btn" data-filter="Tech">Tech</button>
-                <button class="filter-btn" data-filter="Science">Science</button>
-                <button class="filter-btn" data-filter="Opinion">Opinion</button>
-            </div>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search articles...">
-                <button id="searchBtn">Search</button>
-            </div>
+        <div class="mobile-search">
+            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+            <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
         </div>
     </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- marquee -->
-    <div class="breaking-ticker">
-        <div class="marquee-content">
-            <span><i class="fas fa-bolt"></i> G7 approves $50bn loan for Ukraine</span>
-            <span><i class="fas fa-chart-line"></i> Nvidia surpasses Apple in market cap</span>
-            <span><i class="fas fa-handshake"></i> Sudan ceasefire talks resume in Jeddah</span>
-            <span><i class="fas fa-moon"></i> China's lunar mission returns with samples</span>
-            <span><i class="fas fa-bolt"></i> G7 approves $50bn loan for Ukraine</span>
-            <span><i class="fas fa-chart-line"></i> Nvidia surpasses Apple in market cap</span>
+    <!-- Breaking Ticker -->
+    <div class="breaking">
+        <div class="container" style="overflow:hidden; white-space:nowrap;">
+            <div class="ticker">
+                <span><i class="fas fa-bolt"></i> EXCLUSIVE: Agentic AI Market to Hit $420 Billion by 2032 | GBER Forecast</span>
+                <span><i class="fas fa-chart-line"></i> Pakistan IT Exports Surge 38% YoY | Digital Economy Boom</span>
+                <span><i class="fas fa-graduation-cap"></i> Global Education Innovation Index 2026: Singapore, Finland, UAE Top Rankings</span>
+                <span><i class="fas fa-microchip"></i> G7 Announces $75 Billion AI Infrastructure Fund</span>
+                <span><i class="fas fa-trophy"></i> GBER Rankings 2026: Top 50 Business Schools Revealed</span>
+            </div>
         </div>
     </div>
 
     <main class="container">
-        <!-- hero -->
-        <section class="hero-section">
-            <div class="hero-card">
-                <img class="hero-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop" alt="global news">
-                <div class="hero-text">
-                    <span class="category-tag">EXCLUSIVE</span>
-                    <h1>The Kremlin’s war economy: sanctions and resilience</h1>
-                    <p>Russian factories run at full capacity — but at what cost? A ground report from Yekaterinburg.</p>
+        <!-- Hero -->
+        <div class="hero" data-aos="fade-up">
+            <div class="hero-grid">
+                <div class="hero-main">
+                    <img class="hero-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format" alt="Future Intelligence">
+                    <div class="hero-content">
+                        <div class="hero-badge"><i class="fas fa-microchip"></i> GBER EXCLUSIVE | COVER STORY</div>
+                        <h1 class="hero-title">Agentic AI: The Rise of Autonomous Intelligence in Business & Education</h1>
+                        <div style="color:#9aa9c1; margin-bottom:14px;"><i class="fas fa-user-pen"></i> Prof. Nadeem Ahmed Faraz • <i class="far fa-calendar-alt"></i> March 24, 2026</div>
+                        <p>Agentic AI represents a paradigm shift—autonomous systems that plan, execute, and adapt. Reshaping corporate strategy, personalized learning, and global workforce dynamics.</p>
+                        <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
+                            <div class="stat-item"><span class="stat-number">+47%</span><br><i class="fas fa-chart-simple"></i> Business Efficiency</div>
+                            <div class="stat-item"><span class="stat-number">32%</span><br><i class="fas fa-graduation-cap"></i> Education Adaptation</div>
+                            <div class="stat-item"><span class="stat-number">$420B</span><br><i class="fas fa-chart-line"></i> Market by 2032</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- main content + sidebar -->
-        <div class="home-layout">
-            <div class="main-content" id="articlesContainer">
-                <h2 class="section-title">Latest stories</h2>
-                <div class="card-grid" id="articleGrid"></div>
-            </div>
-            <aside>
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Trending</h3>
-                    <div class="trending-item"><span class="trending-number">1</span><span>Mexico's first female president</span></div>
-                    <div class="trending-item"><span class="trending-number">2</span><span>French Open final results</span></div>
-                    <div class="trending-item"><span class="trending-number">3</span><span>Apple AI plans revealed</span></div>
-                    <div class="trending-item"><span class="trending-number">4</span><span>Bitcoin reaches all-time high</span></div>
-                </div>
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Daily Brief</h3>
-                    <input class="newsletter-input" type="email" placeholder="Your email">
-                    <button class="btn" style="width:100%;">Subscribe</button>
-                </div>
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Editor's picks</h3>
-                    <div class="trending-item"><span>•</span><span>The new space race</span></div>
-                    <div class="trending-item"><span>•</span><span>Inside the chip shortage</span></div>
-                    <div class="trending-item"><span>•</span><span>Yemen after the war</span></div>
-                </div>
-            </aside>
-        </div>
-
-        <!-- featured insights -->
-        <div class="featured-section">
-            <h2 class="section-title">Featured Insights</h2>
-            <div class="featured-grid">
-                <div class="featured-item">
-                    <h3>The Future of Energy</h3>
-                    <p>How renewable investments are reshaping geopolitics. Analysis by Maria Santos.</p>
-                </div>
-                <div class="featured-item">
-                    <h3>AI & Democracy</h3>
-                    <p>Deepfakes, elections, and the fight for truth. Special report.</p>
-                </div>
-                <div class="featured-item">
-                    <h3>Global South Rising</h3>
-                    <p>Why developing nations are forging new alliances. Exclusive data.</p>
+                <div class="hero-side">
+                    <div class="side-card">
+                        <i class="fas fa-chart-line" style="color:#D4AF37; font-size:1.8rem;"></i>
+                        <h3 style="margin: 14px 0 8px;">Top 5 Investment Opportunities in Pakistan (2026–2030)</h3>
+                        <p>Tech startups, renewable energy, AI-driven edtech, export-oriented sectors with ROI projections.</p>
+                        <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read Report <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="side-card">
+                        <i class="fas fa-graduation-cap" style="color:#D4AF37; font-size:1.8rem;"></i>
+                        <h3 style="margin: 14px 0 8px;">Education Innovation Index 2026</h3>
+                        <p>Ranking 75 nations by AI integration, future skills curriculum, teacher transformation.</p>
+                        <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Download Index <i class="fas fa-download"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- in-depth analysis -->
-        <div class="insights-section">
-            <h2 class="section-title" style="border-left: none; text-align: center; margin-top: 0;">In-Depth Analysis</h2>
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <h3>Semiconductor Wars</h3>
-                    <p>The battle for chip supremacy between US, China, and Taiwan. A two-part investigation.</p>
-                </div>
-                <div class="insight-card">
-                    <h3>Climate Migration</h3>
-                    <p>By 2050, 200 million could be displaced. What happens when borders close?</p>
+        <!-- Desktop Categories Pills -->
+        <div class="categories-bar" id="categoryFilter" data-aos="fade-up">
+            <div class="cat-pill active" data-cat="all"><i class="fas fa-newspaper"></i> All Topics</div>
+            <div class="cat-pill" data-cat="Business"><i class="fas fa-briefcase"></i> Business Strategy</div>
+            <div class="cat-pill" data-cat="Education"><i class="fas fa-graduation-cap"></i> Education Innovation</div>
+            <div class="cat-pill" data-cat="AI"><i class="fas fa-microchip"></i> AI & Future Tech</div>
+            <div class="cat-pill" data-cat="Economy"><i class="fas fa-globe-americas"></i> Global Economy</div>
+            <div class="cat-pill" data-cat="Startup"><i class="fas fa-rocket"></i> Startup & Entrepreneurship</div>
+            <div class="cat-pill" data-cat="Leadership"><i class="fas fa-crown"></i> Leadership & Policy</div>
+        </div>
+
+        <!-- Mobile Category Dropdown - Separate section above Latest Research -->
+        <div class="mobile-category-dropdown" id="mobileCategoryDropdown">
+            <select id="mobileCategorySelect">
+                <option value="all">📰 All Topics</option>
+                <option value="Business">💼 Business Strategy</option>
+                <option value="Education">🎓 Education Innovation</option>
+                <option value="AI">🤖 AI & Future Tech</option>
+                <option value="Economy">🌍 Global Economy</option>
+                <option value="Startup">🚀 Startup & Entrepreneurship</option>
+                <option value="Leadership">👑 Leadership & Policy</option>
+            </select>
+        </div>
+
+        <!-- Search Info Bar -->
+        <div class="search-info" id="searchInfo">
+            <i class="fas fa-search"></i> <span id="searchInfoText"></span>
+        </div>
+
+        <!-- Latest Articles -->
+        <div class="section-header" data-aos="fade-up">
+            <h2><i class="fas fa-newspaper"></i> Latest Research & Insights</h2>
+            <a href="#" class="view-all">Browse All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="articles-grid" id="articlesGrid" data-aos="fade-up"></div>
+
+        <!-- Business + Education Guides -->
+        <div class="double-column" data-aos="fade-up">
+            <div class="insight-box">
+                <h3><i class="fas fa-briefcase"></i> Business Intelligence Hub</h3>
+                <ul class="list-items">
+                    <li><i class="fas fa-chart-simple"></i> Startup Playbook 2026: From Idea to Unicorn</li>
+                    <li><i class="fas fa-globe"></i> Market Entry Strategies: Pakistan, GCC & Southeast Asia</li>
+                    <li><i class="fas fa-chart-line"></i> SME Growth Models: Digital Transformation Roadmap</li>
+                    <li><i class="fas fa-file-alt"></i> CEO Insights: Leadership in the Age of Agentic AI</li>
+                    <li><i class="fas fa-chart-pie"></i> Investment Outlook: Top 10 Sectors 2026–2030</li>
+                    <li><i class="fas fa-handshake"></i> Public-Private Partnerships: Infrastructure & Innovation</li>
+                </ul>
+            </div>
+            <div class="insight-box">
+                <h3><i class="fas fa-graduation-cap"></i> Education Innovation Lab</h3>
+                <ul class="list-items">
+                    <li><i class="fas fa-brain"></i> Future Skills 2030–2050: AI Literacy & Critical Thinking</li>
+                    <li><i class="fas fa-chalkboard-user"></i> Curriculum Transformation: Hybrid & Immersive Learning</li>
+                    <li><i class="fas fa-school"></i> Innovators Schooling System: GBER Blueprint</li>
+                    <li><i class="fas fa-chart-line"></i> Global University Rankings 2026: New Metrics</li>
+                    <li><i class="fas fa-microchip"></i> AI Mentors: Personalized Learning at Scale</li>
+                    <li><i class="fas fa-users"></i> Teacher Training 4.0: From Instructor to Mentor</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Stats Dashboard -->
+        <div class="stats-dashboard" data-aos="fade-up">
+            <div class="dashboard-card"><i class="fas fa-globe-americas"></i><div class="dashboard-number">187+</div><div>Countries Reached</div></div>
+            <div class="dashboard-card"><i class="fas fa-file-alt"></i><div class="dashboard-number">2,450+</div><div>Research Articles</div></div>
+            <div class="dashboard-card"><i class="fas fa-users"></i><div class="dashboard-number">520+</div><div>Global Contributors</div></div>
+            <div class="dashboard-card"><i class="fas fa-chart-line"></i><div class="dashboard-number">4.8M</div><div>Monthly Readers</div></div>
+        </div>
+
+        <!-- Editorial Desk -->
+        <div class="editorial" data-aos="fade-up">
+            <div class="editorial-grid">
+                <img class="editor-img" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format" alt="Prof. Nadeem Ahmed Faraz">
+                <div>
+                    <div style="color:#D4AF37;"><i class="fas fa-pen-fancy"></i> EDITOR'S DESK</div>
+                    <h2 style="font-size:1.8rem; margin:16px 0;">Strategic Vision 2050: Transforming Pakistan's Business & Education Ecosystem</h2>
+                    <p>AI-first policies, public-private partnerships, and reimagining universities as innovation hubs. Prof. Nadeem Ahmed Faraz outlines steps to position Pakistan as a regional knowledge economy.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0;">
+                        <div class="stat-item"><span class="stat-number">5M+</span><br>New Digital Jobs</div>
+                        <div class="stat-item"><span class="stat-number">$150B</span><br>Economic Impact</div>
+                    </div>
+                    <a href="#" style="color:#D4AF37; font-weight:600;">Read Full Vision <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
+        </div>
+
+        <!-- Upcoming Events Section -->
+        <div class="events-section" data-aos="fade-up">
+            <h2 style="font-size:1.6rem; text-align:center;"><i class="fas fa-calendar-alt"></i> Upcoming GBER Events</h2>
+            <div class="events-grid">
+                <div class="event-card"><div class="event-date">APR 15, 2026</div><h3>Global AI Summit</h3><p>Dubai | Virtual</p></div>
+                <div class="event-card"><div class="event-date">MAY 5, 2026</div><h3>Education Innovation Forum</h3><p>Singapore</p></div>
+                <div class="event-card"><div class="event-date">JUN 20, 2026</div><h3>Pakistan Economic Dialogue</h3><p>Lahore</p></div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials-section" data-aos="fade-up">
+            <h2 style="font-size:1.6rem; text-align:center; margin-bottom:28px;"><i class="fas fa-quote-left"></i> What Contributors Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"GBER gave me a global platform to share my research on AI ethics. The reach is incredible."</p><strong>- Dr. Sarah Khan, MIT</strong></div>
+                <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"The editorial team is world-class. Publishing with GBER boosted my academic visibility."</p><strong>- Prof. James Liu, NUS</strong></div>
+                <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"A true bridge between academia and industry. The intelligence reports are invaluable."</p><strong>- Amna Riaz, Startup Founder</strong></div>
+            </div>
+        </div>
+
+        <!-- Next-Gen Intelligence Dashboard -->
+        <div class="section-header" data-aos="fade-up">
+            <h2><i class="fas fa-chart-line"></i> Next-Gen Intelligence Dashboard</h2>
+            <a href="#" class="view-all">Interactive Reports <i class="fas fa-chart-simple"></i></a>
+        </div>
+        <div class="double-column" style="margin-top:0;" data-aos="fade-up">
+            <div class="insight-box"><h3><i class="fas fa-flag-checkered"></i> Pakistan Economic Outlook 2026</h3><p>GDP growth 4.2%, inflation 8.5%, IT exports $4.8bn. FDI in tech up 28%.</p></div>
+            <div class="insight-box"><h3><i class="fas fa-graduation-cap"></i> Global Education Transformation Index</h3><p>AI-driven learning up 62% YoY. 74% of schools adopting AI tools by 2027.</p></div>
+        </div>
+
+        <!-- Contributor Callout -->
+        <div style="background: linear-gradient(135deg, #D4AF37, #B4941C); border-radius: 28px; padding: 40px; text-align: center; margin: 48px 0;">
+            <i class="fas fa-users" style="font-size: 2.5rem; color: #0A0C12;"></i>
+            <h2 style="color:#0A0C12; margin: 12px 0;">Join the Global Contributor Network</h2>
+            <p style="color:#0A0C12;">Publish your research among 4.8M monthly readers. Become a verified GBER thought leader.</p>
+            <button style="background:#0A0C12; color:#D4AF37; border:none; padding:12px 40px; border-radius:60px; font-weight:700; margin-top:20px; cursor:pointer;">Submit Your Article <i class="fas fa-arrow-right"></i></button>
         </div>
     </main>
 
-    <!-- footer with large logo -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img class="footer-logo" src="images/logo.webp" alt="WorldScope" onerror="this.src='https://placehold.co/340x100/B11226/white?text=WorldScope'">
-                    <p class="footer-tagline">Independent. Global. Essential. News without borders.</p>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Sections</h4>
-                    <div class="footer-links">
-                        <a href="#">World</a><br><a href="#">Business</a><br><a href="#">Tech</a><br><a href="#">Science</a><br><a href="#">Opinion</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Company</h4>
-                    <div class="footer-links">
-                        <a href="#">About</a><br><a href="#">Careers</a><br><a href="#">Contact</a><br><a href="#">Privacy</a><br><a href="#">Terms</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Follow</h4>
+                    <img class="footer-logo-img" src="images/logo-white.webp" alt="GBER" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+                    <p style="margin-top:12px; color:#9aa9c1;">Global Business & Education Review<br>“Intelligence for the Future of Business & Education”</p>
                     <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-cubes"></i> Platform</h4>
+                    <div class="footer-links">
+                        <a href="index.html"><i class="fas fa-arrow-right"></i>Home</a>
+                        <a href="news.html"><i class="fas fa-arrow-right"></i>News</a>
+                        <a href="contact-us.html"><i class="fas fa-arrow-right"></i>Contact</a>
+                        <a href="publish.html"><i class="fas fa-arrow-right"></i>Publish</a>
+                        <a href="account.html"><i class="fas fa-arrow-right"></i>Account</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-database"></i> Resources</h4>
+                    <div class="footer-links">
+                        <a href="business.html"><i class="fas fa-arrow-right"></i> Business</a>
+                        <a href="education.html"><i class="fas fa-arrow-right"></i> Education</a>
+                        <a href="ai-and-tech.html"><i class="fas fa-arrow-right"></i>AI & Tech</a>
+                        <a href="economy.html"><i class="fas fa-arrow-right"></i>Economy </a>
+                        <a href="research.html"><i class="fas fa-arrow-right"></i>Research</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-envelope"></i> Connect</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-map-marker-alt"></i> Dubai | Karachi | London</p>
+                        <p><i class="fas fa-envelope"></i> gberglobal@mail.com</p>
+                        <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+                    </div>
+                </div>
             </div>
-            <div class="copyright">© 2025 WorldScope Media. All rights reserved.</div>
+            <div class="copyright"><i class="far fa-copyright"></i> 2026 Global Business & Education Review. All rights reserved. The Voice of Intelligent Research.</div>
         </div>
     </footer>
 
-    <!-- dark mode toggle -->
-    <div class="mode-toggle" id="modeToggle"><i class="fas fa-moon"></i></div>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        (function() {
-            // ========== NAVBAR FUNCTIONALITY ==========
-            const hamburger = document.getElementById('hamburgerBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const overlay = document.getElementById('menuOverlay');
+        AOS.init({ duration: 700, once: true });
+
+        const articlesDB = [
+            { id:1, category:'Business', title:'Agentic AI in Corporate Strategy', desc:'How autonomous agents optimize supply chains, M&A, and strategic decision-making.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format' },
+            { id:2, category:'Education', title:'The Future Classroom: AI Tutors & Emotional Intelligence', desc:'Blending artificial and emotional intelligence for holistic learning.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format' },
+            { id:3, category:'AI', title:'Why Agentic AI Will Replace Traditional Automation', desc:'From rule-based bots to goal-driven agents with reasoning.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
+            { id:4, category:'Economy', title:'Pakistan Economy: $500bn GDP Target by 2035', desc:'Structural reforms, export diversification, and tech-led growth.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' },
+            { id:5, category:'Startup', title:'Top 15 Pakistani Startups to Watch in 2026', desc:'Edtech, fintech, healthtech, and AI ventures.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
+            { id:6, category:'Leadership', title:'Future of Leadership: Managing AI-Augmented Teams', desc:'How executives adapt to lead human-AI hybrid workforces.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
+            { id:7, category:'Education', title:'The End of Traditional Classrooms', desc:'Hybrid models, emotional intelligence, mentorship evolution.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
+            { id:8, category:'AI', title:'AI Ethics & Governance: Global Landscape 2026', desc:'How policymakers balance innovation and accountability.', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
+            { id:9, category:'Startup', title:'Venture Capital Trends in Emerging Markets', desc:'Where smart money is flowing: AI, climate tech, edtech.', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format' }
+        ];
+
+        const articlesGrid = document.getElementById('articlesGrid');
+        let activeCategory = 'all';
+        let currentSearchTerm = '';
+
+        // Helper function to highlight search term in text
+        function highlightText(text, term) {
+            if (!term || term.trim() === '') return text;
+            const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function renderArticles() {
+            let filtered = articlesDB;
             
-            // Toggle mobile menu
-            function toggleMenu() {
-                mobileMenu.classList.toggle('active');
-                overlay.classList.toggle('active');
-                
-                // Change icon based on menu state
-                const icon = hamburger.querySelector('i');
-                if (mobileMenu.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+            // Apply category filter
+            if (activeCategory !== 'all') {
+                filtered = filtered.filter(a => a.category === activeCategory);
             }
             
-            // Open/close on hamburger click
-            if (hamburger) {
-                hamburger.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    toggleMenu();
-                });
+            // Apply search filter
+            if (currentSearchTerm.trim() !== '') {
+                const searchLower = currentSearchTerm.toLowerCase().trim();
+                filtered = filtered.filter(a => 
+                    a.title.toLowerCase().includes(searchLower) || 
+                    a.desc.toLowerCase().includes(searchLower) ||
+                    a.category.toLowerCase().includes(searchLower)
+                );
             }
             
-            // Close on overlay click
-            if (overlay) {
-                overlay.addEventListener('click', function() {
-                    if (mobileMenu.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
+            // Update search info bar
+            const searchInfo = document.getElementById('searchInfo');
+            const searchInfoText = document.getElementById('searchInfoText');
+            if (currentSearchTerm.trim() !== '') {
+                searchInfo.classList.add('active');
+                searchInfoText.innerHTML = `Showing ${filtered.length} result(s) for "${currentSearchTerm}"`;
+            } else {
+                searchInfo.classList.remove('active');
+                searchInfoText.innerHTML = '';
             }
             
-            // Close on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
+            if(filtered.length === 0) { 
+                articlesGrid.innerHTML = '<div style="width:100%; text-align:center; padding:50px;"><i class="fas fa-search"></i> No articles found matching your search. Try different keywords.</div>'; 
+                return; 
+            }
             
-            // Handle window resize - close mobile menu if window becomes larger than 900px
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 900 && mobileMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-            
-            // Logo click - navigate to home
-            document.querySelector('.logo').addEventListener('click', function() {
-                window.location.href = 'index.html';
-            });
-            
-            // Footer logo click
-            document.querySelector('.footer-logo').addEventListener('click', function() {
-                window.location.href = 'index.html';
-            });
-            
-            // Active link highlighting for mobile menu
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            const navLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
-            
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentPath) {
-                    link.classList.add('active');
-                } else if (currentPath === '' && href === 'index.html') {
-                    link.classList.add('active');
-                }
-            });
-
-            // ========== ARTICLE GRID FUNCTIONALITY ==========
-            const articles = [
-                { id:1, category:'World', title:'Pacific Islands split over China pact', desc:'Leaders fail to reach consensus as Beijing expands police cooperation.', img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2070&auto=format&fit=crop' },
-                { id:2, category:'World', title:'EU defence fund clears first €10bn', desc:'Joint procurement of air defence systems approved.', img:'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2069&auto=format&fit=crop' },
-                { id:3, category:'Business', title:'SoftBank shifts to AI investments', desc:'Masayoshi Son announces "rebirth" as AI-focused fund.', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop' },
-                { id:4, category:'Tech', title:'New quantum computing record set', desc:'Google\'s Willow chip solves problem in minutes.', img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop' },
-                { id:5, category:'Science', title:'Brain implant restores movement', desc:'Experimental device reads neural signals.', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format&fit=crop' },
-                { id:6, category:'Opinion', title:'The Global South is done taking sides', desc:'by Ngozi Okonjo-Iweala', img:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop' },
-                { id:7, category:'Opinion', title:'Nuclear risk highest since 1962', desc:'by Beatrice Fihn', img:'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2069&auto=format&fit=crop' }
-            ];
-
-            const grid = document.getElementById('articleGrid');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const searchInput = document.getElementById('searchInput');
-            const searchBtn = document.getElementById('searchBtn');
-
-            let currentFilter = 'all';
-            let searchTerm = '';
-
-            function renderArticles() {
-                let filtered = articles.filter(a => {
-                    if (currentFilter !== 'all' && a.category !== currentFilter) return false;
-                    if (searchTerm.trim() !== '') {
-                        return (a.title + ' ' + a.desc).toLowerCase().includes(searchTerm.toLowerCase());
-                    }
-                    return true;
-                });
-
-                if (filtered.length === 0) {
-                    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px; color:#aaa;">No matching articles</div>';
-                    return;
-                }
-
-                let html = '';
-                filtered.forEach(a => {
-                    html += `
-                        <article class="article-card">
-                            <img class="card-img" src="${a.img}" alt="${a.category}">
+            let html = '';
+            filtered.forEach(art => {
+                const highlightedTitle = highlightText(art.title, currentSearchTerm);
+                const highlightedDesc = highlightText(art.desc.substring(0, 90), currentSearchTerm);
+                html += `<div class="news-card">
+                            <img class="card-img" src="${art.img}" alt="${art.title}">
                             <div class="card-content">
-                                <span class="card-category">${a.category}</span>
-                                <h3 class="card-title">${a.title}</h3>
-                                <div class="card-description">${a.desc}</div>
+                                <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
+                                <div class="card-title">${highlightedTitle}</div>
+                                <div style="color:#9aa9c1; font-size:0.7rem;"><i class="far fa-calendar-alt"></i> ${art.date}</div>
+                                <p style="margin-top:10px; color:#b9c6e0;">${highlightedDesc}...</p>
+                                <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read more <i class="fas fa-arrow-right"></i></a>
                             </div>
-                        </article>
-                    `;
-                });
-                grid.innerHTML = html;
-            }
+                        </div>`;
+            });
+            articlesGrid.innerHTML = html;
+        }
 
+        // Search function - updates both search term and re-renders
+        function performSearch(term) {
+            currentSearchTerm = term;
             renderArticles();
+        }
 
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.getAttribute('data-filter');
-                    renderArticles();
-                });
-            });
+        // Desktop search input live filtering
+        const navbarSearchInput = document.getElementById('navbarSearchInput');
+        const navbarSearchBtn = document.getElementById('navbarSearchBtn');
+        
+        navbarSearchInput.addEventListener('input', (e) => {
+            performSearch(e.target.value);
+        });
+        
+        navbarSearchBtn.addEventListener('click', () => {
+            performSearch(navbarSearchInput.value);
+        });
+        
+        // Mobile search input
+        const mobileSearchInput = document.getElementById('mobileSearchInput');
+        const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+        
+        mobileSearchInput.addEventListener('input', (e) => {
+            performSearch(e.target.value);
+            // Sync desktop search input
+            navbarSearchInput.value = e.target.value;
+        });
+        
+        mobileSearchBtn.addEventListener('click', () => {
+            performSearch(mobileSearchInput.value);
+            navbarSearchInput.value = mobileSearchInput.value;
+        });
 
-            function performSearch() {
-                searchTerm = searchInput.value;
+        // Desktop category pills
+        document.querySelectorAll('.cat-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                activeCategory = this.getAttribute('data-cat');
                 renderArticles();
-            }
-            searchBtn.addEventListener('click', performSearch);
-            searchInput.addEventListener('keyup', e => { if(e.key === 'Enter') performSearch(); });
-
-            // dark mode toggle
-            const toggle = document.getElementById('modeToggle');
-            toggle.addEventListener('click', function() {
-                document.body.classList.toggle('light-mode');
-                const icon = toggle.querySelector('i');
-                if (document.body.classList.contains('light-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
+                const mobileSelect = document.getElementById('mobileCategorySelect');
+                if(mobileSelect) mobileSelect.value = activeCategory;
             });
+        });
 
-            // Handle footer links (prevent default for demo)
-            document.querySelectorAll('.footer-links a, .social-icons a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    if (this.getAttribute('href') === '#') {
-                        e.preventDefault();
+        // Mobile dropdown category
+        const mobileSelect = document.getElementById('mobileCategorySelect');
+        if(mobileSelect) {
+            mobileSelect.addEventListener('change', function() {
+                activeCategory = this.value;
+                renderArticles();
+                document.querySelectorAll('.cat-pill').forEach(pill => {
+                    if(pill.getAttribute('data-cat') === activeCategory) {
+                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
                     }
                 });
             });
-        })();
+        }
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('menuOverlay');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        hamburger?.addEventListener('click', toggleMenu);
+        overlay?.addEventListener('click', toggleMenu);
+        document.addEventListener('keydown', e => { if(e.key === 'Escape' && mobileMenu?.classList.contains('active')) toggleMenu(); });
+
+        renderArticles();
     </script>
 </body>
 </html>
