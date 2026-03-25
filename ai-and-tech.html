@@ -2,19 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GBER | AI & Future Tech — Artificial Intelligence, Innovation & Emerging Technologies</title>
-    <meta name="description" content="GBER AI & Tech: Latest insights on Agentic AI, quantum computing, emerging technologies, AI ethics, and the future of innovation.">
-    <meta name="keywords" content="Agentic AI, artificial intelligence, quantum computing, emerging tech, AI ethics, future technology, GBER tech">
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="images/favicon.webp">
-    <link rel="shortcut icon" type="image/webp" href="images/favicon.webp">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AI and Technology – GBER | Artificial Intelligence, Innovation and Digital Trends</title>
+<meta name="description" content="GBER AI & Tech: Latest insights on Agentic AI, quantum computing, emerging technologies, AI ethics, and the future of innovation.">
+<meta name="keywords" content="Agentic AI, artificial intelligence, quantum computing, emerging tech, AI ethics, future technology, GBER tech">
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.webp">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.webp">
+<link rel="manifest" href="images/favicon.webp">
+<link rel="mask-icon" href="images/favicon.webp" color="#5bbad5">
+<link rel="shortcut icon" href="images/favicon.webp">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="images/favicon.webp">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex, nofollow" >
+<meta name="author" content="Global Business and Education Review (GBER)">
+<meta name="publisher" content="Global Business and Education Review (GBER)">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 6 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI and Technology – GBER | Artificial Intelligence, Innovation and Digital Trends">
+<meta property="og:description" content="GBER AI & Tech: Latest insights on Agentic AI, quantum computing, emerging technologies, AI ethics, and the future of innovation.">
+<meta property="og:url" content="https://gberjournal.com/ai-and-tech.html">
+<meta property="og:image" content="https://gberjournal.com/images/logo-color.webp">
+<meta property="og:site_name" content="Global Business and Education Review (GBER)">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI and Technology – GBER | Artificial Intelligence, Innovation and Digital Trends">
+<meta name="twitter:description" content="GBER AI & Tech: Latest insights on Agentic AI, quantum computing, emerging technologies, AI ethics, and the future of innovation.">
+<meta name="twitter:image" content="https://gberjournal.com/images/logo-color.webp">
+<meta name="twitter:site" content="@GBER_Official">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://gberjournal.com/ai-and-tech.html">
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Global Business and Education Review (GBER)",
+  "url": "https://gberjournal.com",
+  "logo": "https://gberjournal.com/images/logo-color.webp",
+  "sameAs": [""]
+}
+</script>
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI and Technology – GBER",
+  "url": "https://gberjournal.com/ai-and-tech.html",
+  "description": "GBER AI & Tech: Latest insights on Agentic AI, quantum computing, emerging technologies, AI ethics, and the future of innovation.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gberjournal.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "AI and Technology",
+        "item": "https://gberjournal.com/ai-and-tech.html"
+      }
+    ]
+  }
+}
+</script>
     <style>
         * {
             margin: 0;
@@ -268,13 +339,42 @@
             margin: 0 auto;
         }
 
+        /* Tab Switcher */
+        .tab-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid var(--gray-border);
+            padding-bottom: 16px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 10px 32px;
+            border-radius: 50px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: 0.25s;
+            font-family: 'Playfair Display', serif;
+        }
+        .tab-btn i { margin-right: 10px; }
+        .tab-btn.active {
+            background: var(--gold-primary);
+            color: #0A0C12;
+            box-shadow: 0 6px 14px rgba(212,175,55,0.3);
+        }
+        .tab-btn:not(.active):hover { color: var(--gold-primary); background: rgba(212,175,55,0.1); }
+
         /* Category Pills */
         .categories-bar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin: 30px 0 40px;
+            margin: 20px 0 40px;
         }
         .cat-pill {
             background: #1A2332;
@@ -372,21 +472,21 @@
             line-height: 1.3;
         }
 
-        /* Article Grid */
-        .articles-grid {
+        /* Content Grid - for both Articles and News */
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 32px;
             margin: 40px 0;
         }
-        .news-card {
+        .content-card {
             background: var(--navy-card);
             border-radius: 24px;
             overflow: hidden;
             transition: 0.3s;
             border: 1px solid var(--gray-border);
         }
-        .news-card:hover {
+        .content-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold-primary);
         }
@@ -419,6 +519,58 @@
             color: var(--gold-primary);
             padding: 0 2px;
             border-radius: 4px;
+        }
+
+        /* News Simple Card (for news items) */
+        .news-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid var(--gray-border);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content { padding: 24px; }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .news-category {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+        .news-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .news-headline {
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin: 8px 0 16px;
+            line-height: 1.3;
+        }
+        .read-more {
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.85rem;
         }
 
         /* Tech Dashboard */
@@ -568,6 +720,7 @@
                 gap: 32px;
             }
             .footer-grid > div .social-icons { justify-content: center; }
+            .tab-btn { font-size: 1rem; padding: 6px 18px; }
         }
     </style>
 </head>
@@ -578,7 +731,7 @@
                 <img class="logo-img" src="images/logo-white.webp" alt="GBER Logo" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="articles.html">Articles</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="business.html">Business</a></li>
                 <li><a href="education.html">Education</a></li>
@@ -588,7 +741,7 @@
                 <li><a href="publish.html">Publish</a></li>
             </ul>
             <div class="nav-search">
-                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles & news...">
                 <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
             </div>
             <a href="account.html" class="user-icon" id="userIconBtn">
@@ -600,7 +753,7 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="business.html">Business</a></li>
             <li><a href="education.html">Education</a></li>
@@ -611,7 +764,7 @@
             <li><a href="account.html">Account</a></li>
         </ul>
         <div class="mobile-search">
-            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+            <input type="text" id="mobileSearchInput" placeholder="Search...">
             <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
         </div>
     </div>
@@ -623,6 +776,12 @@
             <div class="page-header" data-aos="fade-up">
                 <h1><i class="fas fa-microchip"></i> AI & Future Tech</h1>
                 <p>Exploring the frontiers of artificial intelligence, quantum computing, and emerging technologies shaping tomorrow's world.</p>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="tab-switcher" data-aos="fade-up">
+                <button class="tab-btn active" id="tabArticlesBtn"><i class="fas fa-newspaper"></i> In-Depth Articles</button>
+                <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
             <!-- Category Pills - Desktop -->
@@ -661,7 +820,7 @@
                             <span class="featured-badge"><i class="fas fa-fire"></i> COVER STORY</span>
                             <h2 class="featured-title">Agentic AI: The Rise of Autonomous Intelligence</h2>
                             <p>How autonomous agents are reshaping business, education, and society. From reactive systems to proactive decision-makers.</p>
-                            <a href="article.html" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Story <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="featured-card">
@@ -707,43 +866,19 @@
                 </div>
             </div>
 
-            <!-- Articles Grid -->
-            <div class="articles-grid" id="articlesGrid" data-aos="fade-up"></div>
+            <!-- Dynamic Content Grid (Articles or News) -->
+            <div id="dynamicContentGrid" class="content-grid" data-aos="fade-up"></div>
 
             <!-- Emerging Tech Section -->
             <div class="emerging-section" data-aos="fade-up">
                 <h2 style="font-size: 1.8rem; text-align: center;"><i class="fas fa-rocket"></i> Emerging Technologies to Watch</h2>
                 <div class="emerging-grid">
-                    <div class="emerging-card">
-                        <i class="fas fa-microchip"></i>
-                        <h3>Neuromorphic Computing</h3>
-                        <p>Brain-inspired chips that mimic neural networks for ultra-efficient AI processing.</p>
-                    </div>
-                    <div class="emerging-card">
-                        <i class="fas fa-dna"></i>
-                        <h3>AI-Powered Drug Discovery</h3>
-                        <p>Generative AI accelerating pharmaceutical R&D and personalized medicine.</p>
-                    </div>
-                    <div class="emerging-card">
-                        <i class="fas fa-cloud"></i>
-                        <h3>Edge AI</h3>
-                        <p>Deploying AI models on local devices for real-time processing and privacy.</p>
-                    </div>
-                    <div class="emerging-card">
-                        <i class="fas fa-robot"></i>
-                        <h3>Autonomous Agents</h3>
-                        <p>AI systems that plan, execute, and adapt across complex workflows.</p>
-                    </div>
-                    <div class="emerging-card">
-                        <i class="fas fa-vr-cardboard"></i>
-                        <h3>Spatial Computing</h3>
-                        <p>AR/VR convergence with AI for immersive digital-physical experiences.</p>
-                    </div>
-                    <div class="emerging-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>AI Cybersecurity</h3>
-                        <p>Predictive threat detection and autonomous defense systems.</p>
-                    </div>
+                    <div class="emerging-card"><i class="fas fa-microchip"></i><h3>Neuromorphic Computing</h3><p>Brain-inspired chips for ultra-efficient AI processing.</p></div>
+                    <div class="emerging-card"><i class="fas fa-dna"></i><h3>AI-Powered Drug Discovery</h3><p>Generative AI accelerating pharmaceutical R&D.</p></div>
+                    <div class="emerging-card"><i class="fas fa-cloud"></i><h3>Edge AI</h3><p>Local device AI for real-time processing and privacy.</p></div>
+                    <div class="emerging-card"><i class="fas fa-robot"></i><h3>Autonomous Agents</h3><p>AI systems that plan, execute, and adapt.</p></div>
+                    <div class="emerging-card"><i class="fas fa-vr-cardboard"></i><h3>Spatial Computing</h3><p>AR/VR convergence with AI.</p></div>
+                    <div class="emerging-card"><i class="fas fa-shield-alt"></i><h3>AI Cybersecurity</h3><p>Predictive threat detection systems.</p></div>
                 </div>
             </div>
 
@@ -757,45 +892,10 @@
                             <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> EU AI Act: Risk-based regulation framework</li>
                             <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Constitutional AI: Embedded ethical constraints</li>
                             <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Global AI Safety Summits & Commitments</li>
-                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Transparency & Explainability Standards</li>
                         </ul>
                         <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 20px;">Read Full Policy Analysis <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <img class="ethics-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format" alt="AI Ethics">
-                </div>
-            </div>
-
-            <!-- Innovation Section -->
-            <div class="featured-section">
-                <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-lightbulb"></i> Innovation Spotlight</h2>
-                <div class="articles-grid" style="margin-top: 20px;">
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format" alt="Innovation">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-microchip"></i> Innovation</div>
-                            <h3 class="card-title">Brain-Computer Interfaces: The Next Frontier</h3>
-                            <div class="card-date">March 22, 2026</div>
-                            <p>How Neuralink and competitors are advancing human-AI integration.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format" alt="Innovation">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-atom"></i> Quantum</div>
-                            <h3 class="card-title">Quantum Supremacy: Google's Willow Chip</h3>
-                            <div class="card-date">March 20, 2026</div>
-                            <p>Solving problems in minutes that would take supercomputers millennia.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1581092335871-5e3e7d7d9b5b?q=80&w=2070&auto=format" alt="Innovation">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-robot"></i> Robotics</div>
-                            <h3 class="card-title">Humanoid Robots: The Next Generation</h3>
-                            <div class="card-date">March 18, 2026</div>
-                            <p>Advances in dexterity, perception, and autonomous decision-making.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -817,7 +917,7 @@
                 <div>
                     <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-cubes"></i> Platform</h4>
                     <div class="footer-links">
-                        <a href="index.html"><i class="fas fa-arrow-right"></i>Home</a>
+                        <a href="articles.html"><i class="fas fa-arrow-right"></i>Articles</a>
                         <a href="news.html"><i class="fas fa-arrow-right"></i>News</a>
                         <a href="contact-us.html"><i class="fas fa-arrow-right"></i>Contact</a>
                         <a href="publish.html"><i class="fas fa-arrow-right"></i>Publish</a>
@@ -851,142 +951,167 @@
     <script>
         AOS.init({ duration: 700, once: true });
 
-        // AI & Tech Articles Database
-        const techArticles = [
-            { id:1, category:'Agentic AI', title:'Agentic AI: The Rise of Autonomous Intelligence', desc:'How autonomous agents are reshaping business strategy, education, and society.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
+        // ARTICLES DATA (In-depth with description)
+        const articlesData = [
+            { id:1, category:'Agentic AI', title:'Agentic AI: The Rise of Autonomous Intelligence', desc:'How autonomous agents are reshaping business strategy, education, and society with proactive decision-making.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
             { id:2, category:'Quantum', title:'Quantum Computing Breakthrough: Google\'s Willow Chip', desc:'New quantum processor solves problems in minutes that would take supercomputers millennia.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format' },
             { id:3, category:'AI Ethics', title:'EU AI Act: What Businesses Need to Know', desc:'Comprehensive guide to the world\'s first comprehensive AI regulation framework.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
-            { id:4, category:'Emerging Tech', title:'Neuromorphic Computing: The Next Generation of AI', desc:'Brain-inspired chips that could revolutionize machine learning efficiency.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1581092335871-5e3e7d7d9b5b?q=80&w=2070&auto=format' },
-            { id:5, category:'Innovation', title:'AI-Powered Drug Discovery: The Pharmaceutical Revolution', desc:'How generative AI is accelerating vaccine and drug development.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format' },
-            { id:6, category:'Agentic AI', title:'Why Agentic AI Will Replace Traditional Automation by 2030', desc:'From rule-based bots to goal-driven agents with reasoning capabilities.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format' },
-            { id:7, category:'AI Ethics', title:'Constitutional AI: Building Ethical Constraints into Systems', desc:'How Anthropic and others are embedding values directly into AI models.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=2070&auto=format' },
-            { id:8, category:'Emerging Tech', title:'Edge AI: Processing Intelligence at the Source', desc:'Why decentralized AI is critical for privacy, latency, and scalability.', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format' },
-            { id:9, category:'Innovation', title:'Spatial Computing: The Convergence of AR, VR, and AI', desc:'How immersive technologies are creating new paradigms for work and play.', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=2070&auto=format' }
+            { id:4, category:'Emerging Tech', title:'Neuromorphic Computing: The Next Generation of AI', desc:'Brain-inspired chips that could revolutionize machine learning efficiency and power consumption.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1581092335871-5e3e7d7d9b5b?q=80&w=2070&auto=format' },
+            { id:5, category:'Innovation', title:'AI-Powered Drug Discovery: The Pharmaceutical Revolution', desc:'How generative AI is accelerating vaccine and drug development by 70%.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format' },
+            { id:6, category:'Agentic AI', title:'Why Agentic AI Will Replace Traditional Automation by 2030', desc:'From rule-based bots to goal-driven agents with reasoning and adaptive capabilities.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format' }
         ];
 
-        const articlesGrid = document.getElementById('articlesGrid');
-        let activeCategory = 'all';
-        let currentSearchTerm = '';
+        // NEWS DATA (Simple: headline + date + image + category)
+        const newsData = [
+            { id:1, category:'Agentic AI', headline:'OpenAI Launches Enterprise Agentic AI Platform', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format' },
+            { id:2, category:'Quantum', headline:'IBM Achieves Quantum Supremacy with 1,000-Qubit Processor', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format' },
+            { id:3, category:'AI Ethics', headline:'UN Adopts Global AI Ethics Framework with 150 Nations', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
+            { id:4, category:'Emerging Tech', headline:'Google DeepMind Unveils Next-Gen AI Model Gemini Ultra', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format' },
+            { id:5, category:'Innovation', headline:'Samsung Announces $40B AI Chip Manufacturing Facility', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
+            { id:6, category:'Agentic AI', headline:'Microsoft Integrates Agentic AI Across Office 365 Suite', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' }
+        ];
 
-        function highlightText(text, term) {
-            if (!term || term.trim() === '') return text;
+        let currentMode = 'articles';
+        let activeCategory = 'all';
+        let globalSearchTerm = '';
+
+        function highlight(text, term) {
+            if (!term || !term.trim()) return text;
             const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
             return text.replace(regex, '<span class="highlight">$1</span>');
         }
 
-        function renderArticles() {
-            let filtered = techArticles;
+        function renderContent() {
+            const container = document.getElementById('dynamicContentGrid');
+            let items = (currentMode === 'articles') ? [...articlesData] : [...newsData];
+            
             if (activeCategory !== 'all') {
-                filtered = filtered.filter(a => a.category === activeCategory);
+                items = items.filter(item => item.category === activeCategory);
             }
-            if (currentSearchTerm.trim() !== '') {
-                const searchLower = currentSearchTerm.toLowerCase().trim();
-                filtered = filtered.filter(a => 
-                    a.title.toLowerCase().includes(searchLower) || 
-                    a.desc.toLowerCase().includes(searchLower) ||
-                    a.category.toLowerCase().includes(searchLower)
-                );
+            if (globalSearchTerm.trim() !== '') {
+                const termLow = globalSearchTerm.toLowerCase();
+                items = items.filter(item => {
+                    if (currentMode === 'articles') {
+                        return item.title.toLowerCase().includes(termLow) || item.desc.toLowerCase().includes(termLow) || item.category.toLowerCase().includes(termLow);
+                    } else {
+                        return item.headline.toLowerCase().includes(termLow) || item.category.toLowerCase().includes(termLow);
+                    }
+                });
             }
-            
-            const searchInfo = document.getElementById('searchInfo');
-            const searchInfoText = document.getElementById('searchInfoText');
-            if (currentSearchTerm.trim() !== '') {
-                searchInfo.classList.add('active');
-                searchInfoText.innerHTML = `Showing ${filtered.length} result(s) for "${currentSearchTerm}"`;
+
+            const searchDiv = document.getElementById('searchInfo');
+            const searchSpan = document.getElementById('searchInfoText');
+            if (globalSearchTerm.trim()) {
+                searchDiv.classList.add('active');
+                searchSpan.innerHTML = `Showing ${items.length} result(s) for "${globalSearchTerm}" in ${currentMode === 'articles' ? 'Articles' : 'News'}`;
             } else {
-                searchInfo.classList.remove('active');
+                searchDiv.classList.remove('active');
             }
-            
-            if (filtered.length === 0) {
-                articlesGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-search"></i> No articles found. Try different keywords.</div>';
+
+            if (items.length === 0) {
+                container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-info-circle"></i> No content found. Try different keywords.</div>';
                 return;
             }
-            
+
             let html = '';
-            filtered.forEach(art => {
-                html += `<div class="news-card">
-                            <img class="card-img" src="${art.img}" alt="${art.category}">
-                            <div class="card-content">
-                                <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
-                                <div class="card-title">${highlightText(art.title, currentSearchTerm)}</div>
-                                <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
-                                <p style="color: #b9c6e0;">${highlightText(art.desc, currentSearchTerm)}</p>
-                                <a href="#" style="color: #D4AF37; font-weight: 600; display: inline-block; margin-top: 12px;">Read more <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>`;
+            if (currentMode === 'articles') {
+                items.forEach(art => {
+                    html += `<div class="content-card">
+                                <img class="card-img" src="${art.img}" alt="${art.title}">
+                                <div class="card-content">
+                                    <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
+                                    <div class="card-title">${highlight(art.title, globalSearchTerm)}</div>
+                                    <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
+                                    <p style="color:#b9c6e0;">${highlight(art.desc.substring(0, 100), globalSearchTerm)}...</p>
+                                    <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read full article <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>`;
+                });
+            } else {
+                items.forEach(news => {
+                    html += `<div class="news-card">
+                                <img class="news-img" src="${news.img}" alt="${news.headline}">
+                                <div class="news-content">
+                                    <div class="news-meta">
+                                        <span class="news-category"><i class="fas fa-tag"></i> ${news.category}</span>
+                                        <span class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</span>
+                                    </div>
+                                    <div class="news-headline">${highlight(news.headline, globalSearchTerm)}</div>
+                                    <a href="#" class="read-more">Read full news <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>`;
+                });
+            }
+            container.innerHTML = html;
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderContent();
+            const mobileSelect = document.getElementById('mobileCategorySelect');
+            if (mobileSelect) mobileSelect.value = cat;
+            document.querySelectorAll('.cat-pill').forEach(p => {
+                if (p.getAttribute('data-cat') === cat) {
+                    document.querySelectorAll('.cat-pill').forEach(p2 => p2.classList.remove('active'));
+                    p.classList.add('active');
+                }
             });
-            articlesGrid.innerHTML = html;
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            const btnArt = document.getElementById('tabArticlesBtn');
+            const btnNews = document.getElementById('tabNewsBtn');
+            if (mode === 'articles') {
+                btnArt.classList.add('active');
+                btnNews.classList.remove('active');
+            } else {
+                btnNews.classList.add('active');
+                btnArt.classList.remove('active');
+            }
+            renderContent();
         }
 
         function performSearch(term) {
-            currentSearchTerm = term;
-            renderArticles();
+            globalSearchTerm = term;
+            renderContent();
+            const desktopInput = document.getElementById('navbarSearchInput');
+            const mobileInput = document.getElementById('mobileSearchInput');
+            if (desktopInput) desktopInput.value = term;
+            if (mobileInput) mobileInput.value = term;
         }
 
-        // Desktop search
+        // Event Listeners
+        document.getElementById('tabArticlesBtn').addEventListener('click', () => setMode('articles'));
+        document.getElementById('tabNewsBtn').addEventListener('click', () => setMode('news'));
+        
         const navbarSearchInput = document.getElementById('navbarSearchInput');
         const navbarSearchBtn = document.getElementById('navbarSearchBtn');
         navbarSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
         navbarSearchBtn.addEventListener('click', () => performSearch(navbarSearchInput.value));
-
-        // Mobile search
+        
         const mobileSearchInput = document.getElementById('mobileSearchInput');
         const mobileSearchBtn = document.getElementById('mobileSearchBtn');
-        mobileSearchInput.addEventListener('input', (e) => { performSearch(e.target.value); navbarSearchInput.value = e.target.value; });
-        mobileSearchBtn.addEventListener('click', () => { performSearch(mobileSearchInput.value); navbarSearchInput.value = mobileSearchInput.value; });
-
-        // Category filters
+        mobileSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
+        mobileSearchBtn.addEventListener('click', () => performSearch(mobileSearchInput.value));
+        
         document.querySelectorAll('.cat-pill').forEach(pill => {
             pill.addEventListener('click', function() {
-                document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                this.classList.add('active');
-                activeCategory = this.getAttribute('data-cat');
-                renderArticles();
-                const mobileSelect = document.getElementById('mobileCategorySelect');
-                if (mobileSelect) mobileSelect.value = activeCategory;
+                setCategory(this.getAttribute('data-cat'));
             });
         });
-
-        const mobileSelect = document.getElementById('mobileCategorySelect');
-        if (mobileSelect) {
-            mobileSelect.addEventListener('change', function() {
-                activeCategory = this.value;
-                renderArticles();
-                document.querySelectorAll('.cat-pill').forEach(pill => {
-                    if (pill.getAttribute('data-cat') === activeCategory) {
-                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                    } else if (activeCategory === 'all' && pill.getAttribute('data-cat') === 'all') {
-                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Mobile menu
+        const mobileCat = document.getElementById('mobileCategorySelect');
+        if (mobileCat) mobileCat.addEventListener('change', (e) => setCategory(e.target.value));
+        
+        // Mobile menu toggle
         const hamburger = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('menuOverlay');
-        function toggleMenu() {
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            const icon = hamburger.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
-        if (hamburger) {
-            hamburger.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-        }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) toggleMenu(); });
-
-        renderArticles();
+        function toggleMobile() { mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); }
+        hamburger?.addEventListener('click', toggleMobile);
+        overlay?.addEventListener('click', toggleMobile);
+        
+        setMode('articles');
     </script>
 </body>
 </html>

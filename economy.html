@@ -2,19 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GBER | Global Economy — Markets, Trade, Policy & Economic Development</title>
-    <meta name="description" content="GBER Economy: Latest insights on global markets, economic policy, trade dynamics, fiscal trends, and emerging market development.">
-    <meta name="keywords" content="global economy, economic policy, market analysis, trade, fiscal policy, emerging markets, Pakistan economy, GBER economy">
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="images/favicon.webp">
-    <link rel="shortcut icon" type="image/webp" href="images/favicon.webp">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Economy – GBER | Global Economic Trends, Analysis and Insights</title>
+<meta name="description" content="GBER Economy: Latest insights on global markets, economic policy, trade dynamics, fiscal trends, and emerging market development.">
+<meta name="keywords" content="global economy, economic policy, market analysis, trade, fiscal policy, emerging markets, Pakistan economy, GBER economy">
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.webp">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.webp">
+<link rel="manifest" href="images/favicon.webp">
+<link rel="mask-icon" href="images/favicon.webp" color="#5bbad5">
+<link rel="shortcut icon" href="images/favicon.webp">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="images/favicon.webp">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 6 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Economy – GBER | Global Economic Trends, Analysis and Insights">
+<meta property="og:description" content="GBER Economy: Latest insights on global markets, economic policy, trade dynamics, fiscal trends, and emerging market development.">
+<meta property="og:url" content="https://gberjournal.com/economy.html">
+<meta property="og:image" content="https://gberjournal.com/images/logo-color.webp">
+<meta property="og:site_name" content="Global Business and Education Review (GBER)">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Economy – GBER | Global Economic Trends, Analysis and Insights">
+<meta name="twitter:description" content="GBER Economy: Latest insights on global markets, economic policy, trade dynamics, fiscal trends, and emerging market development.">
+<meta name="twitter:image" content="https://gberjournal.com/images/logo-color.webp">
+<meta name="twitter:site" content="@GBER_Official">
+<meta name="robots" content="noindex, nofollow" >
+<meta name="author" content="Global Business and Education Review (GBER)">
+<meta name="publisher" content="Global Business and Education Review (GBER)">
+<!-- Canonical URL -->
+<link rel="canonical" href="https://gberjournal.com/economy.html">
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Global Business and Education Review (GBER)",
+  "url": "https://gberjournal.com",
+  "logo": "https://gberjournal.com/images/logo-color.webp",
+  "sameAs": [""]
+}
+</script>
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Economy – GBER",
+  "url": "https://gberjournal.com/economy.html",
+  "description": "GBER Economy: Latest insights on global markets, economic policy, trade dynamics, fiscal trends, and emerging market development.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gberjournal.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Economy",
+        "item": "https://gberjournal.com/economy.html"
+      }
+    ]
+  }
+}
+</script>
     <style>
         * {
             margin: 0;
@@ -268,13 +339,42 @@
             margin: 0 auto;
         }
 
+        /* Tab Switcher */
+        .tab-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid var(--gray-border);
+            padding-bottom: 16px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 10px 32px;
+            border-radius: 50px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: 0.25s;
+            font-family: 'Playfair Display', serif;
+        }
+        .tab-btn i { margin-right: 10px; }
+        .tab-btn.active {
+            background: var(--gold-primary);
+            color: #0A0C12;
+            box-shadow: 0 6px 14px rgba(212,175,55,0.3);
+        }
+        .tab-btn:not(.active):hover { color: var(--gold-primary); background: rgba(212,175,55,0.1); }
+
         /* Category Pills */
         .categories-bar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin: 30px 0 40px;
+            margin: 20px 0 40px;
         }
         .cat-pill {
             background: #1A2332;
@@ -372,21 +472,21 @@
             line-height: 1.3;
         }
 
-        /* Article Grid */
-        .articles-grid {
+        /* Content Grid - for both Articles and News */
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 32px;
             margin: 40px 0;
         }
-        .news-card {
+        .content-card {
             background: var(--navy-card);
             border-radius: 24px;
             overflow: hidden;
             transition: 0.3s;
             border: 1px solid var(--gray-border);
         }
-        .news-card:hover {
+        .content-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold-primary);
         }
@@ -419,6 +519,58 @@
             color: var(--gold-primary);
             padding: 0 2px;
             border-radius: 4px;
+        }
+
+        /* News Simple Card */
+        .news-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid var(--gray-border);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content { padding: 24px; }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .news-category {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+        .news-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .news-headline {
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin: 8px 0 16px;
+            line-height: 1.3;
+        }
+        .read-more {
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.85rem;
         }
 
         /* Economic Dashboard */
@@ -555,6 +707,7 @@
             }
             .categories-bar { display: none; }
             .mobile-category-dropdown { display: block; }
+            .tab-btn { font-size: 1rem; padding: 6px 18px; }
         }
         @media (max-width: 900px) {
             .nav-menu, .nav-search, .user-icon { display: none; }
@@ -580,7 +733,7 @@
                 <img class="logo-img" src="images/logo-white.webp" alt="GBER Logo" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="articles.html">Articles</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="business.html">Business</a></li>
                 <li><a href="education.html">Education</a></li>
@@ -590,7 +743,7 @@
                 <li><a href="publish.html">Publish</a></li>
             </ul>
             <div class="nav-search">
-                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles & news...">
                 <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
             </div>
             <a href="account.html" class="user-icon" id="userIconBtn">
@@ -602,7 +755,7 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="business.html">Business</a></li>
             <li><a href="education.html">Education</a></li>
@@ -613,7 +766,7 @@
             <li><a href="account.html">Account</a></li>
         </ul>
         <div class="mobile-search">
-            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+            <input type="text" id="mobileSearchInput" placeholder="Search...">
             <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
         </div>
     </div>
@@ -625,6 +778,12 @@
             <div class="page-header" data-aos="fade-up">
                 <h1><i class="fas fa-chart-line"></i> Global Economy</h1>
                 <p>Market analysis, fiscal policy, trade dynamics, and economic development insights from around the world.</p>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="tab-switcher" data-aos="fade-up">
+                <button class="tab-btn active" id="tabArticlesBtn"><i class="fas fa-newspaper"></i> In-Depth Articles</button>
+                <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
             <!-- Category Pills - Desktop -->
@@ -682,35 +841,15 @@
             <div class="economic-dashboard" data-aos="fade-up">
                 <h2 class="dashboard-title"><i class="fas fa-chart-simple"></i> Global Economic Indicators</h2>
                 <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <i class="fas fa-globe-americas" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="dashboard-value">3.2%</div>
-                        <div>Global GDP Growth (2026)</div>
-                        <div class="dashboard-change positive"><i class="fas fa-arrow-up"></i> +0.4% from 2025</div>
-                    </div>
-                    <div class="dashboard-card">
-                        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="dashboard-value">4.2%</div>
-                        <div>Pakistan GDP Growth</div>
-                        <div class="dashboard-change positive"><i class="fas fa-arrow-up"></i> +1.8%</div>
-                    </div>
-                    <div class="dashboard-card">
-                        <i class="fas fa-dollar-sign" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="dashboard-value">2.1%</div>
-                        <div>US Inflation Rate</div>
-                        <div class="dashboard-change positive"><i class="fas fa-arrow-down"></i> -0.3%</div>
-                    </div>
-                    <div class="dashboard-card">
-                        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="dashboard-value">4.8%</div>
-                        <div>Unemployment Rate (US)</div>
-                        <div class="dashboard-change positive"><i class="fas fa-arrow-down"></i> -0.2%</div>
-                    </div>
+                    <div class="dashboard-card"><i class="fas fa-globe-americas" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="dashboard-value">3.2%</div><div>Global GDP Growth (2026)</div><div class="dashboard-change positive"><i class="fas fa-arrow-up"></i> +0.4%</div></div>
+                    <div class="dashboard-card"><i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="dashboard-value">4.2%</div><div>Pakistan GDP Growth</div><div class="dashboard-change positive"><i class="fas fa-arrow-up"></i> +1.8%</div></div>
+                    <div class="dashboard-card"><i class="fas fa-dollar-sign" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="dashboard-value">2.1%</div><div>US Inflation Rate</div><div class="dashboard-change positive"><i class="fas fa-arrow-down"></i> -0.3%</div></div>
+                    <div class="dashboard-card"><i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="dashboard-value">4.8%</div><div>Unemployment Rate (US)</div><div class="dashboard-change positive"><i class="fas fa-arrow-down"></i> -0.2%</div></div>
                 </div>
             </div>
 
-            <!-- Articles Grid -->
-            <div class="articles-grid" id="articlesGrid" data-aos="fade-up"></div>
+            <!-- Dynamic Content Grid (Articles or News) -->
+            <div id="dynamicContentGrid" class="content-grid" data-aos="fade-up"></div>
 
             <!-- Pakistan Economy Section -->
             <div class="pakistan-section" data-aos="fade-up">
@@ -734,59 +873,16 @@
             <div class="trade-section" data-aos="fade-up">
                 <h2 style="font-size: 1.8rem; text-align: center;"><i class="fas fa-handshake"></i> Global Trade Dynamics</h2>
                 <div class="trade-grid">
-                    <div class="trade-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Global Trade Volume</h3>
-                        <div class="dashboard-value" style="font-size: 1.8rem;">+3.5%</div>
-                        <p>Projected growth in 2026</p>
-                    </div>
-                    <div class="trade-card">
-                        <i class="fas fa-ship"></i>
-                        <h3>Red Sea Shipping</h3>
-                        <div class="dashboard-value" style="font-size: 1.8rem;">-15%</div>
-                        <p>Volume decline due to disruptions</p>
-                    </div>
-                    <div class="trade-card">
-                        <i class="fas fa-industry"></i>
-                        <h3>Manufacturing PMI</h3>
-                        <div class="dashboard-value" style="font-size: 1.8rem;">52.4</div>
-                        <p>Global expansion continues</p>
-                    </div>
+                    <div class="trade-card"><i class="fas fa-chart-line"></i><h3>Global Trade Volume</h3><div class="dashboard-value" style="font-size: 1.8rem;">+3.5%</div><p>Projected growth in 2026</p></div>
+                    <div class="trade-card"><i class="fas fa-ship"></i><h3>Red Sea Shipping</h3><div class="dashboard-value" style="font-size: 1.8rem;">-15%</div><p>Volume decline due to disruptions</p></div>
+                    <div class="trade-card"><i class="fas fa-industry"></i><h3>Manufacturing PMI</h3><div class="dashboard-value" style="font-size: 1.8rem;">52.4</div><p>Global expansion continues</p></div>
                 </div>
             </div>
 
             <!-- Emerging Markets Section -->
             <div class="featured-section">
                 <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-chart-simple"></i> Emerging Markets Spotlight</h2>
-                <div class="articles-grid" style="margin-top: 20px;">
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format" alt="GCC Investment">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-chart-line"></i> Investment</div>
-                            <h3 class="card-title">GCC Investment Wave: Opportunities for South Asia</h3>
-                            <div class="card-date">March 22, 2026</div>
-                            <p>Sovereign wealth funds targeting education, tech, and infrastructure across the region.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format" alt="Startup Investment">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-rocket"></i> Startups</div>
-                            <h3 class="card-title">Venture Capital Trends in Emerging Markets 2026</h3>
-                            <div class="card-date">March 20, 2026</div>
-                            <p>Where smart money is flowing: AI, climate tech, and edtech sectors dominate.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format" alt="Renewable Energy">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-solar-panel"></i> Energy</div>
-                            <h3 class="card-title">Renewable Energy: The Next Trillion-Dollar Market</h3>
-                            <div class="card-date">March 18, 2026</div>
-                            <p>Investment opportunities in solar, wind, and battery storage across emerging economies.</p>
-                        </div>
-                    </div>
-                </div>
+                <div id="emergingMarketsGrid" class="content-grid" style="margin-top: 20px;"></div>
             </div>
         </div>
     </main>
@@ -807,7 +903,7 @@
                 <div>
                     <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-cubes"></i> Platform</h4>
                     <div class="footer-links">
-                        <a href="index.html"><i class="fas fa-arrow-right"></i>Home</a>
+                        <a href="articles.html"><i class="fas fa-arrow-right"></i>Articles</a>
                         <a href="news.html"><i class="fas fa-arrow-right"></i>News</a>
                         <a href="contact-us.html"><i class="fas fa-arrow-right"></i>Contact</a>
                         <a href="publish.html"><i class="fas fa-arrow-right"></i>Publish</a>
@@ -841,142 +937,194 @@
     <script>
         AOS.init({ duration: 700, once: true });
 
-        // Economy Articles Database
-        const economyArticles = [
-            { id:1, category:'Global Markets', title:'Global Markets Rally on AI Optimism', desc:'Investors bullish on tech sector as Agentic AI drives productivity gains.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
+        // ARTICLES DATA (In-depth with description)
+        const articlesData = [
+            { id:1, category:'Global Markets', title:'Global Markets Rally on AI Optimism', desc:'Investors bullish on tech sector as Agentic AI drives productivity gains across industries.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
             { id:2, category:'Pakistan Economy', title:'Pakistan IT Exports Surge 38% YoY', desc:'Digital economy boom drives record $4.8 billion in IT exports for fiscal year 2026.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' },
-            { id:3, category:'Trade', title:'GCC Investment Wave: Opportunities for South Asia', desc:'Sovereign wealth funds targeting education and tech infrastructure.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
+            { id:3, category:'Trade', title:'GCC Investment Wave: Opportunities for South Asia', desc:'Sovereign wealth funds targeting education and tech infrastructure across the region.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
             { id:4, category:'Fiscal Policy', title:'Federal Reserve Signals Rate Cut by Mid-2026', desc:'Inflation cooling prompts dovish stance from central bank.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
             { id:5, category:'Emerging Markets', title:'Vietnam Emerges as Manufacturing Hub', desc:'Global supply chains diversify away from China.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1525625293386-3f2f0d4f0b1c?q=80&w=2070&auto=format' },
-            { id:6, category:'Pakistan Economy', title:'Pakistan\'s $500bn GDP Target: Roadmap to 2035', desc:'Structural reforms and export diversification strategies.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=2070&auto=format' },
-            { id:7, category:'Global Markets', title:'Bitcoin Hits New All-Time High Above $85,000', desc:'Institutional adoption and ETF inflows drive cryptocurrency rally.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=2070&auto=format' },
-            { id:8, category:'Trade', title:'US-China Trade Relations: A New Era of Competition', desc:'Tariffs, tech restrictions, and supply chain decoupling intensify.', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format' },
-            { id:9, category:'Fiscal Policy', title:'IMF Approves $3 Billion Package for Pakistan', desc:'Extended Fund Facility to support economic stabilization.', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' }
+            { id:6, category:'Pakistan Economy', title:'Pakistan\'s $500bn GDP Target: Roadmap to 2035', desc:'Structural reforms and export diversification strategies.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=2070&auto=format' }
         ];
 
-        const articlesGrid = document.getElementById('articlesGrid');
-        let activeCategory = 'all';
-        let currentSearchTerm = '';
+        // NEWS DATA (Simple: headline + date + image + category)
+        const newsData = [
+            { id:1, category:'Global Markets', headline:'S&P 500 Hits Record High on AI Optimism', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
+            { id:2, category:'Pakistan Economy', headline:'IMF Approves $3 Billion Package for Pakistan', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
+            { id:3, category:'Trade', headline:'US-China Trade Talks Resume with Positive Signals', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format' },
+            { id:4, category:'Fiscal Policy', headline:'ECB Holds Rates Steady as Eurozone Inflation Cools', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
+            { id:5, category:'Emerging Markets', headline:'Vietnam GDP Grows 6.8% in Q1 2026', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1525625293386-3f2f0d4f0b1c?q=80&w=2070&auto=format' },
+            { id:6, category:'Pakistan Economy', headline:'Pakistan\'s IT Exports Cross $4 Billion Mark', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' }
+        ];
 
-        function highlightText(text, term) {
-            if (!term || term.trim() === '') return text;
+        // Emerging Markets static cards
+        const emergingMarkets = [
+            { category:'Investment', title:'GCC Investment Wave: Opportunities for South Asia', desc:'Sovereign wealth funds targeting education, tech, and infrastructure across the region.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
+            { category:'Startups', title:'Venture Capital Trends in Emerging Markets 2026', desc:'Where smart money is flowing: AI, climate tech, and edtech sectors dominate.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
+            { category:'Energy', title:'Renewable Energy: The Next Trillion-Dollar Market', desc:'Investment opportunities in solar, wind, and battery storage across emerging economies.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2070&auto=format' }
+        ];
+
+        let currentMode = 'articles';
+        let activeCategory = 'all';
+        let globalSearchTerm = '';
+
+        function highlight(text, term) {
+            if (!term || !term.trim()) return text;
             const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
             return text.replace(regex, '<span class="highlight">$1</span>');
         }
 
-        function renderArticles() {
-            let filtered = economyArticles;
+        function renderContent() {
+            const container = document.getElementById('dynamicContentGrid');
+            let items = (currentMode === 'articles') ? [...articlesData] : [...newsData];
+            
             if (activeCategory !== 'all') {
-                filtered = filtered.filter(a => a.category === activeCategory);
+                items = items.filter(item => item.category === activeCategory);
             }
-            if (currentSearchTerm.trim() !== '') {
-                const searchLower = currentSearchTerm.toLowerCase().trim();
-                filtered = filtered.filter(a => 
-                    a.title.toLowerCase().includes(searchLower) || 
-                    a.desc.toLowerCase().includes(searchLower) ||
-                    a.category.toLowerCase().includes(searchLower)
-                );
+            if (globalSearchTerm.trim() !== '') {
+                const termLow = globalSearchTerm.toLowerCase();
+                items = items.filter(item => {
+                    if (currentMode === 'articles') {
+                        return item.title.toLowerCase().includes(termLow) || item.desc.toLowerCase().includes(termLow) || item.category.toLowerCase().includes(termLow);
+                    } else {
+                        return item.headline.toLowerCase().includes(termLow) || item.category.toLowerCase().includes(termLow);
+                    }
+                });
             }
-            
-            const searchInfo = document.getElementById('searchInfo');
-            const searchInfoText = document.getElementById('searchInfoText');
-            if (currentSearchTerm.trim() !== '') {
-                searchInfo.classList.add('active');
-                searchInfoText.innerHTML = `Showing ${filtered.length} result(s) for "${currentSearchTerm}"`;
+
+            const searchDiv = document.getElementById('searchInfo');
+            const searchSpan = document.getElementById('searchInfoText');
+            if (globalSearchTerm.trim()) {
+                searchDiv.classList.add('active');
+                searchSpan.innerHTML = `Showing ${items.length} result(s) for "${globalSearchTerm}" in ${currentMode === 'articles' ? 'Articles' : 'News'}`;
             } else {
-                searchInfo.classList.remove('active');
+                searchDiv.classList.remove('active');
             }
-            
-            if (filtered.length === 0) {
-                articlesGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-search"></i> No articles found. Try different keywords.</div>';
+
+            if (items.length === 0) {
+                container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-info-circle"></i> No content found. Try different keywords.</div>';
                 return;
             }
-            
+
             let html = '';
-            filtered.forEach(art => {
-                html += `<div class="news-card">
-                            <img class="card-img" src="${art.img}" alt="${art.category}">
+            if (currentMode === 'articles') {
+                items.forEach(art => {
+                    html += `<div class="content-card">
+                                <img class="card-img" src="${art.img}" alt="${art.title}">
+                                <div class="card-content">
+                                    <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
+                                    <div class="card-title">${highlight(art.title, globalSearchTerm)}</div>
+                                    <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
+                                    <p style="color:#b9c6e0;">${highlight(art.desc.substring(0, 100), globalSearchTerm)}...</p>
+                                    <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read full article <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>`;
+                });
+            } else {
+                items.forEach(news => {
+                    html += `<div class="news-card">
+                                <img class="news-img" src="${news.img}" alt="${news.headline}">
+                                <div class="news-content">
+                                    <div class="news-meta">
+                                        <span class="news-category"><i class="fas fa-tag"></i> ${news.category}</span>
+                                        <span class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</span>
+                                    </div>
+                                    <div class="news-headline">${highlight(news.headline, globalSearchTerm)}</div>
+                                    <a href="#" class="read-more">Read full news <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>`;
+                });
+            }
+            container.innerHTML = html;
+        }
+
+        function renderEmergingMarkets() {
+            const container = document.getElementById('emergingMarketsGrid');
+            let html = '';
+            emergingMarkets.forEach(item => {
+                html += `<div class="content-card">
+                            <img class="card-img" src="${item.img}" alt="${item.title}">
                             <div class="card-content">
-                                <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
-                                <div class="card-title">${highlightText(art.title, currentSearchTerm)}</div>
-                                <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
-                                <p style="color: #b9c6e0;">${highlightText(art.desc, currentSearchTerm)}</p>
-                                <a href="#" style="color: #D4AF37; font-weight: 600; display: inline-block; margin-top: 12px;">Read more <i class="fas fa-arrow-right"></i></a>
+                                <div class="card-category"><i class="fas fa-tag"></i> ${item.category}</div>
+                                <div class="card-title">${item.title}</div>
+                                <div class="card-date"><i class="far fa-calendar-alt"></i> ${item.date}</div>
+                                <p style="color:#b9c6e0;">${item.desc}</p>
+                                <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read more <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>`;
             });
-            articlesGrid.innerHTML = html;
+            container.innerHTML = html;
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderContent();
+            const mobileSelect = document.getElementById('mobileCategorySelect');
+            if (mobileSelect) mobileSelect.value = cat;
+            document.querySelectorAll('.cat-pill').forEach(p => {
+                if (p.getAttribute('data-cat') === cat) {
+                    document.querySelectorAll('.cat-pill').forEach(p2 => p2.classList.remove('active'));
+                    p.classList.add('active');
+                }
+            });
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            const btnArt = document.getElementById('tabArticlesBtn');
+            const btnNews = document.getElementById('tabNewsBtn');
+            if (mode === 'articles') {
+                btnArt.classList.add('active');
+                btnNews.classList.remove('active');
+            } else {
+                btnNews.classList.add('active');
+                btnArt.classList.remove('active');
+            }
+            renderContent();
         }
 
         function performSearch(term) {
-            currentSearchTerm = term;
-            renderArticles();
+            globalSearchTerm = term;
+            renderContent();
+            const desktopInput = document.getElementById('navbarSearchInput');
+            const mobileInput = document.getElementById('mobileSearchInput');
+            if (desktopInput) desktopInput.value = term;
+            if (mobileInput) mobileInput.value = term;
         }
 
-        // Desktop search
+        // Event Listeners
+        document.getElementById('tabArticlesBtn').addEventListener('click', () => setMode('articles'));
+        document.getElementById('tabNewsBtn').addEventListener('click', () => setMode('news'));
+        
         const navbarSearchInput = document.getElementById('navbarSearchInput');
         const navbarSearchBtn = document.getElementById('navbarSearchBtn');
         navbarSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
         navbarSearchBtn.addEventListener('click', () => performSearch(navbarSearchInput.value));
-
-        // Mobile search
+        
         const mobileSearchInput = document.getElementById('mobileSearchInput');
         const mobileSearchBtn = document.getElementById('mobileSearchBtn');
-        mobileSearchInput.addEventListener('input', (e) => { performSearch(e.target.value); navbarSearchInput.value = e.target.value; });
-        mobileSearchBtn.addEventListener('click', () => { performSearch(mobileSearchInput.value); navbarSearchInput.value = mobileSearchInput.value; });
-
-        // Category filters
+        mobileSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
+        mobileSearchBtn.addEventListener('click', () => performSearch(mobileSearchInput.value));
+        
         document.querySelectorAll('.cat-pill').forEach(pill => {
             pill.addEventListener('click', function() {
-                document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                this.classList.add('active');
-                activeCategory = this.getAttribute('data-cat');
-                renderArticles();
-                const mobileSelect = document.getElementById('mobileCategorySelect');
-                if (mobileSelect) mobileSelect.value = activeCategory;
+                setCategory(this.getAttribute('data-cat'));
             });
         });
-
-        const mobileSelect = document.getElementById('mobileCategorySelect');
-        if (mobileSelect) {
-            mobileSelect.addEventListener('change', function() {
-                activeCategory = this.value;
-                renderArticles();
-                document.querySelectorAll('.cat-pill').forEach(pill => {
-                    if (pill.getAttribute('data-cat') === activeCategory) {
-                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                    } else if (activeCategory === 'all' && pill.getAttribute('data-cat') === 'all') {
-                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Mobile menu
+        const mobileCat = document.getElementById('mobileCategorySelect');
+        if (mobileCat) mobileCat.addEventListener('change', (e) => setCategory(e.target.value));
+        
+        // Mobile menu toggle
         const hamburger = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('menuOverlay');
-        function toggleMenu() {
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            const icon = hamburger.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
-        if (hamburger) {
-            hamburger.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-        }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) toggleMenu(); });
-
-        renderArticles();
+        function toggleMobile() { mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); }
+        hamburger?.addEventListener('click', toggleMobile);
+        overlay?.addEventListener('click', toggleMobile);
+        
+        // Render everything
+        setMode('articles');
+        renderEmergingMarkets();
     </script>
 </body>
 </html>

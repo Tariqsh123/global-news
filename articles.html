@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Latest News – GBER | Business, Education and Technology Updates</title>
-<meta name="description" content="Comprehensive coverage of global business, education, AI, economy, and technology news from GBER.">
-<meta name="keywords" content="GBER news, business news, education news, AI news, global economy">
+<title>Articles – GBER | Business, Education and Technology Insights</title>
+<meta name="description" content="Explore expert-written articles on business, education, AI, economy, and technology from GBER.">
+<meta name="keywords" content="GBER articles, business insights, education articles, AI, economy, technology">
 
 <!-- Favicon & Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.webp">
@@ -29,23 +29,28 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Latest News – GBER | Business, Education and Technology Updates">
-<meta property="og:description" content="Comprehensive coverage of global business, education, AI, economy, and technology news from GBER.">
-<meta property="og:url" content="https://gberjournal.com/news.html">
+<meta property="og:title" content="Articles – GBER | Business, Education and Technology Insights">
+<meta property="og:description" content="Explore expert-written articles on business, education, AI, economy, and technology from GBER.">
+<meta property="og:url" content="https://gberjournal.com/articles.html">
 <meta property="og:image" content="https://gberjournal.com/images/logo-color.webp">
 <meta property="og:site_name" content="Global Business and Education Review (GBER)">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Latest News – GBER | Business, Education and Technology Updates">
-<meta name="twitter:description" content="Comprehensive coverage of global business, education, AI, economy, and technology news from GBER.">
+<meta name="twitter:title" content="Articles – GBER | Business, Education and Technology Insights">
+<meta name="twitter:description" content="Explore expert-written articles on business, education, AI, economy, and technology from GBER.">
 <meta name="twitter:image" content="https://gberjournal.com/images/logo-color.webp">
 <meta name="twitter:site" content="@GBER_Official">
-<meta name="robots" content="noindex, nofollow" >
+
+<!-- Robots -->
+<meta name="robots" content="index, follow">
+
+<!-- Author & Publisher -->
 <meta name="author" content="Global Business and Education Review (GBER)">
 <meta name="publisher" content="Global Business and Education Review (GBER)">
+
 <!-- Canonical URL -->
-<link rel="canonical" href="https://gberjournal.com/news.html">
+<link rel="canonical" href="https://gberjournal.com/articles.html">
 
 <!-- Structured Data: Organization -->
 <script type="application/ld+json">
@@ -55,7 +60,11 @@
   "name": "Global Business and Education Review (GBER)",
   "url": "https://gberjournal.com",
   "logo": "https://gberjournal.com/images/logo-color.webp",
-  "sameAs": [""]
+  "sameAs": [
+    "https://www.facebook.com/GBER",
+    "https://twitter.com/GBER_Official",
+    "https://www.linkedin.com/company/gber"
+  ]
 }
 </script>
 
@@ -64,9 +73,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Latest News – GBER",
-  "url": "https://gberjournal.com/news.html",
-  "description": "Comprehensive coverage of global business, education, AI, economy, and technology news from GBER.",
+  "name": "Articles – GBER",
+  "url": "https://gberjournal.com/articles.html",
+  "description": "Explore expert-written articles on business, education, AI, economy, and technology from GBER.",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -79,8 +88,8 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "News",
-        "item": "https://gberjournal.com/news.html"
+        "name": "Articles",
+        "item": "https://gberjournal.com/articles.html"
       }
     ]
   }
@@ -466,41 +475,40 @@
         }
         .search-info.active { display: block; }
 
-        /* News Grid - Clean, Simple News Cards (Image + Headline + Date + Category) */
-        .news-grid {
+        /* Articles Grid */
+        .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 32px;
             margin: 40px 0 30px;
         }
-        .news-card {
+        .article-card {
             background: var(--navy-card);
             border-radius: 24px;
             overflow: hidden;
             transition: 0.3s;
             border: 1px solid var(--gray-border);
         }
-        .news-card:hover {
+        .article-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold-primary);
         }
-        .news-card-img {
+        .article-img {
             width: 100%;
             height: 220px;
             object-fit: cover;
         }
-        .news-card-content {
+        .article-content {
             padding: 24px;
         }
-        .news-meta {
+        .article-meta {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 14px;
+            gap: 12px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
-            gap: 8px;
         }
-        .news-category {
+        .article-category {
             background: rgba(212, 175, 55, 0.15);
             color: var(--gold-primary);
             font-size: 0.7rem;
@@ -510,17 +518,21 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .news-date {
+        .article-date {
             color: var(--text-muted);
             font-size: 0.75rem;
         }
-        .news-card h3 {
+        .article-card h3 {
             color: white;
-            font-size: 1.35rem;
-            margin-bottom: 16px;
-            line-height: 1.35;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .article-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            line-height: 1.5;
         }
         .read-more {
             color: var(--gold-primary);
@@ -528,13 +540,11 @@
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: gap 0.2s;
-            font-size: 0.9rem;
-            margin-top: 8px;
         }
         .read-more:hover {
-            gap: 12px;
+            gap: 10px;
         }
         .highlight {
             background-color: rgba(212, 175, 55, 0.3);
@@ -646,7 +656,7 @@
         }
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2.2rem; }
-            .news-grid { grid-template-columns: 1fr; }
+            .articles-grid { grid-template-columns: 1fr; }
             .footer-grid {
                 display: flex;
                 flex-direction: column;
@@ -686,7 +696,7 @@
                 <li><a href="publish.html">Publish</a></li>
             </ul>
             <div class="nav-search">
-                <input type="text" id="navbarSearchInput" placeholder="Search news...">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
                 <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
             </div>
             <a href="account.html" class="user-icon" id="userIconBtn">
@@ -709,7 +719,7 @@
             <li><a href="account.html">Account</a></li>
         </ul>
         <div class="mobile-search">
-            <input type="text" id="mobileSearchInput" placeholder="Search news...">
+            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
             <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
         </div>
     </div>
@@ -719,8 +729,8 @@
         <div class="container">
             <!-- Page Header -->
             <div class="page-header" data-aos="fade-up">
-                <h1><i class="fas fa-newspaper"></i> Latest News</h1>
-                <p>Breaking updates on global business, education, AI technology, economy, and leadership</p>
+                <h1><i class="fas fa-newspaper"></i> All Articles</h1>
+                <p>Expert-written insights on business strategy, education innovation, AI technology, global economy, and leadership</p>
             </div>
 
             <!-- Desktop Filter Section -->
@@ -736,7 +746,7 @@
                         <button class="filter-btn" data-filter="Leadership"><i class="fas fa-crown"></i> Leadership</button>
                     </div>
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search news...">
+                        <input type="text" id="searchInput" placeholder="Search articles...">
                         <button id="searchBtn"><i class="fas fa-search"></i> Go</button>
                     </div>
                 </div>
@@ -745,12 +755,12 @@
             <!-- Mobile Category Dropdown -->
             <div class="mobile-category-dropdown" id="mobileCategoryDropdown">
                 <select id="mobileCategorySelect">
-                    <option value="all">📰 All Topics</option>
-                    <option value="Business">💼 Business</option>
-                    <option value="Education">🎓 Education</option>
-                    <option value="AI & Tech">🤖 AI & Tech</option>
-                    <option value="Economy">🌍 Economy</option>
-                    <option value="Leadership">👑 Leadership</option>
+                    <option value="all"><i class="fas fa-globe"></i> All Topics</option>
+                    <option value="Business"><i class="fas fa-briefcase"></i> Business</option>
+                    <option value="Education"><i class="fas fa-graduation-cap"></i> Education</option>
+                    <option value="AI & Tech"><i class="fas fa-microchip"></i> AI & Tech</option>
+                    <option value="Economy"><i class="fas fa-chart-line"></i> Economy</option>
+                    <option value="Leadership"><i class="fas fa-crown"></i> Leadership</option>
                 </select>
             </div>
 
@@ -759,13 +769,13 @@
                 <i class="fas fa-search"></i> <span id="searchInfoText"></span>
             </div>
 
-            <!-- News Grid - Only News Items (Headline + Date + Image + Category) -->
-            <div class="news-grid" id="newsGrid" data-aos="fade-up"></div>
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articlesGrid" data-aos="fade-up"></div>
             
             <!-- View More Button -->
             <div class="view-more-container">
                 <button class="view-more-btn" id="viewMoreBtn">
-                    <span>View More News</span>
+                    <span>View More Articles</span>
                     <i class="fas fa-arrow-down"></i>
                 </button>
             </div>
@@ -822,30 +832,29 @@
     <script>
         AOS.init({ duration: 700, once: true });
 
-        // NEWS DATABASE - Only news items (headline, date, image, category)
-        // No long descriptions - clean and concise for news section
-        const allNews = [
-            { id:1, category:'Business', headline:'GBER Partners with MIT Sloan for AI Research Initiative', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format' },
-            { id:2, category:'AI & Tech', headline:'OpenAI Launches Agentic Framework for Enterprises', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
-            { id:3, category:'Economy', headline:'Pakistan IT Exports Cross $4 Billion Mark in Q1 2026', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' },
-            { id:4, category:'Education', headline:'UNESCO Endorses GBER Future Skills Framework', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format' },
-            { id:5, category:'Startup', headline:'Pakistani Fintech Startup Raises $50M Series B', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
-            { id:6, category:'Leadership', headline:'Women in Leadership Summit 2026 Announced', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
-            { id:7, category:'AI & Tech', headline:'Google DeepMind Unveils Next-Gen AI Model Gemini Ultra', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format' },
-            { id:8, category:'Business', headline:'Saudi PIF Announces $10B Investment in Asian Tech Startups', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
-            { id:9, category:'Education', headline:'Harvard Launches Free AI Literacy Program for Educators', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format' },
-            { id:10, category:'Economy', headline:'IMF Approves $3 Billion Package for Pakistan Economic Reforms', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
-            { id:11, category:'AI & Tech', headline:'EU Passes Landmark AI Liability Directive', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
-            { id:12, category:'Business', headline:'Tesla Announces $5B Gigafactory in Saudi Arabia', date:'Mar 15, 2026', img:'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format' },
-            { id:13, category:'Education', headline:'Global EdTech Market to Reach $500B by 2030', date:'Mar 14, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
-            { id:14, category:'Leadership', headline:'Microsoft CEO Satya Nadella Shares Vision for AI-Augmented Workforce', date:'Mar 13, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
-            { id:15, category:'Economy', headline:'GCC Announces $50B Climate Tech Investment Fund', date:'Mar 12, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
-            { id:16, category:'AI & Tech', headline:'China Launches National AI Robotics Initiative', date:'Mar 11, 2026', img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format' },
-            { id:17, category:'Business', headline:'Amazon Acquires AI Logistics Startup for $2.5B', date:'Mar 10, 2026', img:'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format' },
-            { id:18, category:'Education', headline:'Dubai Launches World\'s First AI-Integrated School District', date:'Mar 9, 2026', img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format' }
+        // Articles database - only article content (full details: title, description, date, image)
+        const articlesData = [
+            { id:1, category:'Business', title:'Agentic AI in Corporate Strategy', desc:'How autonomous agents optimize supply chains, M&A, and strategic decision-making for global enterprises. A deep dive into AI-driven business transformation.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format' },
+            { id:2, category:'Education', title:'The Future Classroom: AI Tutors & Emotional Intelligence', desc:'Blending artificial and emotional intelligence for holistic learning outcomes in K-12 and higher education. Research-backed insights on personalized learning.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format' },
+            { id:3, category:'AI & Tech', title:'Why Agentic AI Will Replace Traditional Automation by 2030', desc:'From rule-based bots to goal-driven agents with reasoning and autonomous decision-making capabilities. Analysis of the AI evolution trajectory.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
+            { id:4, category:'Economy', title:'Pakistan Economy: $500bn GDP Target by 2035', desc:'Structural reforms, export diversification, and tech-led growth strategies for emerging markets. Comprehensive economic roadmap analysis.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' },
+            { id:5, category:'Business', title:'Top 15 Pakistani Startups to Watch in 2026', desc:'Edtech, fintech, healthtech, and AI ventures raising global attention and investment. Exclusive startup ecosystem report.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
+            { id:6, category:'Leadership', title:'Future of Leadership: Managing AI-Augmented Teams', desc:'How executives adapt to lead human-AI hybrid workforces in the new economy. Insights from 50+ global leaders.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
+            { id:7, category:'Education', title:'The End of Traditional Classrooms: Smart Learning Ecosystems', desc:'Hybrid models, emotional intelligence, and the evolution of mentorship in education. Future-ready school frameworks.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
+            { id:8, category:'AI & Tech', title:'AI Ethics & Governance: Global Regulatory Landscape 2026', desc:'How policymakers balance innovation and accountability in artificial intelligence. Comparative analysis of EU, US, and Asia frameworks.', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
+            { id:9, category:'Economy', title:'GCC Investment Wave: Opportunities for South Asia', desc:'Sovereign wealth funds targeting education and tech infrastructure across the region. Investment thesis for 2026-2030.', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
+            { id:10, category:'Business', title:'Venture Capital Trends in Emerging Markets 2026', desc:'Where smart money is flowing: AI, climate tech, and edtech sectors. Detailed VC funding analysis with predictions.', date:'Mar 15, 2026', img:'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format' },
+            { id:11, category:'Leadership', title:'CEO Insights: Leading Through AI Disruption', desc:'Exclusive interviews with 25 global executives on strategy, culture, and transformation during technological shifts.', date:'Mar 14, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
+            { id:12, category:'Education', title:'Micro-Credentials & Lifelong Learning: The New Higher Ed', desc:'How universities adapt to skill-based economy and industry partnerships. The rise of stackable credentials.', date:'Mar 13, 2026', img:'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format' },
+            { id:13, category:'AI & Tech', title:'Quantum Computing Breakthrough: What It Means for Business', desc:'New developments in quantum processors and their implications for finance, logistics, and cybersecurity.', date:'Mar 12, 2026', img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format' },
+            { id:14, category:'Economy', title:'Global Inflation Report: Central Banks Navigate Soft Landing', desc:'Analysis of monetary policies and economic outlook for 2026-2027 across major economies.', date:'Mar 11, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
+            { id:15, category:'Business', title:'Sustainable Business Models: ESG Investment Trends', desc:'How companies are integrating environmental and social governance into core strategy. ROI of sustainability.', date:'Mar 10, 2026', img:'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format' },
+            { id:16, category:'AI & Tech', title:'Generative AI in Enterprise: Beyond ChatGPT', desc:'Custom LLMs, industry-specific applications, and ROI analysis for corporate AI adoption.', date:'Mar 9, 2026', img:'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format' },
+            { id:17, category:'Leadership', title:'Diversity & Inclusion in the AI Era', desc:'Building equitable workplaces while leveraging AI for unbiased hiring and promotion decisions.', date:'Mar 8, 2026', img:'https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2070&auto=format' },
+            { id:18, category:'Education', title:'Gamification in Learning: Engagement Metrics 2026', desc:'How game design principles boost student motivation and knowledge retention in digital classrooms.', date:'Mar 7, 2026', img:'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format' }
         ];
 
-        const newsGrid = document.getElementById('newsGrid');
+        const articlesGrid = document.getElementById('articlesGrid');
         let activeCategory = 'all';
         let currentSearchTerm = '';
         let visibleCount = 9;
@@ -856,57 +865,59 @@
             return text.replace(regex, '<span class="highlight">$1</span>');
         }
 
-        function filterNews() {
-            let filtered = allNews;
+        function filterArticles() {
+            let filtered = articlesData;
             if (activeCategory !== 'all') {
                 filtered = filtered.filter(item => item.category === activeCategory);
             }
             if (currentSearchTerm.trim() !== '') {
                 const searchLower = currentSearchTerm.toLowerCase().trim();
                 filtered = filtered.filter(item => 
-                    item.headline.toLowerCase().includes(searchLower) || 
+                    item.title.toLowerCase().includes(searchLower) || 
+                    item.desc.toLowerCase().includes(searchLower) ||
                     item.category.toLowerCase().includes(searchLower)
                 );
             }
             return filtered;
         }
 
-        function renderNews() {
-            const filtered = filterNews();
-            const visibleNews = filtered.slice(0, visibleCount);
+        function renderArticles() {
+            const filtered = filterArticles();
+            const visibleArticles = filtered.slice(0, visibleCount);
             
             const searchInfo = document.getElementById('searchInfo');
             const searchInfoText = document.getElementById('searchInfoText');
             if (currentSearchTerm.trim() !== '') {
                 searchInfo.classList.add('active');
-                searchInfoText.innerHTML = `Showing ${filtered.length} news result(s) for "${currentSearchTerm}"`;
+                searchInfoText.innerHTML = `Showing ${filtered.length} article(s) for "${currentSearchTerm}"`;
             } else {
                 searchInfo.classList.remove('active');
             }
             
             if (filtered.length === 0) {
-                newsGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-newspaper" style="font-size:3rem; opacity:0.4; margin-bottom:20px;"></i><p>No news articles match your criteria.</p></div>';
+                articlesGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-book-open" style="font-size:3rem; opacity:0.4; margin-bottom:20px;"></i><p>No articles match your criteria.</p></div>';
                 document.getElementById('viewMoreBtn').style.display = 'none';
                 return;
             }
 
             let html = '';
-            visibleNews.forEach(item => {
+            visibleArticles.forEach(item => {
                 html += `
-                    <article class="news-card">
-                        <img class="news-card-img" src="${item.img}" alt="${item.headline}">
-                        <div class="news-card-content">
-                            <div class="news-meta">
-                                <span class="news-category"><i class="fas fa-tag"></i> ${item.category}</span>
-                                <span class="news-date"><i class="far fa-calendar-alt"></i> ${item.date}</span>
+                    <article class="article-card">
+                        <img class="article-img" src="${item.img}" alt="${item.title}">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-tag"></i> ${item.category}</span>
+                                <span class="article-date"><i class="far fa-calendar-alt"></i> ${item.date}</span>
                             </div>
-                            <h3>${highlightText(item.headline, currentSearchTerm)}</h3>
-                            <a href="#" class="read-more">Read full news <i class="fas fa-arrow-right"></i></a>
+                            <h3>${highlightText(item.title, currentSearchTerm)}</h3>
+                            <p class="article-description">${highlightText(item.desc, currentSearchTerm)}</p>
+                            <a href="#" class="read-more">Read full article <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
                 `;
             });
-            newsGrid.innerHTML = html;
+            articlesGrid.innerHTML = html;
             
             const viewMoreBtn = document.getElementById('viewMoreBtn');
             if (visibleCount >= filtered.length) {
@@ -918,14 +929,14 @@
             document.querySelectorAll('.read-more').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    alert('Full news article would open here (demo)');
+                    alert('Full article would open here (demo)');
                 });
             });
         }
 
         function updateSearchAndFilter() {
             visibleCount = 9;
-            renderNews();
+            renderArticles();
         }
 
         // Desktop filter buttons
@@ -966,6 +977,8 @@
             updateSearchAndFilter();
             const mobileSearchInput = document.getElementById('mobileSearchInput');
             if (mobileSearchInput) mobileSearchInput.value = currentSearchTerm;
+            const navbarSearchInput = document.getElementById('navbarSearchInput');
+            if (navbarSearchInput) navbarSearchInput.value = currentSearchTerm;
         }
         searchBtn.addEventListener('click', performDesktopSearch);
         searchInput.addEventListener('keyup', e => { if (e.key === 'Enter') performDesktopSearch(); });
@@ -977,6 +990,8 @@
             currentSearchTerm = mobileSearchInput.value;
             updateSearchAndFilter();
             if (searchInput) searchInput.value = currentSearchTerm;
+            const navbarSearchInput = document.getElementById('navbarSearchInput');
+            if (navbarSearchInput) navbarSearchInput.value = currentSearchTerm;
         }
         if (mobileSearchBtn) mobileSearchBtn.addEventListener('click', performMobileSearch);
         if (mobileSearchInput) mobileSearchInput.addEventListener('keyup', e => { if (e.key === 'Enter') performMobileSearch(); });
@@ -998,7 +1013,7 @@
         const viewMoreBtn = document.getElementById('viewMoreBtn');
         viewMoreBtn.addEventListener('click', function() {
             visibleCount += 6;
-            renderNews();
+            renderArticles();
         });
 
         // Mobile menu toggle
@@ -1024,7 +1039,7 @@
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) toggleMenu(); });
         
         // Active link highlighting
-        const currentPath = window.location.pathname.split('/').pop() || 'news.html';
+        const currentPath = window.location.pathname.split('/').pop() || 'articles.html';
         document.querySelectorAll('.nav-menu a, .mobile-menu a').forEach(link => {
             const href = link.getAttribute('href');
             if (href === currentPath || (currentPath === '' && href === 'index.html')) {
@@ -1038,7 +1053,7 @@
         });
         
         // Initial render
-        renderNews();
+        renderArticles();
     </script>
 </body>
 </html>

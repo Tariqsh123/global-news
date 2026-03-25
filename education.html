@@ -2,19 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GBER | Education Innovation — Future of Learning & Teaching</title>
-    <meta name="description" content="GBER Education: Latest insights on future skills, AI in education, curriculum innovation, university transformation, and next-gen learning methodologies.">
-    <meta name="keywords" content="education innovation, future skills, AI in education, curriculum transformation, EdTech, learning methodologies, GBER education">
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="images/favicon.webp">
-    <link rel="shortcut icon" type="image/webp" href="images/favicon.webp">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Education – GBER | Global Education Trends, Innovation and Future Skills</title>
+<meta name="description" content="GBER Education: Latest insights on future skills, AI in education, curriculum innovation, university transformation, and next-gen learning methodologies.">
+<meta name="keywords" content="education innovation, future skills, AI in education, curriculum transformation, EdTech, learning methodologies, GBER education">
+
+<!-- Favicon & Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.webp">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.webp">
+<link rel="manifest" href="images/favicon.webp">
+<link rel="mask-icon" href="images/favicon.webp" color="#5bbad5">
+<link rel="shortcut icon" href="images/favicon.webp">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="images/favicon.webp">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex, nofollow" >
+<meta name="author" content="Global Business and Education Review (GBER)">
+<meta name="publisher" content="Global Business and Education Review (GBER)">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome 6 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Education – GBER | Global Education Trends, Innovation and Future Skills">
+<meta property="og:description" content="GBER Education: Latest insights on future skills, AI in education, curriculum innovation, university transformation, and next-gen learning methodologies.">
+<meta property="og:url" content="https://gberjournal.com/education.html">
+<meta property="og:image" content="https://gberjournal.com/images/logo-color.webp">
+<meta property="og:site_name" content="Global Business and Education Review (GBER)">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Education – GBER | Global Education Trends, Innovation and Future Skills">
+<meta name="twitter:description" content="GBER Education: Latest insights on future skills, AI in education, curriculum innovation, university transformation, and next-gen learning methodologies.">
+<meta name="twitter:image" content="https://gberjournal.com/images/logo-color.webp">
+<meta name="twitter:site" content="@GBER_Official">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://gberjournal.com/education.html">
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Global Business and Education Review (GBER)",
+  "url": "https://gberjournal.com",
+  "logo": "https://gberjournal.com/images/logo-color.webp",
+  "sameAs": [""]
+}
+</script>
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Education – GBER",
+  "url": "https://gberjournal.com/education.html",
+  "description": "GBER Education: Latest insights on future skills, AI in education, curriculum innovation, university transformation, and next-gen learning methodologies.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gberjournal.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Education",
+        "item": "https://gberjournal.com/education.html"
+      }
+    ]
+  }
+}
+</script>
     <style>
         * {
             margin: 0;
@@ -268,13 +339,42 @@
             margin: 0 auto;
         }
 
+        /* Tab Switcher */
+        .tab-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid var(--gray-border);
+            padding-bottom: 16px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 10px 32px;
+            border-radius: 50px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: 0.25s;
+            font-family: 'Playfair Display', serif;
+        }
+        .tab-btn i { margin-right: 10px; }
+        .tab-btn.active {
+            background: var(--gold-primary);
+            color: #0A0C12;
+            box-shadow: 0 6px 14px rgba(212,175,55,0.3);
+        }
+        .tab-btn:not(.active):hover { color: var(--gold-primary); background: rgba(212,175,55,0.1); }
+
         /* Category Pills */
         .categories-bar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin: 30px 0 40px;
+            margin: 20px 0 40px;
         }
         .cat-pill {
             background: #1A2332;
@@ -372,21 +472,21 @@
             line-height: 1.3;
         }
 
-        /* Article Grid */
-        .articles-grid {
+        /* Content Grid - for both Articles and News */
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 32px;
             margin: 40px 0;
         }
-        .news-card {
+        .content-card {
             background: var(--navy-card);
             border-radius: 24px;
             overflow: hidden;
             transition: 0.3s;
             border: 1px solid var(--gray-border);
         }
-        .news-card:hover {
+        .content-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold-primary);
         }
@@ -421,6 +521,58 @@
             border-radius: 4px;
         }
 
+        /* News Simple Card */
+        .news-card {
+            background: var(--navy-card);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid var(--gray-border);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content { padding: 24px; }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .news-category {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+        .news-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .news-headline {
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin: 8px 0 16px;
+            line-height: 1.3;
+        }
+        .read-more {
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.85rem;
+        }
+
         /* Global Education Index Dashboard */
         .index-dashboard {
             background: var(--navy-card);
@@ -450,10 +602,6 @@
             font-weight: 800;
             color: var(--gold-primary);
             margin: 12px 0;
-        }
-        .index-country {
-            font-size: 1.1rem;
-            font-weight: 600;
         }
 
         /* Future Skills Section */
@@ -557,6 +705,7 @@
             }
             .categories-bar { display: none; }
             .mobile-category-dropdown { display: block; }
+            .tab-btn { font-size: 1rem; padding: 6px 18px; }
         }
         @media (max-width: 900px) {
             .nav-menu, .nav-search, .user-icon { display: none; }
@@ -582,7 +731,7 @@
                 <img class="logo-img" src="images/logo-white.webp" alt="GBER Logo" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="articles.html">Articles</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="business.html">Business</a></li>
                 <li><a href="education.html">Education</a></li>
@@ -592,7 +741,7 @@
                 <li><a href="publish.html">Publish</a></li>
             </ul>
             <div class="nav-search">
-                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles & news...">
                 <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
             </div>
             <a href="account.html" class="user-icon" id="userIconBtn">
@@ -604,7 +753,7 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="business.html">Business</a></li>
             <li><a href="education.html">Education</a></li>
@@ -615,7 +764,7 @@
             <li><a href="account.html">Account</a></li>
         </ul>
         <div class="mobile-search">
-            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+            <input type="text" id="mobileSearchInput" placeholder="Search...">
             <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
         </div>
     </div>
@@ -627,6 +776,12 @@
             <div class="page-header" data-aos="fade-up">
                 <h1><i class="fas fa-graduation-cap"></i> Education Innovation</h1>
                 <p>Future skills, AI-powered learning, curriculum transformation, and the evolution of global education systems.</p>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="tab-switcher" data-aos="fade-up">
+                <button class="tab-btn active" id="tabArticlesBtn"><i class="fas fa-newspaper"></i> In-Depth Articles</button>
+                <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
             <!-- Category Pills - Desktop -->
@@ -684,70 +839,26 @@
             <div class="index-dashboard" data-aos="fade-up">
                 <h2 class="dashboard-title"><i class="fas fa-chart-simple"></i> Global Education Innovation Index 2026</h2>
                 <div class="index-grid">
-                    <div class="index-card">
-                        <i class="fas fa-trophy" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="index-rank">#1</div>
-                        <div class="index-country">Singapore</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Score: 94.2</div>
-                    </div>
-                    <div class="index-card">
-                        <i class="fas fa-medal" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="index-rank">#2</div>
-                        <div class="index-country">Finland</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Score: 92.8</div>
-                    </div>
-                    <div class="index-card">
-                        <i class="fas fa-medal" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="index-rank">#3</div>
-                        <div class="index-country">Estonia</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Score: 89.5</div>
-                    </div>
-                    <div class="index-card">
-                        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i>
-                        <div class="index-rank">#8</div>
-                        <div class="index-country">UAE</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Score: 82.3</div>
-                    </div>
+                    <div class="index-card"><i class="fas fa-trophy" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="index-rank">#1</div><div class="index-country">Singapore</div><div style="font-size: 0.8rem;">Score: 94.2</div></div>
+                    <div class="index-card"><i class="fas fa-medal" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="index-rank">#2</div><div class="index-country">Finland</div><div style="font-size: 0.8rem;">Score: 92.8</div></div>
+                    <div class="index-card"><i class="fas fa-medal" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="index-rank">#3</div><div class="index-country">Estonia</div><div style="font-size: 0.8rem;">Score: 89.5</div></div>
+                    <div class="index-card"><i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i><div class="index-rank">#8</div><div class="index-country">UAE</div><div style="font-size: 0.8rem;">Score: 82.3</div></div>
                 </div>
             </div>
 
-            <!-- Articles Grid -->
-            <div class="articles-grid" id="articlesGrid" data-aos="fade-up"></div>
+            <!-- Dynamic Content Grid (Articles or News) -->
+            <div id="dynamicContentGrid" class="content-grid" data-aos="fade-up"></div>
 
             <!-- Future Skills Section -->
             <div class="skills-section" data-aos="fade-up">
                 <h2 style="font-size: 1.8rem; text-align: center;"><i class="fas fa-brain"></i> Top 5 Future Skills for 2030</h2>
                 <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="fas fa-microchip"></i>
-                        <h3>AI Literacy</h3>
-                        <p>Understanding, working with, and managing AI systems across industries.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-users"></i>
-                        <h3>Emotional Intelligence</h3>
-                        <p>Human skills that AI cannot replicate: empathy, leadership, collaboration.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Critical Thinking</h3>
-                        <p>Evaluating information, solving complex problems, making ethical decisions.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Data Literacy</h3>
-                        <p>Interpreting and making decisions based on data-driven insights.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-globe"></i>
-                        <h3>Global & Cultural Competency</h3>
-                        <p>Navigating diverse, multicultural work environments effectively.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-sync-alt"></i>
-                        <h3>Adaptability & Resilience</h3>
-                        <p>Continuous learning and thriving in rapidly changing environments.</p>
-                    </div>
+                    <div class="skill-card"><i class="fas fa-microchip"></i><h3>AI Literacy</h3><p>Understanding, working with, and managing AI systems across industries.</p></div>
+                    <div class="skill-card"><i class="fas fa-users"></i><h3>Emotional Intelligence</h3><p>Human skills that AI cannot replicate: empathy, leadership, collaboration.</p></div>
+                    <div class="skill-card"><i class="fas fa-lightbulb"></i><h3>Critical Thinking</h3><p>Evaluating information, solving complex problems, making ethical decisions.</p></div>
+                    <div class="skill-card"><i class="fas fa-chart-line"></i><h3>Data Literacy</h3><p>Interpreting and making decisions based on data-driven insights.</p></div>
+                    <div class="skill-card"><i class="fas fa-globe"></i><h3>Global & Cultural Competency</h3><p>Navigating diverse, multicultural work environments effectively.</p></div>
+                    <div class="skill-card"><i class="fas fa-sync-alt"></i><h3>Adaptability & Resilience</h3><p>Continuous learning and thriving in rapidly changing environments.</p></div>
                 </div>
             </div>
 
@@ -772,35 +883,7 @@
             <!-- EdTech Section -->
             <div class="featured-section">
                 <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-laptop-code"></i> EdTech Insights</h2>
-                <div class="articles-grid" style="margin-top: 20px;">
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format" alt="EdTech">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-laptop-code"></i> EdTech</div>
-                            <h3 class="card-title">AI Mentors: Personalized Learning at Scale</h3>
-                            <div class="card-date">March 22, 2026</div>
-                            <p>How AI-powered tutoring systems are achieving 30% faster learning outcomes.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format" alt="EdTech">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-chart-line"></i> EdTech</div>
-                            <h3 class="card-title">Global EdTech Investment Surges 62% YoY</h3>
-                            <div class="card-date">March 20, 2026</div>
-                            <p>Record $12.5B invested in education technology startups in Q1 2026.</p>
-                        </div>
-                    </div>
-                    <div class="news-card">
-                        <img class="card-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format" alt="EdTech">
-                        <div class="card-content">
-                            <div class="card-category"><i class="fas fa-graduation-cap"></i> EdTech</div>
-                            <h3 class="card-title">Micro-Credentials: The New Higher Education</h3>
-                            <div class="card-date">March 18, 2026</div>
-                            <p>How universities are adapting to skill-based economy demands.</p>
-                        </div>
-                    </div>
-                </div>
+                <div id="edtechGrid" class="content-grid" style="margin-top: 20px;"></div>
             </div>
         </div>
     </main>
@@ -821,7 +904,7 @@
                 <div>
                     <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-cubes"></i> Platform</h4>
                     <div class="footer-links">
-                        <a href="index.html"><i class="fas fa-arrow-right"></i>Home</a>
+                        <a href="articles.html"><i class="fas fa-arrow-right"></i>Articles</a>
                         <a href="news.html"><i class="fas fa-arrow-right"></i>News</a>
                         <a href="contact-us.html"><i class="fas fa-arrow-right"></i>Contact</a>
                         <a href="publish.html"><i class="fas fa-arrow-right"></i>Publish</a>
@@ -855,142 +938,194 @@
     <script>
         AOS.init({ duration: 700, once: true });
 
-        // Education Articles Database
-        const educationArticles = [
-            { id:1, category:'Future Skills', title:'Top 10 Skills for 2030: What Students Need to Know', desc:'Comprehensive analysis of skills required for the AI-driven workforce.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format' },
-            { id:2, category:'AI in Education', title:'AI Tutors: The Future of Personalized Learning', desc:'How artificial intelligence is transforming one-on-one education.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
-            { id:3, category:'Curriculum', title:'The End of Traditional Classrooms: Smart Learning Ecosystems', desc:'Hybrid models, emotional intelligence, mentorship evolution.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
-            { id:4, category:'Higher Ed', title:'Global University Rankings 2026: New Metrics for AI Era', desc:'How universities are adapting to the changing educational landscape.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format' },
+        // ARTICLES DATA (In-depth with description)
+        const articlesData = [
+            { id:1, category:'Future Skills', title:'Top 10 Skills for 2030: What Students Need to Know', desc:'Comprehensive analysis of skills required for the AI-driven workforce and future economy.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format' },
+            { id:2, category:'AI in Education', title:'AI Tutors: The Future of Personalized Learning', desc:'How artificial intelligence is transforming one-on-one education with adaptive learning paths.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
+            { id:3, category:'Curriculum', title:'The End of Traditional Classrooms: Smart Learning Ecosystems', desc:'Hybrid models, emotional intelligence, mentorship evolution in modern education.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
+            { id:4, category:'Higher Ed', title:'Global University Rankings 2026: New Metrics for AI Era', desc:'How universities are adapting to the changing educational landscape and skills economy.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format' },
             { id:5, category:'EdTech', title:'Micro-Credentials & Lifelong Learning: The New Higher Ed', desc:'How universities adapt to skill-based economy and industry partnerships.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format' },
-            { id:6, category:'AI in Education', title:'Teacher Training 4.0: From Instructor to Mentor', desc:'Preparing educators for the AI-augmented classroom.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format' },
-            { id:7, category:'Future Skills', title:'Emotional Intelligence in the Age of AI', desc:'Why human skills will become more valuable than technical expertise.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2070&auto=format' },
-            { id:8, category:'Curriculum', title:'Project-Based Learning: Preparing Students for Real World', desc:'How hands-on learning builds critical thinking and collaboration skills.', date:'Mar 17, 2026', img:'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format' },
-            { id:9, category:'Higher Ed', title:'Online vs Traditional: The Future of University Education', desc:'Blended learning models and the rise of hybrid universities.', date:'Mar 16, 2026', img:'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format' }
+            { id:6, category:'AI in Education', title:'Teacher Training 4.0: From Instructor to Mentor', desc:'Preparing educators for the AI-augmented classroom and personalized instruction.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format' }
         ];
 
-        const articlesGrid = document.getElementById('articlesGrid');
-        let activeCategory = 'all';
-        let currentSearchTerm = '';
+        // NEWS DATA (Simple: headline + date + image + category)
+        const newsData = [
+            { id:1, category:'EdTech', headline:'Global EdTech Investment Surges 62% YoY to $12.5B', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format' },
+            { id:2, category:'Higher Ed', headline:'Harvard and MIT Launch Free AI Literacy Program', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format' },
+            { id:3, category:'Future Skills', headline:'UNESCO Releases Global Framework for AI Education', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format' },
+            { id:4, category:'AI in Education', headline:'Dubai Schools Deploy AI Tutors for 50,000 Students', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
+            { id:5, category:'Curriculum', headline:'Finland Introduces AI Ethics in National Curriculum', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format' },
+            { id:6, category:'EdTech', headline:'Coursera Reports 50% Growth in AI Course Enrollments', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format' }
+        ];
 
-        function highlightText(text, term) {
-            if (!term || term.trim() === '') return text;
+        // EdTech static cards
+        const edtechCards = [
+            { category:'EdTech', title:'AI Mentors: Personalized Learning at Scale', desc:'How AI-powered tutoring systems are achieving 30% faster learning outcomes.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
+            { category:'EdTech', title:'Global EdTech Investment Surges 62% YoY', desc:'Record $12.5B invested in education technology startups in Q1 2026.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format' },
+            { category:'Higher Ed', title:'Micro-Credentials: The New Higher Education', desc:'How universities are adapting to skill-based economy demands.', date:'Mar 18, 2026', img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format' }
+        ];
+
+        let currentMode = 'articles';
+        let activeCategory = 'all';
+        let globalSearchTerm = '';
+
+        function highlight(text, term) {
+            if (!term || !term.trim()) return text;
             const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
             return text.replace(regex, '<span class="highlight">$1</span>');
         }
 
-        function renderArticles() {
-            let filtered = educationArticles;
+        function renderContent() {
+            const container = document.getElementById('dynamicContentGrid');
+            let items = (currentMode === 'articles') ? [...articlesData] : [...newsData];
+            
             if (activeCategory !== 'all') {
-                filtered = filtered.filter(a => a.category === activeCategory);
+                items = items.filter(item => item.category === activeCategory);
             }
-            if (currentSearchTerm.trim() !== '') {
-                const searchLower = currentSearchTerm.toLowerCase().trim();
-                filtered = filtered.filter(a => 
-                    a.title.toLowerCase().includes(searchLower) || 
-                    a.desc.toLowerCase().includes(searchLower) ||
-                    a.category.toLowerCase().includes(searchLower)
-                );
+            if (globalSearchTerm.trim() !== '') {
+                const termLow = globalSearchTerm.toLowerCase();
+                items = items.filter(item => {
+                    if (currentMode === 'articles') {
+                        return item.title.toLowerCase().includes(termLow) || item.desc.toLowerCase().includes(termLow) || item.category.toLowerCase().includes(termLow);
+                    } else {
+                        return item.headline.toLowerCase().includes(termLow) || item.category.toLowerCase().includes(termLow);
+                    }
+                });
             }
-            
-            const searchInfo = document.getElementById('searchInfo');
-            const searchInfoText = document.getElementById('searchInfoText');
-            if (currentSearchTerm.trim() !== '') {
-                searchInfo.classList.add('active');
-                searchInfoText.innerHTML = `Showing ${filtered.length} result(s) for "${currentSearchTerm}"`;
+
+            const searchDiv = document.getElementById('searchInfo');
+            const searchSpan = document.getElementById('searchInfoText');
+            if (globalSearchTerm.trim()) {
+                searchDiv.classList.add('active');
+                searchSpan.innerHTML = `Showing ${items.length} result(s) for "${globalSearchTerm}" in ${currentMode === 'articles' ? 'Articles' : 'News'}`;
             } else {
-                searchInfo.classList.remove('active');
+                searchDiv.classList.remove('active');
             }
-            
-            if (filtered.length === 0) {
-                articlesGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-search"></i> No articles found. Try different keywords.</div>';
+
+            if (items.length === 0) {
+                container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-info-circle"></i> No content found. Try different keywords.</div>';
                 return;
             }
-            
+
             let html = '';
-            filtered.forEach(art => {
-                html += `<div class="news-card">
-                            <img class="card-img" src="${art.img}" alt="${art.category}">
+            if (currentMode === 'articles') {
+                items.forEach(art => {
+                    html += `<div class="content-card">
+                                <img class="card-img" src="${art.img}" alt="${art.title}">
+                                <div class="card-content">
+                                    <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
+                                    <div class="card-title">${highlight(art.title, globalSearchTerm)}</div>
+                                    <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
+                                    <p style="color:#b9c6e0;">${highlight(art.desc.substring(0, 100), globalSearchTerm)}...</p>
+                                    <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read full article <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>`;
+                });
+            } else {
+                items.forEach(news => {
+                    html += `<div class="news-card">
+                                <img class="news-img" src="${news.img}" alt="${news.headline}">
+                                <div class="news-content">
+                                    <div class="news-meta">
+                                        <span class="news-category"><i class="fas fa-tag"></i> ${news.category}</span>
+                                        <span class="news-date"><i class="far fa-calendar-alt"></i> ${news.date}</span>
+                                    </div>
+                                    <div class="news-headline">${highlight(news.headline, globalSearchTerm)}</div>
+                                    <a href="#" class="read-more">Read full news <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>`;
+                });
+            }
+            container.innerHTML = html;
+        }
+
+        function renderEdTech() {
+            const container = document.getElementById('edtechGrid');
+            let html = '';
+            edtechCards.forEach(item => {
+                html += `<div class="content-card">
+                            <img class="card-img" src="${item.img}" alt="${item.title}">
                             <div class="card-content">
-                                <div class="card-category"><i class="fas fa-tag"></i> ${art.category}</div>
-                                <div class="card-title">${highlightText(art.title, currentSearchTerm)}</div>
-                                <div class="card-date"><i class="far fa-calendar-alt"></i> ${art.date}</div>
-                                <p style="color: #b9c6e0;">${highlightText(art.desc, currentSearchTerm)}</p>
-                                <a href="#" style="color: #D4AF37; font-weight: 600; display: inline-block; margin-top: 12px;">Read more <i class="fas fa-arrow-right"></i></a>
+                                <div class="card-category"><i class="fas fa-tag"></i> ${item.category}</div>
+                                <div class="card-title">${item.title}</div>
+                                <div class="card-date"><i class="far fa-calendar-alt"></i> ${item.date}</div>
+                                <p style="color:#b9c6e0;">${item.desc}</p>
+                                <a href="#" style="color:#D4AF37; font-weight:600; display:inline-block; margin-top:12px;">Read more <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>`;
             });
-            articlesGrid.innerHTML = html;
+            container.innerHTML = html;
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderContent();
+            const mobileSelect = document.getElementById('mobileCategorySelect');
+            if (mobileSelect) mobileSelect.value = cat;
+            document.querySelectorAll('.cat-pill').forEach(p => {
+                if (p.getAttribute('data-cat') === cat) {
+                    document.querySelectorAll('.cat-pill').forEach(p2 => p2.classList.remove('active'));
+                    p.classList.add('active');
+                }
+            });
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            const btnArt = document.getElementById('tabArticlesBtn');
+            const btnNews = document.getElementById('tabNewsBtn');
+            if (mode === 'articles') {
+                btnArt.classList.add('active');
+                btnNews.classList.remove('active');
+            } else {
+                btnNews.classList.add('active');
+                btnArt.classList.remove('active');
+            }
+            renderContent();
         }
 
         function performSearch(term) {
-            currentSearchTerm = term;
-            renderArticles();
+            globalSearchTerm = term;
+            renderContent();
+            const desktopInput = document.getElementById('navbarSearchInput');
+            const mobileInput = document.getElementById('mobileSearchInput');
+            if (desktopInput) desktopInput.value = term;
+            if (mobileInput) mobileInput.value = term;
         }
 
-        // Desktop search
+        // Event Listeners
+        document.getElementById('tabArticlesBtn').addEventListener('click', () => setMode('articles'));
+        document.getElementById('tabNewsBtn').addEventListener('click', () => setMode('news'));
+        
         const navbarSearchInput = document.getElementById('navbarSearchInput');
         const navbarSearchBtn = document.getElementById('navbarSearchBtn');
         navbarSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
         navbarSearchBtn.addEventListener('click', () => performSearch(navbarSearchInput.value));
-
-        // Mobile search
+        
         const mobileSearchInput = document.getElementById('mobileSearchInput');
         const mobileSearchBtn = document.getElementById('mobileSearchBtn');
-        mobileSearchInput.addEventListener('input', (e) => { performSearch(e.target.value); navbarSearchInput.value = e.target.value; });
-        mobileSearchBtn.addEventListener('click', () => { performSearch(mobileSearchInput.value); navbarSearchInput.value = mobileSearchInput.value; });
-
-        // Category filters
+        mobileSearchInput.addEventListener('input', (e) => performSearch(e.target.value));
+        mobileSearchBtn.addEventListener('click', () => performSearch(mobileSearchInput.value));
+        
         document.querySelectorAll('.cat-pill').forEach(pill => {
             pill.addEventListener('click', function() {
-                document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                this.classList.add('active');
-                activeCategory = this.getAttribute('data-cat');
-                renderArticles();
-                const mobileSelect = document.getElementById('mobileCategorySelect');
-                if (mobileSelect) mobileSelect.value = activeCategory;
+                setCategory(this.getAttribute('data-cat'));
             });
         });
-
-        const mobileSelect = document.getElementById('mobileCategorySelect');
-        if (mobileSelect) {
-            mobileSelect.addEventListener('change', function() {
-                activeCategory = this.value;
-                renderArticles();
-                document.querySelectorAll('.cat-pill').forEach(pill => {
-                    if (pill.getAttribute('data-cat') === activeCategory) {
-                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                    } else if (activeCategory === 'all' && pill.getAttribute('data-cat') === 'all') {
-                        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-                        pill.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Mobile menu
+        const mobileCat = document.getElementById('mobileCategorySelect');
+        if (mobileCat) mobileCat.addEventListener('change', (e) => setCategory(e.target.value));
+        
+        // Mobile menu toggle
         const hamburger = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('menuOverlay');
-        function toggleMenu() {
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            const icon = hamburger.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
-        if (hamburger) {
-            hamburger.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-        }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) toggleMenu(); });
-
-        renderArticles();
+        function toggleMobile() { mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); }
+        hamburger?.addEventListener('click', toggleMobile);
+        overlay?.addEventListener('click', toggleMobile);
+        
+        // Render everything
+        setMode('articles');
+        renderEdTech();
     </script>
 </body>
 </html>
