@@ -784,27 +784,7 @@
                 <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
-            <!-- Category Pills - Desktop -->
-            <div class="categories-bar" id="categoryFilter">
-                <div class="cat-pill active" data-cat="all"><i class="fas fa-newspaper"></i> All</div>
-                <div class="cat-pill" data-cat="Future Skills"><i class="fas fa-brain"></i> Future Skills</div>
-                <div class="cat-pill" data-cat="AI in Education"><i class="fas fa-microchip"></i> AI in Education</div>
-                <div class="cat-pill" data-cat="Curriculum"><i class="fas fa-book-open"></i> Curriculum</div>
-                <div class="cat-pill" data-cat="EdTech"><i class="fas fa-laptop-code"></i> EdTech</div>
-                <div class="cat-pill" data-cat="Higher Ed"><i class="fas fa-university"></i> Higher Education</div>
-            </div>
-
-            <!-- Mobile Dropdown -->
-            <div class="mobile-category-dropdown">
-                <select id="mobileCategorySelect">
-                    <option value="all">📚 All Education Topics</option>
-                    <option value="Future Skills">🧠 Future Skills 2030-2050</option>
-                    <option value="AI in Education">🤖 AI in Education</option>
-                    <option value="Curriculum">📖 Curriculum Innovation</option>
-                    <option value="EdTech">💻 EdTech & Digital Learning</option>
-                    <option value="Higher Ed">🏛️ Higher Education Transformation</option>
-                </select>
-            </div>
+            
 
             <!-- Search Info -->
             <div class="search-info" id="searchInfo">
@@ -820,7 +800,7 @@
                             <span class="featured-badge"><i class="fas fa-fire"></i> FEATURED</span>
                             <h2 class="featured-title">The Future Classroom: AI Tutors & Emotional Intelligence</h2>
                             <p>Blending artificial and emotional intelligence for holistic learning outcomes. How AI mentors are transforming personalized education.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Story <i class="fas fa-arrow-right"></i></a> -->
                         </div>
                     </div>
                     <div class="featured-card">
@@ -829,7 +809,7 @@
                             <span class="featured-badge"><i class="fas fa-chart-line"></i> EXCLUSIVE</span>
                             <h2 class="featured-title">Future Skills 2030-2050: Preparing Students for AGI Era</h2>
                             <p>Comprehensive framework for AI literacy, critical thinking, creativity, and human-AI collaboration skills needed for tomorrow's workforce.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Download Report <i class="fas fa-download"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Download Report <i class="fas fa-download"></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -863,28 +843,13 @@
             </div>
 
             <!-- Innovators Schooling Section -->
-            <div class="innovators-section" data-aos="fade-up">
-                <h2 style="font-size: 1.8rem; margin-bottom: 24px;"><i class="fas fa-school"></i> Innovators Schooling System: GBER Blueprint</h2>
-                <div class="innovators-grid">
-                    <div>
-                        <p style="margin-bottom: 20px;">The Innovators Schooling System is GBER's visionary framework for reimagining K-12 education. Built on four pillars: AI-powered personalized learning, emotional intelligence development, project-based real-world challenges, and teacher mentorship transformation.</p>
-                        <ul style="list-style: none; margin-top: 20px;">
-                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Personalized AI Learning Paths</li>
-                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Emotional & Social Intelligence Curriculum</li>
-                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Teachers as Mentors & Coaches</li>
-                            <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 10px;"></i> Real-World Project-Based Learning</li>
-                        </ul>
-                        <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 20px;">Read Full Blueprint <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <img class="innovators-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format" alt="Innovators Schooling">
-                </div>
-            </div>
+           
 
             <!-- EdTech Section -->
-            <div class="featured-section">
+            <!-- <div class="featured-section">
                 <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-laptop-code"></i> EdTech Insights</h2>
                 <div id="edtechGrid" class="content-grid" style="margin-top: 20px;"></div>
-            </div>
+            </div> -->
         </div>
     </main>
 
@@ -940,22 +905,12 @@
 
         // ARTICLES DATA (In-depth with description)
         const articlesData = [
-            { id:1, category:'Future Skills', title:'Top 10 Skills for 2030: What Students Need to Know', desc:'Comprehensive analysis of skills required for the AI-driven workforce and future economy.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format' },
-            { id:2, category:'AI in Education', title:'AI Tutors: The Future of Personalized Learning', desc:'How artificial intelligence is transforming one-on-one education with adaptive learning paths.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
-            { id:3, category:'Curriculum', title:'The End of Traditional Classrooms: Smart Learning Ecosystems', desc:'Hybrid models, emotional intelligence, mentorship evolution in modern education.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format' },
-            { id:4, category:'Higher Ed', title:'Global University Rankings 2026: New Metrics for AI Era', desc:'How universities are adapting to the changing educational landscape and skills economy.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format' },
-            { id:5, category:'EdTech', title:'Micro-Credentials & Lifelong Learning: The New Higher Ed', desc:'How universities adapt to skill-based economy and industry partnerships.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format' },
-            { id:6, category:'AI in Education', title:'Teacher Training 4.0: From Instructor to Mentor', desc:'Preparing educators for the AI-augmented classroom and personalized instruction.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format' }
+            { id:1, category:'Future Skills', title:'Top 10 Skills for 2030: What Students Need to Know', desc:'Comprehensive analysis of skills required for the AI-driven workforce and future economy.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format' }
         ];
 
         // NEWS DATA (Simple: headline + date + image + category)
         const newsData = [
-            { id:1, category:'EdTech', headline:'Global EdTech Investment Surges 62% YoY to $12.5B', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format' },
-            { id:2, category:'Higher Ed', headline:'Harvard and MIT Launch Free AI Literacy Program', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format' },
-            { id:3, category:'Future Skills', headline:'UNESCO Releases Global Framework for AI Education', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2070&auto=format' },
-            { id:4, category:'AI in Education', headline:'Dubai Schools Deploy AI Tutors for 50,000 Students', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
-            { id:5, category:'Curriculum', headline:'Finland Introduces AI Ethics in National Curriculum', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format' },
-            { id:6, category:'EdTech', headline:'Coursera Reports 50% Growth in AI Course Enrollments', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format' }
+            { id:1, category:'EdTech', headline:'Global EdTech Investment Surges 62% YoY to $12.5B', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070&auto=format' }
         ];
 
         // EdTech static cards

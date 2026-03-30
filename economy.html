@@ -786,28 +786,7 @@
                 <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
-            <!-- Category Pills - Desktop -->
-            <div class="categories-bar" id="categoryFilter">
-                <div class="cat-pill active" data-cat="all"><i class="fas fa-newspaper"></i> All</div>
-                <div class="cat-pill" data-cat="Global Markets"><i class="fas fa-chart-line"></i> Global Markets</div>
-                <div class="cat-pill" data-cat="Pakistan Economy"><i class="fas fa-flag-checkered"></i> Pakistan Economy</div>
-                <div class="cat-pill" data-cat="Trade"><i class="fas fa-handshake"></i> Trade & Commerce</div>
-                <div class="cat-pill" data-cat="Fiscal Policy"><i class="fas fa-landmark"></i> Fiscal Policy</div>
-                <div class="cat-pill" data-cat="Emerging Markets"><i class="fas fa-chart-simple"></i> Emerging Markets</div>
-            </div>
-
-            <!-- Mobile Dropdown -->
-            <div class="mobile-category-dropdown">
-                <select id="mobileCategorySelect">
-                    <option value="all">🌍 All Economy Topics</option>
-                    <option value="Global Markets">📈 Global Markets & Finance</option>
-                    <option value="Pakistan Economy">🇵🇰 Pakistan Economy</option>
-                    <option value="Trade">🤝 Trade & Commerce</option>
-                    <option value="Fiscal Policy">🏛️ Fiscal & Monetary Policy</option>
-                    <option value="Emerging Markets">🚀 Emerging Markets</option>
-                </select>
-            </div>
-
+            
             <!-- Search Info -->
             <div class="search-info" id="searchInfo">
                 <i class="fas fa-search"></i> <span id="searchInfoText"></span>
@@ -822,7 +801,7 @@
                             <span class="featured-badge"><i class="fas fa-fire"></i> FEATURED</span>
                             <h2 class="featured-title">Pakistan Economy: $500bn GDP Target by 2035</h2>
                             <p>Structural reforms, export diversification, and tech-led growth strategies for emerging markets. Comprehensive analysis of Pakistan's economic trajectory.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Report <i class="fas fa-arrow-right"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Report <i class="fas fa-arrow-right"></i></a> -->
                         </div>
                     </div>
                     <div class="featured-card">
@@ -831,7 +810,7 @@
                             <span class="featured-badge"><i class="fas fa-chart-line"></i> EXCLUSIVE</span>
                             <h2 class="featured-title">Global Markets Rally on AI Optimism</h2>
                             <p>Investors bullish on tech sector as Agentic AI drives productivity gains. Analysis of market trends and sector performance.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Analysis <i class="fas fa-arrow-right"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Analysis <i class="fas fa-arrow-right"></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -852,7 +831,7 @@
             <div id="dynamicContentGrid" class="content-grid" data-aos="fade-up"></div>
 
             <!-- Pakistan Economy Section -->
-            <div class="pakistan-section" data-aos="fade-up">
+            <!-- <div class="pakistan-section" data-aos="fade-up">
                 <h2 style="font-size: 1.8rem; margin-bottom: 24px;"><i class="fas fa-flag-checkered"></i> Pakistan Economic Outlook 2026</h2>
                 <div class="pakistan-grid">
                     <div>
@@ -867,7 +846,7 @@
                     </div>
                     <img class="pakistan-img" src="https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=2070&auto=format" alt="Pakistan Economy">
                 </div>
-            </div>
+            </div> -->
 
             <!-- Trade Section -->
             <div class="trade-section" data-aos="fade-up">
@@ -880,10 +859,10 @@
             </div>
 
             <!-- Emerging Markets Section -->
-            <div class="featured-section">
+            <!-- <div class="featured-section">
                 <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-chart-simple"></i> Emerging Markets Spotlight</h2>
                 <div id="emergingMarketsGrid" class="content-grid" style="margin-top: 20px;"></div>
-            </div>
+            </div> -->
         </div>
     </main>
 
@@ -939,22 +918,12 @@
 
         // ARTICLES DATA (In-depth with description)
         const articlesData = [
-            { id:1, category:'Global Markets', title:'Global Markets Rally on AI Optimism', desc:'Investors bullish on tech sector as Agentic AI drives productivity gains across industries.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
-            { id:2, category:'Pakistan Economy', title:'Pakistan IT Exports Surge 38% YoY', desc:'Digital economy boom drives record $4.8 billion in IT exports for fiscal year 2026.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' },
-            { id:3, category:'Trade', title:'GCC Investment Wave: Opportunities for South Asia', desc:'Sovereign wealth funds targeting education and tech infrastructure across the region.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
-            { id:4, category:'Fiscal Policy', title:'Federal Reserve Signals Rate Cut by Mid-2026', desc:'Inflation cooling prompts dovish stance from central bank.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
-            { id:5, category:'Emerging Markets', title:'Vietnam Emerges as Manufacturing Hub', desc:'Global supply chains diversify away from China.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1525625293386-3f2f0d4f0b1c?q=80&w=2070&auto=format' },
-            { id:6, category:'Pakistan Economy', title:'Pakistan\'s $500bn GDP Target: Roadmap to 2035', desc:'Structural reforms and export diversification strategies.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=2070&auto=format' }
+            { id:1, category:'Global Markets', title:'Global Markets Rally on AI Optimism', desc:'Investors bullish on tech sector as Agentic AI drives productivity gains across industries.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' }
         ];
 
         // NEWS DATA (Simple: headline + date + image + category)
         const newsData = [
-            { id:1, category:'Global Markets', headline:'S&P 500 Hits Record High on AI Optimism', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
-            { id:2, category:'Pakistan Economy', headline:'IMF Approves $3 Billion Package for Pakistan', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070&auto=format' },
-            { id:3, category:'Trade', headline:'US-China Trade Talks Resume with Positive Signals', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format' },
-            { id:4, category:'Fiscal Policy', headline:'ECB Holds Rates Steady as Eurozone Inflation Cools', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
-            { id:5, category:'Emerging Markets', headline:'Vietnam GDP Grows 6.8% in Q1 2026', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1525625293386-3f2f0d4f0b1c?q=80&w=2070&auto=format' },
-            { id:6, category:'Pakistan Economy', headline:'Pakistan\'s IT Exports Cross $4 Billion Mark', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=2070&auto=format' }
+            { id:1, category:'Global Markets', headline:'S&P 500 Hits Record High on AI Optimism', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' }
         ];
 
         // Emerging Markets static cards

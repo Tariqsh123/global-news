@@ -770,27 +770,7 @@
                 <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
-            <!-- Category Pills - Desktop -->
-            <div class="categories-bar" id="categoryFilter">
-                <div class="cat-pill active" data-cat="all"><i class="fas fa-newspaper"></i> All</div>
-                <div class="cat-pill" data-cat="Markets"><i class="fas fa-chart-line"></i> Markets</div>
-                <div class="cat-pill" data-cat="Startups"><i class="fas fa-rocket"></i> Startups</div>
-                <div class="cat-pill" data-cat="Investment"><i class="fas fa-chart-pie"></i> Investment</div>
-                <div class="cat-pill" data-cat="Leadership"><i class="fas fa-crown"></i> Leadership</div>
-                <div class="cat-pill" data-cat="Strategy"><i class="fas fa-chess"></i> Strategy</div>
-            </div>
-
-            <!-- Mobile Dropdown -->
-            <div class="mobile-category-dropdown">
-                <select id="mobileCategorySelect">
-                    <option value="all">📰 All Business Topics</option>
-                    <option value="Markets">📈 Markets & Finance</option>
-                    <option value="Startups">🚀 Startups & Entrepreneurship</option>
-                    <option value="Investment">💰 Investment Opportunities</option>
-                    <option value="Leadership">👑 Leadership & Management</option>
-                    <option value="Strategy">🏛️ Corporate Strategy</option>
-                </select>
-            </div>
+            
 
             <!-- Search Info -->
             <div class="search-info" id="searchInfo">
@@ -806,7 +786,7 @@
                             <span class="featured-badge"><i class="fas fa-fire"></i> FEATURED</span>
                             <h2 class="featured-title">Top 15 Pakistani Startups to Watch in 2026</h2>
                             <p>Edtech, fintech, healthtech, and AI ventures raising global attention and investment. Comprehensive analysis of Pakistan's growing startup ecosystem.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Report <i class="fas fa-arrow-right"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Report <i class="fas fa-arrow-right"></i></a> -->
                         </div>
                     </div>
                     <div class="featured-card">
@@ -815,7 +795,7 @@
                             <span class="featured-badge"><i class="fas fa-chart-line"></i> EXCLUSIVE</span>
                             <h2 class="featured-title">Top 5 Investment Opportunities in Pakistan (2026–2030)</h2>
                             <p>Tech startups, renewable energy, AI-driven edtech, export-oriented sectors with ROI projections and risk analysis for investors.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Download Report <i class="fas fa-download"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Download Report <i class="fas fa-download"></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -846,10 +826,10 @@
             </div>
 
             <!-- CEO Insights Section -->
-            <div class="featured-section">
+            <!-- <div class="featured-section">
                 <h2 class="dashboard-title" style="text-align: left; border-left: 4px solid var(--gold-primary); padding-left: 20px;"><i class="fas fa-crown"></i> CEO Insights</h2>
                 <div class="content-grid" style="margin-top: 20px;" id="ceoInsightsGrid"></div>
-            </div>
+            </div> -->
         </div>
     </main>
 
@@ -905,22 +885,12 @@
 
         // ARTICLES DATA (In-depth with description)
         const articlesData = [
-            { id:1, category:'Markets', title:'Global Markets Rally on AI Optimism', desc:'Investors bullish on tech sector as Agentic AI drives productivity gains across industries.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
-            { id:2, category:'Startups', title:'Pakistan\'s EdTech Boom: 5 Startups to Watch', desc:'Education technology sector attracts $150M in Q1 2026 funding as digital learning accelerates.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format' },
-            { id:3, category:'Investment', title:'Where to Invest in 2026: Top 10 Sectors', desc:'Comprehensive analysis of high-growth opportunities across emerging markets and established economies.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
-            { id:4, category:'Leadership', title:'The New Leadership Playbook for AI Era', desc:'How executives must adapt to manage human-AI hybrid workforces and drive innovation.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
-            { id:5, category:'Strategy', title:'Agentic AI in Corporate Strategy', desc:'How autonomous agents optimize supply chains, M&A, and strategic decision-making.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format' },
-            { id:6, category:'Markets', title:'GCC Investment Wave: Opportunities for South Asia', desc:'Sovereign wealth funds targeting education and tech infrastructure across the region.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' }
+            { id:1, category:'Markets', title:'Global Markets Rally on AI Optimism', desc:'Investors bullish on tech sector as Agentic AI drives productivity gains across industries.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' }
         ];
 
         // NEWS DATA (Simple: headline + date + image + category)
         const newsData = [
-            { id:1, category:'Markets', headline:'Saudi PIF Announces $10B Investment in Asian Tech Startups', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' },
-            { id:2, category:'Startups', headline:'Pakistani Fintech Startup Raises $50M Series B', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
-            { id:3, category:'Investment', headline:'Goldman Sachs Launches $3B Emerging Markets AI Fund', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format' },
-            { id:4, category:'Leadership', headline:'Microsoft CEO Satya Nadella Shares Vision for AI-Augmented Workforce', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' },
-            { id:5, category:'Strategy', headline:'Tesla Announces $5B Gigafactory in Saudi Arabia', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format' },
-            { id:6, category:'Markets', headline:'Dubai Launches $2B AI Innovation Hub', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format' }
+            { id:1, category:'Markets', headline:'Saudi PIF Announces $10B Investment in Asian Tech Startups', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format' }
         ];
 
         // CEO Insights (static cards)

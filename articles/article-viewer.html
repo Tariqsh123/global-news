@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>View Article – GBER | Global Business and Education Review</title>
+    <meta name="description" content="Read in-depth articles and latest news from GBER contributors. Expert insights on business, education, AI, economy, and research.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow-x: hidden;
+        }
+        
+        body {
+            background-color: #0A0C12;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #EDF2F9;
+            line-height: 1.55;
+        }
+        
+        :root {
+            --navy-bg: #050A12;
+            --navy-card: #0F1622;
+            --gold-primary: #D4AF37;
+            --gold-dark: #B4941C;
+            --gray-border: #2A2F3E;
+            --text-muted: #9AA9C1;
+            --text-light: #EFF3F8;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F1622; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 10px; }
+        
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 10, 18, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px 0;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 32px;
+            gap: 20px;
+            flex-wrap: nowrap;
+        }
+        .logo-area {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--gold-primary);
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+            background: #1A2332;
+            border-radius: 60px;
+            padding: 5px 5px 5px 18px;
+            border: 1px solid var(--gray-border);
+            transition: 0.2s;
+            flex-shrink: 1;
+            min-width: 240px;
+        }
+        .nav-search:focus-within {
+            border-color: var(--gold-primary);
+        }
+        .nav-search input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            width: 100%;
+            outline: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .nav-search input::placeholder {
+            color: var(--text-muted);
+        }
+        .nav-search button {
+            background: var(--gold-primary);
+            border: none;
+            color: #0A0C12;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+        }
+        .nav-search button:hover {
+            background: var(--gold-dark);
+        }
+        .user-icon {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            flex-shrink: 0;
+            position: relative;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .user-icon:hover { color: var(--gold-primary); }
+        .auth-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: var(--gold-primary);
+            color: #0A0C12;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 20px;
+            display: none;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            flex-shrink: 0;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: #0A0F1A;
+            border-bottom: 2px solid var(--gold-primary);
+            transform: translateY(-150%);
+            transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            z-index: 999;
+            padding: 24px 20px;
+            text-align: center;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+        .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu ul { 
+            list-style: none; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .mobile-menu li { width: 100%; text-align: center; }
+        .mobile-menu a { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 1rem; 
+            font-weight: 500;
+            display: inline-block;
+            padding: 8px 0;
+        }
+        .mobile-menu a.active { color: var(--gold-primary); }
+        .mobile-search {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .mobile-search input {
+            flex: 1;
+            padding: 12px 18px;
+            border-radius: 60px;
+            background: #1A2332;
+            border: 1px solid var(--gray-border);
+            color: white;
+            font-family: inherit;
+            outline: none;
+        }
+        .mobile-search button {
+            background: var(--gold-primary);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #0A0C12;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+        }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        
+        /* Article Content */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: var(--navy-card);
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid var(--gray-border);
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-header {
+            position: relative;
+        }
+        
+        .article-feature-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        
+        .article-meta {
+            padding: 32px 48px 0;
+        }
+        
+        .article-category {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .article-title {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .article-author-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-border);
+        }
+        
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0A0C12;
+        }
+        
+        .author-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .author-details p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        .author-details i {
+            margin-right: 6px;
+        }
+        
+        .article-content {
+            padding: 0 48px 48px;
+        }
+        
+        .article-abstract {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px 28px;
+            margin-bottom: 40px;
+            border-radius: 16px;
+        }
+        
+        .article-abstract h3 {
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .article-abstract p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .article-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-body h2, .article-body h3 {
+            margin: 2rem 0 1rem;
+            color: var(--gold-primary);
+        }
+        
+        .article-keywords {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .keyword-tag {
+            background: #1A2332;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .article-footer {
+            background: #0A0F1A;
+            padding: 32px 48px;
+            border-top: 1px solid var(--gray-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .share-section {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .share-section span {
+            color: var(--text-muted);
+        }
+        
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1A2332;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        
+        .share-btn:hover {
+            background: var(--gold-primary);
+            color: #0A0C12;
+            transform: translateY(-2px);
+        }
+        
+        .status-badge {
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-published {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            border: 1px solid #4caf50;
+        }
+        
+        /* Footer */
+        /* Footer */
+        .footer {
+            background: #03070F;
+            margin-top: 70px;
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--gold-primary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+        }
+        .footer-logo-img {
+            height: 48px;
+            width: auto;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .footer-links a i { margin-right: 8px; width: 24px; }
+        .footer-links a:hover { color: var(--gold-primary); transform: translateX(5px); }
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover { color: var(--gold-primary); transform: translateY(-3px); }
+        .contact-info-footer p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info-footer i {
+            color: var(--gold-primary);
+            width: 24px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 24px;
+            border-top: 1px solid #222A36;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 1000px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 900px) {
+            .nav-menu, .nav-search, .user-icon { display: none; }
+            .hamburger { display: block; }
+            .container { padding: 0 20px; }
+        }
+        @media (max-width: 768px) {
+            .article-title { font-size: 1.8rem; }
+            .article-meta { padding: 24px 24px 0; }
+            .article-content { padding: 0 24px 32px; }
+            .article-footer { padding: 24px; flex-direction: column; text-align: center; }
+            .article-feature-image { height: 250px; }
+            .footer-grid {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+            }
+            .footer-grid > div .social-icons { justify-content: center; }
+            .contact-info-footer p { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-area" onclick="location.href='../index.html'">
+                <img class="logo-img" src="../images/logo-white.webp" alt="GBER Logo" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../articles.html"> Articles</a></li>
+                <li><a href="../news.html"> News</a></li>
+                <li><a href="../business.html"> Business</a></li>
+                <li><a href="../education.html"> Education</a></li>
+                <li><a href="../ai-and-tech.html"> AI & Tech</a></li>
+                <li><a href="../economy.html"> Economy</a></li>
+                <li><a href="../research.html"> Research</a></li>
+                <li><a href="../publish.html"  > Publish</a></li>
+            </ul>
+            <div class="nav-search">
+                <input type="text" id="navbarSearchInput" placeholder="Search articles...">
+                <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <a href="#" class="user-icon" id="userIconBtn">
+                <i class="fas fa-user-circle"></i>
+                <span class="auth-badge" id="authBadge"></span>
+            </a>
+            <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="../articles.html"> Articles</a></li>
+            <li><a href="../news.html">News</a></li>
+            <li><a href="../business.html"> Business</a></li>
+            <li><a href="../education.html"> Education</a></li>
+            <li><a href="../ai-and-tech.html"> AI & Tech</a></li>
+            <li><a href="../economy.html"> Economy</a></li>
+            <li><a href="../research.html"> Research</a></li>
+            <li><a href="../publish.html"  > Publish</a></li>
+            <li><a href="../account.html"> Account</a></li>
+        </ul>
+        <div class="mobile-search">
+            <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+            <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <main>
+        <div class="container">
+            <div id="contentViewer"></div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo-img" src="../images/logo-white.webp" alt="GBER" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+                    <p style="margin-top:12px; color:#9aa9c1;">Global Business & Education Review<br>“Intelligence for the Future of Business & Education”</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-cubes"></i> Platform</h4>
+                    <div class="footer-links">
+                        <a href="../articles.html"><i class="fas fa-arrow-right"></i>Articles</a>
+                        <a href="../news.html"><i class="fas fa-arrow-right"></i> News</a>
+                        <a href="../publish.html"><i class="fas fa-arrow-right"></i> Publish</a>
+                        <a href="../account.html"><i class="fas fa-arrow-right"></i> Account</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-database"></i> Resources</h4>
+                    <div class="footer-links">
+                        <a href="../business.html"><i class="fas fa-arrow-right"></i> Business</a>
+                        <a href="../education.html"><i class="fas fa-arrow-right"></i> Education</a>
+                        <a href="../ai-and-tech.html"><i class="fas fa-arrow-right"></i> AI & Tech</a>
+                        <a href="../economy.html"><i class="fas fa-arrow-right"></i> Economy</a>
+                        <a href="../research.html"><i class="fas fa-arrow-right"></i> Research</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:#D4AF37; margin-bottom:20px;"><i class="fas fa-envelope"></i> Connect</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-map-marker-alt"></i> Dubai | Karachi | London</p>
+                        <p><i class="fas fa-envelope"></i> gberglobal@mail.com</p>
+                        <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright"><i class="far fa-copyright"></i> 2026 Global Business & Education Review. All rights reserved. The Voice of Intelligent Research.</div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true });
+        
+        // Sample demo articles data - beautiful random content
+        const demoArticles = [
+            {
+                id: 1001,
+                title: "The Future of Artificial Intelligence in Higher Education",
+                category: "AI & Tech",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format",
+                abstract: "Artificial intelligence is revolutionizing how we teach and learn. This comprehensive analysis explores the integration of AI tools in universities, personalized learning pathways, and the ethical considerations that educators must address as we move toward an AI-augmented educational landscape.",
+                content: "The rapid advancement of artificial intelligence is reshaping every sector of society, and education is no exception. From intelligent tutoring systems to automated grading, AI technologies are offering unprecedented opportunities to enhance learning outcomes.\n\nIn recent years, universities worldwide have begun experimenting with AI-powered platforms that adapt to individual student needs. These systems analyze learning patterns and provide personalized recommendations, ensuring that no student falls behind. Early results show significant improvements in engagement and retention rates.\n\nHowever, the integration of AI in education also raises important questions. How do we ensure data privacy? What role should human educators play in an AI-driven classroom? And perhaps most critically, how can we prevent algorithmic bias from reinforcing existing inequalities?\n\nExperts argue that the future lies not in replacing teachers with machines, but in creating symbiotic relationships where AI handles administrative tasks and provides personalized support, freeing educators to focus on mentorship, creativity, and critical thinking development.\n\nAs we look ahead, institutions that embrace AI thoughtfully will likely lead the way in preparing students for an increasingly digital economy. The key is to implement these technologies with equity, transparency, and pedagogical purpose at the forefront.",
+                keywords: "artificial intelligence, education technology, future of learning, AI in universities",
+                authorName: "Dr. Sarah Chen",
+                authorAvatar: "S",
+                date: "March 15, 2026",
+                status: "published"
+            },
+            {
+                id: 1002,
+                title: "Global Economic Trends: Navigating Uncertainty in 2026",
+                category: "Economy",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format",
+                abstract: "As global markets face unprecedented challenges, this article examines the key economic indicators shaping 2026. From inflation concerns to emerging market opportunities, we provide actionable insights for business leaders and investors.",
+                content: "The global economy stands at a crossroads in 2026. Central banks continue their delicate balancing act between controlling inflation and supporting growth, while geopolitical tensions add layers of complexity to international trade.\n\nEmerging markets are showing remarkable resilience, with Southeast Asian economies leading the recovery. The digital transformation across these regions has created new opportunities for investment and innovation that savvy investors are beginning to recognize.\n\nMeanwhile, the shift toward sustainable energy continues to reshape industries. Companies that have invested in green technologies are outperforming their competitors, signaling that environmental responsibility is increasingly aligned with financial success.\n\nFor business leaders, the message is clear: adaptability is key. Organizations that can pivot quickly in response to changing conditions, while maintaining a long-term strategic vision, will be best positioned to thrive in this uncertain environment.",
+                keywords: "economy, global markets, inflation, investment strategy, 2026 trends",
+                authorName: "Marcus Thompson",
+                authorAvatar: "M",
+                date: "March 10, 2026",
+                status: "published"
+            },
+            {
+                id: 1003,
+                title: "The Rise of Ethical Leadership in Modern Organizations",
+                category: "Leadership",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format",
+                abstract: "In an era of increased scrutiny, ethical leadership has become a competitive advantage. This piece explores how organizations are building cultures of integrity and transparency that attract top talent and build lasting trust with stakeholders.",
+                content: "The business landscape is experiencing a fundamental shift in how leadership is defined. No longer measured solely by quarterly results, today's leaders are evaluated on their character, their commitment to ethical practices, and their ability to inspire trust.\n\nResearch shows that organizations with strong ethical cultures outperform their peers across multiple metrics. Employee engagement is higher, turnover is lower, and customers demonstrate greater loyalty. Perhaps most importantly, these organizations are better equipped to weather crises when they arise.\n\nBuilding such a culture requires more than written policies. It demands consistent modeling of ethical behavior from the top, transparent communication about challenges and failures, and systems that reward integrity over short-term gains.\n\nAs younger generations enter the workforce with heightened expectations about corporate responsibility, the case for ethical leadership only grows stronger. The organizations that embrace this shift will not only do good—they will do well.",
+                keywords: "leadership, ethics, corporate culture, transparency, integrity",
+                authorName: "Elena Rodriguez",
+                authorAvatar: "E",
+                date: "March 5, 2026",
+                status: "published"
+            }
+        ];
+        
+        // Get item ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get('id');
+        
+        // Data storage keys (matching publish page)
+        let userArticles = [];
+        let userNews = [];
+        let currentUser = null;
+        
+        function loadData() {
+            const savedUser = localStorage.getItem('gber_currentUser');
+            if (savedUser) currentUser = JSON.parse(savedUser);
+            
+            const savedArticles = localStorage.getItem('gber_userArticles');
+            if (savedArticles) userArticles = JSON.parse(savedArticles);
+            else userArticles = [];
+            
+            const savedNews = localStorage.getItem('gber_userNews');
+            if (savedNews) userNews = JSON.parse(savedNews);
+            else userNews = [];
+            
+            updateAuthBadge();
+        }
+        
+        function updateAuthBadge() {
+            const badge = document.getElementById('authBadge');
+            if (currentUser) {
+                badge.style.display = 'inline-block';
+                badge.textContent = currentUser.name.charAt(0).toUpperCase();
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        
+        function formatDate(dateString) {
+            try {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            } catch {
+                return dateString;
+            }
+        }
+        
+        function getAuthorInitials(name) {
+            if (!name) return 'GB';
+            return name.charAt(0).toUpperCase();
+        }
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function renderArticle(article) {
+            const statusClass = article.status === 'published' ? 'status-published' : 'status-pending';
+            const statusText = article.status === 'published' ? 'Published' : 'Pending Review';
+            const formattedDate = formatDate(article.date);
+            
+            // Process content with paragraphs
+            let contentHtml = '';
+            if (article.content) {
+                const paragraphs = article.content.split('\n').filter(p => p.trim().length > 0);
+                contentHtml = paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('');
+            }
+            
+            // Process keywords
+            let keywordsHtml = '';
+            if (article.keywords) {
+                const keywords = article.keywords.split(',').map(k => k.trim());
+                keywordsHtml = keywords.map(k => `<span class="keyword-tag"><i class="fas fa-tag"></i> ${escapeHtml(k)}</span>`).join('');
+            }
+            
+            return `
+                <div class="article-container" data-aos="fade-up">
+                    <div class="article-header">
+                        <img class="article-feature-image" src="${escapeHtml(article.image)}" alt="${escapeHtml(article.title)}" onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format'">
+                    </div>
+                    <div class="article-meta">
+                        <span class="article-category"><i class="fas fa-folder-open"></i> ${escapeHtml(article.category)}</span>
+                        <h1 class="article-title">${escapeHtml(article.title)}</h1>
+                        <div class="article-author-info">
+                            <div class="author-avatar">${getAuthorInitials(article.authorName)}</div>
+                            <div class="author-details">
+                                <h4>${escapeHtml(article.authorName || 'GBER Contributor')}</h4>
+                                <p><i class="far fa-calendar-alt"></i> ${formattedDate} · <i class="far fa-clock"></i> ${Math.ceil((article.content?.length || 1500) / 800)} min read</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-abstract">
+                            <h3><i class="fas fa-quote-left"></i> Abstract</h3>
+                            <p>${escapeHtml(article.abstract || 'A comprehensive analysis of key trends and insights in this domain.')}</p>
+                        </div>
+                        <div class="article-body">
+                            ${contentHtml || '<p>Full content will be available soon. Our editorial team is reviewing this submission.</p>'}
+                        </div>
+                        ${keywordsHtml ? `<div class="article-keywords">${keywordsHtml}</div>` : ''}
+                    </div>
+                    <div class="article-footer">
+                        <div class="share-section">
+                            <span><i class="fas fa-share-alt"></i> Share:</span>
+                            <div class="share-btn" onclick="shareArticle('facebook')"><i class="fab fa-facebook-f"></i></div>
+                            <div class="share-btn" onclick="shareArticle('twitter')"><i class="fab fa-twitter"></i></div>
+                            <div class="share-btn" onclick="shareArticle('linkedin')"><i class="fab fa-linkedin-in"></i></div>
+                        </div>
+                        <div class="status-badge ${statusClass}">
+                            <i class="fas ${article.status === 'published' ? 'fa-check-circle' : 'fa-hourglass-half'}"></i> ${statusText}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function shareArticle(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+        
+        function displayContent() {
+            const container = document.getElementById('contentViewer');
+            
+            // Combine demo articles with user articles
+            const allArticles = [...demoArticles, ...userArticles];
+            
+            let articleToShow = null;
+            
+            // If ID is provided, try to find that specific article
+            if (itemId) {
+                const id = parseInt(itemId);
+                articleToShow = allArticles.find(a => a.id === id);
+            }
+            
+            // If no article found or no ID, show a random demo article
+            if (!articleToShow) {
+                const randomIndex = Math.floor(Math.random() * demoArticles.length);
+                articleToShow = demoArticles[randomIndex];
+            }
+            
+            // Render the article
+            if (articleToShow) {
+                container.innerHTML = renderArticle(articleToShow);
+            }
+        }
+        
+        // Mobile menu functionality
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('menuOverlay');
+        
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+        }
+        
+        // Search functionality
+        function performSearch(term) {
+            if (!term.trim()) return;
+            alert(`🔍 Searching GBER for: "${term}"\n\nExplore our featured articles and latest research.`);
+        }
+        
+        document.getElementById('navbarSearchBtn')?.addEventListener('click', () => performSearch(document.getElementById('navbarSearchInput').value));
+        document.getElementById('mobileSearchBtn')?.addEventListener('click', () => performSearch(document.getElementById('mobileSearchInput').value));
+        
+        // User icon click
+        document.getElementById('userIconBtn')?.addEventListener('click', (e) => {
+            if (currentUser) {
+                if (confirm(`Logged in as ${currentUser.name}\nClick OK to logout`)) {
+                    localStorage.removeItem('gber_currentUser');
+                    window.location.reload();
+                }
+            } else {
+                e.preventDefault();
+                window.location.href = 'publish.html';
+            }
+        });
+        
+        // Initialize
+        loadData();
+        displayContent();
+        
+        // Expose functions globally
+        window.shareArticle = shareArticle;
+    </script>
+</body>
+</html>

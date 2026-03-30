@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>GBER Account – Manage Profile | Global Business & Education Review</title>
-<meta name="description" content="Access your GBER account dashboard to manage profile, settings, preferences, and stay updated with the latest business and education insights.">
-<meta name="keywords" content="GBER account, my account, user dashboard, profile management, business insights, education updates, global business, education review">
+<title>GBER Account – Manage Profile & Contributions | Global Business & Education Review</title>
+<meta name="description" content="Access your GBER account dashboard to manage profile, settings, preferences, and track your published articles and news contributions.">
+<meta name="keywords" content="GBER account, my account, user dashboard, profile management, business insights, education updates, global business, education review, my articles, my news">
 
 <!-- Favicon & Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.webp">
@@ -31,16 +31,16 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="GBER Account – Manage Profile | Global Business & Education Review">
-<meta property="og:description" content="Access your GBER account dashboard to manage profile, settings, preferences, and stay updated with the latest business and education insights.">
+<meta property="og:title" content="GBER Account – Manage Profile & Contributions | Global Business & Education Review">
+<meta property="og:description" content="Access your GBER account dashboard to manage profile, settings, preferences, and track your published articles and news contributions.">
 <meta property="og:url" content="https://gberjournal.com/account.html">
 <meta property="og:image" content="images/logo-color.webp">
 <meta property="og:site_name" content="Global Business and Education Review (GBER)">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GBER Account – Manage Profile | Global Business & Education Review">
-<meta name="twitter:description" content="Access your GBER account dashboard to manage profile, settings, preferences, and stay updated with the latest business and education insights.">
+<meta name="twitter:title" content="GBER Account – Manage Profile & Contributions | Global Business & Education Review">
+<meta name="twitter:description" content="Access your GBER account dashboard to manage profile, settings, preferences, and track your published articles and news contributions.">
 <meta name="twitter:image" content="https://gberjournal.com/images/logo-color.webp">
 <meta name="twitter:site" content="@GBER_Official">
 
@@ -55,9 +55,7 @@
   "name": "Global Business and Education Review (GBER)",
   "url": "https://gberjournal.com",
   "logo": "https://gberjournal.com/images/logo-color.webp",
-  "sameAs": [
-    ""
-  ]
+  "sameAs": [""]
 }
 </script>
 
@@ -68,7 +66,7 @@
   "@type": "WebPage",
   "name": "GBER Account – Manage Profile",
   "url": "https://gberjournal.com/account.html",
-  "description": "Access your GBER account dashboard to manage profile, settings, preferences, and stay updated with the latest business and education insights.",
+  "description": "Access your GBER account dashboard to manage profile, settings, preferences, and track your published articles and news contributions.",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -235,6 +233,7 @@
             transition: 0.2s;
             flex-shrink: 0;
             position: relative;
+            text-decoration: none;
         }
         .user-icon:hover { color: var(--gold-primary); }
         .auth-badge {
@@ -356,6 +355,11 @@
             max-width: 450px;
             border: 1px solid var(--gold-primary);
             position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
         .auth-close {
             position: absolute;
@@ -364,8 +368,9 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-muted);
+            transition: 0.2s;
         }
-        .auth-close:hover { color: var(--gold-primary); }
+        .auth-close:hover { color: var(--gold-primary); transform: rotate(90deg); }
         .auth-tabs {
             display: flex;
             gap: 20px;
@@ -377,7 +382,9 @@
             cursor: pointer;
             font-weight: 600;
             color: var(--text-muted);
+            transition: 0.2s;
         }
+        .auth-tab i { margin-right: 8px; }
         .auth-tab.active {
             color: var(--gold-primary);
             border-bottom: 2px solid var(--gold-primary);
@@ -393,6 +400,7 @@
             border-radius: 12px;
             color: white;
             font-family: inherit;
+            transition: 0.2s;
         }
         .auth-form input:focus { outline: none; border-color: var(--gold-primary); }
         .auth-btn {
@@ -405,7 +413,9 @@
             font-weight: 700;
             cursor: pointer;
             margin-top: 10px;
+            transition: 0.2s;
         }
+        .auth-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
 
         /* Page Header */
         .page-header {
@@ -433,22 +443,26 @@
             display: flex;
             gap: 20px;
             margin: 30px 0;
+            padding-bottom: 10px;
             border-bottom: 1px solid var(--gray-border);
             flex-wrap: wrap;
+            justify-content: center;
         }
         .dashboard-tab {
-            padding: 12px 24px;
+            padding: 12px 28px;
             cursor: pointer;
             font-weight: 600;
             color: var(--text-muted);
             border-radius: 60px;
             transition: 0.2s;
+            background: #1A2332;
         }
+        .dashboard-tab i { margin-right: 8px; }
         .dashboard-tab.active {
             background: var(--gold-primary);
             color: #0A0C12;
         }
-        .dashboard-tab:hover:not(.active) { color: var(--gold-primary); }
+        .dashboard-tab:hover:not(.active) { color: var(--gold-primary); background: #252e3e; }
 
         /* Profile Section */
         .profile-section {
@@ -457,19 +471,46 @@
             padding: 40px;
             margin: 30px 0;
             border: 1px solid var(--gray-border);
+            transition: 0.3s;
+        }
+        .profile-section:hover { border-color: var(--gold-primary); }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
         .profile-avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             color: #0A0C12;
-            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .profile-stats {
+            flex: 1;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #1A2332;
+            padding: 20px 30px;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 140px;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold-primary);
         }
         .form-group {
             margin-bottom: 24px;
@@ -480,7 +521,7 @@
             color: var(--text-muted);
             font-weight: 500;
         }
-        .form-group label i { margin-right: 8px; color: var(--gold-primary); }
+        .form-group label i { margin-right: 8px; color: var(--gold-primary); width: 24px; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 14px 18px;
@@ -490,22 +531,28 @@
             color: white;
             font-family: inherit;
             font-size: 0.95rem;
+            transition: 0.2s;
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--gold-primary);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
         }
         .submit-btn {
-            background: var(--gold-primary);
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
             color: #0A0C12;
             border: none;
-            padding: 12px 28px;
+            padding: 12px 32px;
             border-radius: 60px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
         }
-        .submit-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
         .logout-btn {
             background: transparent;
             border: 1px solid #f44336;
@@ -517,26 +564,47 @@
             transition: 0.2s;
             margin-left: 15px;
         }
-        .logout-btn:hover { background: #f44336; color: white; }
+        .logout-btn:hover { background: #f44336; color: white; transform: translateY(-2px); }
 
-        /* Articles List */
-        .articles-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 24px;
-            margin: 30px 0;
+        /* Content Items List */
+        .content-type-subtabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            justify-content: center;
         }
-        .article-item {
+        .subtab {
+            padding: 8px 24px;
+            cursor: pointer;
+            border-radius: 40px;
+            background: #1A2332;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .subtab.active {
+            background: var(--gold-primary);
+            color: #0A0C12;
+        }
+        .items-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 24px;
+            margin: 20px 0;
+        }
+        .item-card {
             background: #1A2332;
             border-radius: 20px;
-            padding: 20px;
+            padding: 24px;
             border: 1px solid var(--gray-border);
             position: relative;
+            transition: 0.3s;
         }
-        .article-status {
+        .item-card:hover { border-color: var(--gold-primary); transform: translateY(-3px); }
+        .item-status {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.7rem;
@@ -544,21 +612,54 @@
         }
         .status-published { background: #4caf50; color: white; }
         .status-pending { background: #ff9800; color: white; }
-        .status-draft { background: #9e9e9e; color: white; }
-        .article-actions {
-            margin-top: 15px;
-            display: flex;
-            gap: 12px;
+        .item-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            padding-right: 80px;
+            line-height: 1.4;
         }
-        .article-actions button {
+        .item-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .item-category {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .item-abstract {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-top: 12px;
+        }
+        .item-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-border);
+        }
+        .item-actions button, .item-actions a {
             background: transparent;
             border: none;
             color: var(--text-muted);
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
         }
-        .article-actions button:hover { color: var(--gold-primary); }
+        .item-actions button:hover, .item-actions a:hover { color: var(--gold-primary); }
         .delete-btn:hover { color: #f44336 !important; }
 
         /* Locked Content */
@@ -568,6 +669,7 @@
             background: var(--navy-card);
             border-radius: 28px;
             margin: 40px 0;
+            border: 1px solid var(--gray-border);
         }
         .locked-content i {
             font-size: 4rem;
@@ -591,6 +693,7 @@
             height: 48px;
             width: auto;
             margin-bottom: 16px;
+            cursor: pointer;
         }
         .footer-links a {
             color: var(--text-muted);
@@ -613,6 +716,18 @@
             transition: 0.2s;
         }
         .social-icons a:hover { color: var(--gold-primary); transform: translateY(-3px); }
+        .contact-info-footer p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info-footer i {
+            color: var(--gold-primary);
+            width: 24px;
+        }
         .copyright {
             text-align: center;
             margin-top: 50px;
@@ -624,6 +739,8 @@
 
         @media (max-width: 1000px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
+            .profile-header { flex-direction: column; text-align: center; }
+            .profile-stats { justify-content: center; }
         }
         @media (max-width: 900px) {
             .nav-menu, .nav-search, .user-icon { display: none; }
@@ -632,6 +749,7 @@
         }
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2.2rem; }
+            .items-list { grid-template-columns: 1fr; }
             .footer-grid {
                 display: flex;
                 flex-direction: column;
@@ -639,6 +757,7 @@
                 gap: 32px;
             }
             .footer-grid > div .social-icons { justify-content: center; }
+            .dashboard-tab { padding: 8px 16px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -662,7 +781,7 @@
                 <input type="text" id="navbarSearchInput" placeholder="Search articles...">
                 <button id="navbarSearchBtn"><i class="fas fa-search"></i></button>
             </div>
-            <a href="account.html" class="user-icon" id="userIconBtn">
+            <a href="#" class="user-icon" id="userIconBtn">
                 <i class="fas fa-user"></i>
                 <span class="auth-badge" id="authBadge"></span>
             </a>
@@ -688,24 +807,24 @@
     </div>
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Auth Modal (Login/Register) -->
+    <!-- Auth Modal -->
     <div class="auth-modal" id="authModal">
         <div class="auth-modal-content">
             <div class="auth-close" id="authClose"><i class="fas fa-times"></i></div>
             <div class="auth-tabs">
-                <div class="auth-tab active" data-tab="login">Login</div>
-                <div class="auth-tab" data-tab="register">Register</div>
+                <div class="auth-tab active" data-tab="login"><i class="fas fa-sign-in-alt"></i> Login</div>
+                <div class="auth-tab" data-tab="register"><i class="fas fa-user-plus"></i> Register</div>
             </div>
             <div class="auth-form active" id="loginForm">
                 <input type="email" id="loginEmail" placeholder="Email address" required>
                 <input type="password" id="loginPassword" placeholder="Password" required>
-                <button class="auth-btn" id="loginBtn">Login</button>
+                <button class="auth-btn" id="loginBtn"><i class="fas fa-arrow-right"></i> Login</button>
             </div>
             <div class="auth-form" id="registerForm">
                 <input type="text" id="regName" placeholder="Full Name" required>
                 <input type="email" id="regEmail" placeholder="Email address" required>
                 <input type="password" id="regPassword" placeholder="Password (min 6 characters)" required>
-                <button class="auth-btn" id="registerBtn">Create Account</button>
+                <button class="auth-btn" id="registerBtn"><i class="fas fa-user-plus"></i> Create Account</button>
             </div>
         </div>
     </div>
@@ -714,7 +833,7 @@
         <div class="container">
             <div class="page-header" data-aos="fade-up">
                 <h1><i class="fas fa-user-circle"></i> My Account</h1>
-                <p>Manage your profile, view your contributions, and update account settings.</p>
+                <p>Manage your profile, view your articles and news contributions, and update account settings.</p>
             </div>
 
             <div id="accountContent"></div>
@@ -725,7 +844,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img class="footer-logo-img" src="images/logo-white.webp" alt="GBER" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
+                    <img class="footer-logo-img" src="images/logo-white.webp" alt="GBER" onclick="location.href='index.html'" onerror="this.src='https://placehold.co/160x48/D4AF37/white?text=GBER'">
                     <p style="margin-top:12px; color:#9aa9c1;">Global Business & Education Review<br>“Intelligence for the Future of Business & Education”</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -739,7 +858,6 @@
                     <div class="footer-links">
                         <a href="articles.html"><i class="fas fa-arrow-right"></i>Articles</a>
                         <a href="news.html"><i class="fas fa-arrow-right"></i>News</a>
-                        <a href="contact-us.html"><i class="fas fa-arrow-right"></i>Contact</a>
                         <a href="publish.html"><i class="fas fa-arrow-right"></i>Publish</a>
                         <a href="account.html"><i class="fas fa-arrow-right"></i>Account</a>
                     </div>
@@ -750,7 +868,7 @@
                         <a href="business.html"><i class="fas fa-arrow-right"></i> Business</a>
                         <a href="education.html"><i class="fas fa-arrow-right"></i> Education</a>
                         <a href="ai-and-tech.html"><i class="fas fa-arrow-right"></i>AI & Tech</a>
-                        <a href="economy.html"><i class="fas fa-arrow-right"></i>Economy </a>
+                        <a href="economy.html"><i class="fas fa-arrow-right"></i>Economy</a>
                         <a href="research.html"><i class="fas fa-arrow-right"></i>Research</a>
                     </div>
                 </div>
@@ -771,17 +889,20 @@
     <script>
         AOS.init({ duration: 700, once: true });
 
-        // User Management
+        // Data Management
         let currentUser = null;
         let userArticles = [];
+        let userNews = [];
 
-        // Load from localStorage
         function loadData() {
             const savedUser = localStorage.getItem('gber_currentUser');
             if (savedUser) currentUser = JSON.parse(savedUser);
             const savedArticles = localStorage.getItem('gber_userArticles');
             if (savedArticles) userArticles = JSON.parse(savedArticles);
             else userArticles = [];
+            const savedNews = localStorage.getItem('gber_userNews');
+            if (savedNews) userNews = JSON.parse(savedNews);
+            else userNews = [];
             updateUI();
         }
 
@@ -789,6 +910,7 @@
             if (currentUser) localStorage.setItem('gber_currentUser', JSON.stringify(currentUser));
             else localStorage.removeItem('gber_currentUser');
             localStorage.setItem('gber_userArticles', JSON.stringify(userArticles));
+            localStorage.setItem('gber_userNews', JSON.stringify(userNews));
         }
 
         function updateUI() {
@@ -802,6 +924,9 @@
             renderAccountContent();
         }
 
+        let currentMainTab = 'profile';
+        let currentSubTab = 'articles';
+
         function renderAccountContent() {
             const container = document.getElementById('accountContent');
             if (!currentUser) {
@@ -809,8 +934,8 @@
                     <div class="locked-content" data-aos="fade-up">
                         <i class="fas fa-lock"></i>
                         <h2>Login to Your Account</h2>
-                        <p>Please login or register to access your account dashboard, manage your profile, and view your published articles.</p>
-                        <button class="submit-btn" id="showLoginBtn" style="margin-top: 20px;">Login / Register</button>
+                        <p>Please login or register to access your account dashboard, manage your profile, and view your published articles and news.</p>
+                        <button class="submit-btn" id="showLoginBtn" style="margin-top: 20px;"><i class="fas fa-sign-in-alt"></i> Login / Register</button>
                     </div>
                 `;
                 document.getElementById('showLoginBtn')?.addEventListener('click', () => {
@@ -820,113 +945,208 @@
             }
 
             const myArticles = userArticles.filter(a => a.authorId === currentUser.id);
+            const myNews = userNews.filter(n => n.authorId === currentUser.id);
             
             container.innerHTML = `
                 <div class="dashboard-tabs" data-aos="fade-up">
-                    <div class="dashboard-tab active" data-tab="profile">👤 Profile Settings</div>
-                    <div class="dashboard-tab" data-tab="articles">📚 My Articles (${myArticles.length})</div>
+                    <div class="dashboard-tab ${currentMainTab === 'profile' ? 'active' : ''}" data-tab="profile"><i class="fas fa-user"></i> Profile Settings</div>
+                    <div class="dashboard-tab ${currentMainTab === 'contributions' ? 'active' : ''}" data-tab="contributions"><i class="fas fa-pen-nib"></i> My Contributions (${myArticles.length + myNews.length})</div>
                 </div>
                 <div id="tabContent"></div>
             `;
 
             document.querySelectorAll('.dashboard-tab').forEach(tab => {
                 tab.addEventListener('click', () => {
-                    document.querySelectorAll('.dashboard-tab').forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    renderTabContent(tab.getAttribute('data-tab'));
+                    currentMainTab = tab.getAttribute('data-tab');
+                    renderAccountContent();
                 });
             });
-            renderTabContent('profile');
+            renderMainTabContent();
         }
 
-        function renderTabContent(tab) {
+        function renderMainTabContent() {
             const tabContent = document.getElementById('tabContent');
-            if (tab === 'profile') {
-                tabContent.innerHTML = `
-                    <div class="profile-section" data-aos="fade-up">
+            if (currentMainTab === 'profile') {
+                renderProfileTab(tabContent);
+            } else {
+                renderContributionsTab(tabContent);
+            }
+        }
+
+        function renderProfileTab(container) {
+            container.innerHTML = `
+                <div class="profile-section" data-aos="fade-up">
+                    <div class="profile-header">
                         <div class="profile-avatar">${currentUser.name.charAt(0).toUpperCase()}</div>
-                        <form id="profileForm">
-                            <div class="form-group">
-                                <label><i class="fas fa-user"></i> Full Name</label>
-                                <input type="text" id="profileName" value="${escapeHtml(currentUser.name)}" required>
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-envelope"></i> Email Address</label>
-                                <input type="email" id="profileEmail" value="${escapeHtml(currentUser.email)}" required>
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-briefcase"></i> Affiliation / Institution</label>
-                                <input type="text" id="profileAffiliation" value="${escapeHtml(currentUser.affiliation || '')}" placeholder="e.g., University, Research Institute, Company">
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-globe"></i> Website / LinkedIn</label>
-                                <input type="text" id="profileWebsite" value="${escapeHtml(currentUser.website || '')}" placeholder="https://...">
-                            </div>
-                            <div class="form-group">
-                                <label><i class="fas fa-info-circle"></i> Bio / About</label>
-                                <textarea id="profileBio" rows="4" placeholder="Tell us about yourself, your research interests, and expertise...">${escapeHtml(currentUser.bio || '')}</textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="submit-btn"><i class="fas fa-save"></i> Save Changes</button>
-                                <button type="button" class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
-                            </div>
-                        </form>
+                        <div class="profile-stats">
+                            <div class="stat-card"><div class="stat-number">${userArticles.filter(a => a.authorId === currentUser.id).length}</div><div>Articles</div></div>
+                            <div class="stat-card"><div class="stat-number">${userNews.filter(n => n.authorId === currentUser.id).length}</div><div>News</div></div>
+                            <div class="stat-card"><div class="stat-number">${(userArticles.filter(a => a.authorId === currentUser.id && a.status === 'published').length + userNews.filter(n => n.authorId === currentUser.id && n.status === 'published').length)}</div><div>Published</div></div>
+                        </div>
+                    </div>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="profileName" value="${escapeHtml(currentUser.name)}" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="profileEmail" value="${escapeHtml(currentUser.email)}" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-briefcase"></i> Affiliation / Institution</label>
+                            <input type="text" id="profileAffiliation" value="${escapeHtml(currentUser.affiliation || '')}" placeholder="e.g., University, Research Institute, Company">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-globe"></i> Website / LinkedIn</label>
+                            <input type="text" id="profileWebsite" value="${escapeHtml(currentUser.website || '')}" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-info-circle"></i> Bio / About</label>
+                            <textarea id="profileBio" rows="4" placeholder="Tell us about yourself, your research interests, and expertise...">${escapeHtml(currentUser.bio || '')}</textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="submit-btn"><i class="fas fa-save"></i> Save Changes</button>
+                            <button type="button" class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            document.getElementById('profileForm').addEventListener('submit', handleProfileUpdate);
+            document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+        }
+
+        function renderContributionsTab(container) {
+            const myArticles = userArticles.filter(a => a.authorId === currentUser.id);
+            const myNews = userNews.filter(n => n.authorId === currentUser.id);
+            
+            container.innerHTML = `
+                <div class="content-type-subtabs">
+                    <div class="subtab ${currentSubTab === 'articles' ? 'active' : ''}" data-subtab="articles"><i class="fas fa-newspaper"></i> My Articles (${myArticles.length})</div>
+                    <div class="subtab ${currentSubTab === 'news' ? 'active' : ''}" data-subtab="news"><i class="fas fa-bell"></i> My News (${myNews.length})</div>
+                </div>
+                <div id="subtabContent"></div>
+            `;
+            
+            document.querySelectorAll('.subtab').forEach(sub => {
+                sub.addEventListener('click', () => {
+                    currentSubTab = sub.getAttribute('data-subtab');
+                    renderContributionsTab(container);
+                });
+            });
+            
+            const subtabContent = document.getElementById('subtabContent');
+            if (currentSubTab === 'articles') {
+                renderArticlesList(subtabContent, myArticles);
+            } else {
+                renderNewsList(subtabContent, myNews);
+            }
+        }
+
+        function renderArticlesList(container, articles) {
+            if (articles.length === 0) {
+                container.innerHTML = `
+                    <div class="locked-content" style="padding: 60px;">
+                        <i class="fas fa-newspaper"></i>
+                        <h3>No Articles Yet</h3>
+                        <p>You haven't submitted any articles. Start by publishing your first research!</p>
                     </div>
                 `;
-                document.getElementById('profileForm').addEventListener('submit', handleProfileUpdate);
-                document.getElementById('logoutBtn').addEventListener('click', handleLogout);
-            } else {
-                const myArticles = userArticles.filter(a => a.authorId === currentUser.id);
-                if (myArticles.length === 0) {
-                    tabContent.innerHTML = `
-                        <div class="locked-content" style="padding: 60px;">
-                            <i class="fas fa-newspaper"></i>
-                            <h3>No Articles Yet</h3>
-                            <p>You haven't submitted any articles yet. Start by publishing your first research!</p>
-                            <a href="publish.html" class="submit-btn" style="display: inline-block; margin-top: 20px; text-decoration: none;">Publish an Article →</a>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                let articlesHtml = `<div class="articles-list">`;
-                myArticles.forEach(article => {
-                    const statusClass = article.status === 'published' ? 'status-published' : 'status-pending';
-                    const statusText = article.status === 'published' ? 'Published' : 'Pending Review';
-                    articlesHtml += `
-                        <div class="article-item" data-id="${article.id}">
-                            <div class="article-status ${statusClass}">${statusText}</div>
-                            <h3 style="margin-bottom: 8px;">${escapeHtml(article.title)}</h3>
-                            <div class="card-category" style="margin-bottom: 8px;"><i class="fas fa-tag"></i> ${article.category}</div>
-                            <p style="color: var(--text-muted); font-size: 0.85rem;">Submitted: ${article.date}</p>
-                            <p style="margin-top: 10px;">${article.abstract.substring(0, 100)}...</p>
-                            <div class="article-actions">
-                                <a href="publish.html?edit=${article.id}" class="edit-btn" style="color: var(--text-muted); text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
-                                <button class="delete-btn" data-id="${article.id}"><i class="fas fa-trash"></i> Delete</button>
-                                ${article.status === 'published' ? `<button class="view-btn" data-id="${article.id}"><i class="fas fa-eye"></i> View</button>` : ''}
-                            </div>
-                        </div>
-                    `;
-                });
-                articlesHtml += `</div>`;
-                tabContent.innerHTML = articlesHtml;
-                
-                document.querySelectorAll('.delete-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        if (confirm('Are you sure you want to delete this article? This action cannot be undone.')) {
-                            const id = parseInt(btn.getAttribute('data-id'));
-                            userArticles = userArticles.filter(a => a.id !== id);
-                            saveData();
-                            renderTabContent('articles');
-                        }
-                    });
-                });
-                document.querySelectorAll('.view-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        alert('Article view would open here (demo). In the full version, this would redirect to the article page.');
-                    });
-                });
+                return;
             }
+            
+            let html = `<div class="items-list">`;
+            articles.forEach(article => {
+                const statusClass = article.status === 'published' ? 'status-published' : 'status-pending';
+                const statusText = article.status === 'published' ? 'Published' : 'Pending Review';
+                html += `
+                    <div class="item-card" data-id="${article.id}">
+                        <div class="item-status ${statusClass}"><i class="fas ${article.status === 'published' ? 'fa-check-circle' : 'fa-clock'}"></i> ${statusText}</div>
+                        <h3 class="item-title">${escapeHtml(article.title)}</h3>
+                        <div class="item-meta">
+                            <span class="item-category"><i class="fas fa-tag"></i> ${article.category}</span>
+                            <span><i class="far fa-calendar-alt"></i> ${article.date}</span>
+                        </div>
+                        <div class="item-abstract">${escapeHtml(article.abstract.substring(0, 120))}...</div>
+                        <div class="item-actions">
+                            <a href="publish.html?edit=${article.id}&type=article" class="edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                            <button class="delete-btn" data-id="${article.id}" data-type="article"><i class="fas fa-trash-alt"></i> Delete</button>
+                            ${article.status === 'published' ? `<a href="view-article.html?id=${article.id}&type=article" class="view-btn"><i class="fas fa-eye"></i> View</a>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (confirm('Are you sure you want to delete this item? This action cannot be undone.')) {
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        const type = btn.getAttribute('data-type');
+                        if (type === 'article') {
+                            userArticles = userArticles.filter(a => a.id !== id);
+                        } else {
+                            userNews = userNews.filter(n => n.id !== id);
+                        }
+                        saveData();
+                        renderContributionsTab(document.getElementById('tabContent'));
+                    }
+                });
+            });
+        }
+
+        function renderNewsList(container, newsItems) {
+            if (newsItems.length === 0) {
+                container.innerHTML = `
+                    <div class="locked-content" style="padding: 60px;">
+                        <i class="fas fa-bell"></i>
+                        <h3>No News Submissions Yet</h3>
+                        <p>You haven't submitted any news. Share breaking updates with our community!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = `<div class="items-list">`;
+            newsItems.forEach(news => {
+                const statusClass = news.status === 'published' ? 'status-published' : 'status-pending';
+                const statusText = news.status === 'published' ? 'Published' : 'Pending Review';
+                html += `
+                    <div class="item-card" data-id="${news.id}">
+                        <div class="item-status ${statusClass}"><i class="fas ${news.status === 'published' ? 'fa-check-circle' : 'fa-clock'}"></i> ${statusText}</div>
+                        <h3 class="item-title">${escapeHtml(news.headline)}</h3>
+                        <div class="item-meta">
+                            <span class="item-category"><i class="fas fa-tag"></i> ${news.category}</span>
+                            <span><i class="far fa-calendar-alt"></i> ${news.date}</span>
+                        </div>
+                        ${news.summary ? `<div class="item-abstract">${escapeHtml(news.summary.substring(0, 120))}...</div>` : ''}
+                        <div class="item-actions">
+                            <a href="publish.html?edit=${news.id}&type=news" class="edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                            <button class="delete-btn" data-id="${news.id}" data-type="news"><i class="fas fa-trash-alt"></i> Delete</button>
+                            ${news.status === 'published' ? `<a href="view-news.html?id=${news.id}&type=news" class="view-btn"><i class="fas fa-eye"></i> View</a>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (confirm('Are you sure you want to delete this item? This action cannot be undone.')) {
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        const type = btn.getAttribute('data-type');
+                        if (type === 'article') {
+                            userArticles = userArticles.filter(a => a.id !== id);
+                        } else {
+                            userNews = userNews.filter(n => n.id !== id);
+                        }
+                        saveData();
+                        renderContributionsTab(document.getElementById('tabContent'));
+                    }
+                });
+            });
         }
 
         function handleProfileUpdate(e) {
@@ -937,17 +1157,15 @@
             currentUser.website = document.getElementById('profileWebsite').value.trim();
             currentUser.bio = document.getElementById('profileBio').value.trim();
             
-            // Update in users array
             let users = JSON.parse(localStorage.getItem('gber_users') || '[]');
             const userIndex = users.findIndex(u => u.id === currentUser.id);
             if (userIndex !== -1) {
                 users[userIndex] = { ...users[userIndex], ...currentUser };
                 localStorage.setItem('gber_users', JSON.stringify(users));
             }
-            
             saveData();
             updateUI();
-            alert('Profile updated successfully!');
+            alert('✅ Profile updated successfully!');
         }
 
         function handleLogout() {
@@ -955,7 +1173,7 @@
                 currentUser = null;
                 saveData();
                 updateUI();
-                alert('Logged out successfully');
+                alert('👋 Logged out successfully');
             }
         }
 
@@ -968,7 +1186,6 @@
 
         // Auth Functions
         let users = JSON.parse(localStorage.getItem('gber_users') || '[]');
-        
         function saveUsers() { localStorage.setItem('gber_users', JSON.stringify(users)); }
         
         function login(email, password) {
@@ -977,20 +1194,20 @@
                 currentUser = { id: user.id, name: user.name, email: user.email, affiliation: user.affiliation, website: user.website, bio: user.bio };
                 saveData();
                 document.getElementById('authModal').classList.remove('active');
-                alert(`Welcome back, ${user.name}!`);
+                alert(`🎉 Welcome back, ${user.name}!`);
                 return true;
             }
-            alert('Invalid email or password');
+            alert('❌ Invalid email or password');
             return false;
         }
         
         function register(name, email, password) {
             if (users.find(u => u.email === email)) {
-                alert('Email already registered');
+                alert('❌ Email already registered');
                 return false;
             }
             if (password.length < 6) {
-                alert('Password must be at least 6 characters');
+                alert('❌ Password must be at least 6 characters');
                 return false;
             }
             const newUser = { id: Date.now(), name, email, password, affiliation: '', website: '', bio: '' };
@@ -999,14 +1216,14 @@
             currentUser = { id: newUser.id, name: newUser.name, email: newUser.email, affiliation: '', website: '', bio: '' };
             saveData();
             document.getElementById('authModal').classList.remove('active');
-            alert(`Welcome to GBER, ${name}! Your account has been created.`);
+            alert(`🎉 Welcome to GBER, ${name}! Your account has been created.`);
             return true;
         }
 
         // Event Listeners
-        document.getElementById('userIconBtn').addEventListener('click', () => {
+        document.getElementById('userIconBtn').addEventListener('click', (e) => {
+            e.preventDefault();
             if (currentUser) {
-                // Already on account page, just refresh
                 renderAccountContent();
             } else {
                 document.getElementById('authModal').classList.add('active');
@@ -1057,7 +1274,7 @@
         
         function performSearch(term) {
             if (!term.trim()) return;
-            alert(`Searching GBER for: "${term}"\nThis feature will show results on the homepage.`);
+            alert(`🔍 Searching GBER for: "${term}"`);
         }
         document.getElementById('navbarSearchBtn')?.addEventListener('click', () => performSearch(document.getElementById('navbarSearchInput').value));
         document.getElementById('mobileSearchBtn')?.addEventListener('click', () => performSearch(document.getElementById('mobileSearchInput').value));

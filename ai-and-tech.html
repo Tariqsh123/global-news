@@ -784,28 +784,6 @@
                 <button class="tab-btn" id="tabNewsBtn"><i class="fas fa-bell"></i> Latest News</button>
             </div>
 
-            <!-- Category Pills - Desktop -->
-            <div class="categories-bar" id="categoryFilter">
-                <div class="cat-pill active" data-cat="all"><i class="fas fa-newspaper"></i> All</div>
-                <div class="cat-pill" data-cat="Agentic AI"><i class="fas fa-robot"></i> Agentic AI</div>
-                <div class="cat-pill" data-cat="Quantum"><i class="fas fa-atom"></i> Quantum Computing</div>
-                <div class="cat-pill" data-cat="AI Ethics"><i class="fas fa-balance-scale"></i> AI Ethics</div>
-                <div class="cat-pill" data-cat="Emerging Tech"><i class="fas fa-rocket"></i> Emerging Tech</div>
-                <div class="cat-pill" data-cat="Innovation"><i class="fas fa-lightbulb"></i> Innovation</div>
-            </div>
-
-            <!-- Mobile Dropdown -->
-            <div class="mobile-category-dropdown">
-                <select id="mobileCategorySelect">
-                    <option value="all">🤖 All Tech Topics</option>
-                    <option value="Agentic AI">🧠 Agentic AI & Autonomous Systems</option>
-                    <option value="Quantum">⚛️ Quantum Computing</option>
-                    <option value="AI Ethics">⚖️ AI Ethics & Governance</option>
-                    <option value="Emerging Tech">🚀 Emerging Technologies</option>
-                    <option value="Innovation">💡 Innovation & R&D</option>
-                </select>
-            </div>
-
             <!-- Search Info -->
             <div class="search-info" id="searchInfo">
                 <i class="fas fa-search"></i> <span id="searchInfoText"></span>
@@ -820,7 +798,7 @@
                             <span class="featured-badge"><i class="fas fa-fire"></i> COVER STORY</span>
                             <h2 class="featured-title">Agentic AI: The Rise of Autonomous Intelligence</h2>
                             <p>How autonomous agents are reshaping business, education, and society. From reactive systems to proactive decision-makers.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Full Story <i class="fas fa-arrow-right"></i></a> -->
                         </div>
                     </div>
                     <div class="featured-card">
@@ -829,7 +807,7 @@
                             <span class="featured-badge"><i class="fas fa-chart-line"></i> EXCLUSIVE</span>
                             <h2 class="featured-title">Quantum Computing Breakthrough: What It Means for Business</h2>
                             <p>New developments in quantum processors and their implications for cryptography, drug discovery, and optimization problems.</p>
-                            <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Report <i class="fas fa-arrow-right"></i></a>
+                            <!-- <a href="#" style="color: var(--gold-primary); font-weight: 600; display: inline-block; margin-top: 16px;">Read Report <i class="fas fa-arrow-right"></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -883,7 +861,7 @@
             </div>
 
             <!-- AI Ethics Section -->
-            <div class="ethics-section" data-aos="fade-up">
+            <!-- <div class="ethics-section" data-aos="fade-up">
                 <h2 style="font-size: 1.8rem; margin-bottom: 24px;"><i class="fas fa-balance-scale"></i> AI Ethics & Global Governance</h2>
                 <div class="ethics-grid">
                     <div>
@@ -897,7 +875,7 @@
                     </div>
                     <img class="ethics-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format" alt="AI Ethics">
                 </div>
-            </div>
+            </div> -->
         </div>
     </main>
 
@@ -953,22 +931,12 @@
 
         // ARTICLES DATA (In-depth with description)
         const articlesData = [
-            { id:1, category:'Agentic AI', title:'Agentic AI: The Rise of Autonomous Intelligence', desc:'How autonomous agents are reshaping business strategy, education, and society with proactive decision-making.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' },
-            { id:2, category:'Quantum', title:'Quantum Computing Breakthrough: Google\'s Willow Chip', desc:'New quantum processor solves problems in minutes that would take supercomputers millennia.', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format' },
-            { id:3, category:'AI Ethics', title:'EU AI Act: What Businesses Need to Know', desc:'Comprehensive guide to the world\'s first comprehensive AI regulation framework.', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
-            { id:4, category:'Emerging Tech', title:'Neuromorphic Computing: The Next Generation of AI', desc:'Brain-inspired chips that could revolutionize machine learning efficiency and power consumption.', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1581092335871-5e3e7d7d9b5b?q=80&w=2070&auto=format' },
-            { id:5, category:'Innovation', title:'AI-Powered Drug Discovery: The Pharmaceutical Revolution', desc:'How generative AI is accelerating vaccine and drug development by 70%.', date:'Mar 20, 2026', img:'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format' },
-            { id:6, category:'Agentic AI', title:'Why Agentic AI Will Replace Traditional Automation by 2030', desc:'From rule-based bots to goal-driven agents with reasoning and adaptive capabilities.', date:'Mar 19, 2026', img:'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format' }
+            { id:1, category:'Agentic AI', title:'Agentic AI: The Rise of Autonomous Intelligence', desc:'How autonomous agents are reshaping business strategy, education, and society with proactive decision-making.', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format' }
         ];
 
         // NEWS DATA (Simple: headline + date + image + category)
         const newsData = [
-            { id:1, category:'Agentic AI', headline:'OpenAI Launches Enterprise Agentic AI Platform', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format' },
-            { id:2, category:'Quantum', headline:'IBM Achieves Quantum Supremacy with 1,000-Qubit Processor', date:'Mar 25, 2026', img:'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format' },
-            { id:3, category:'AI Ethics', headline:'UN Adopts Global AI Ethics Framework with 150 Nations', date:'Mar 24, 2026', img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format' },
-            { id:4, category:'Emerging Tech', headline:'Google DeepMind Unveils Next-Gen AI Model Gemini Ultra', date:'Mar 23, 2026', img:'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format' },
-            { id:5, category:'Innovation', headline:'Samsung Announces $40B AI Chip Manufacturing Facility', date:'Mar 22, 2026', img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format' },
-            { id:6, category:'Agentic AI', headline:'Microsoft Integrates Agentic AI Across Office 365 Suite', date:'Mar 21, 2026', img:'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format' }
+            { id:1, category:'Agentic AI', headline:'OpenAI Launches Enterprise Agentic AI Platform', date:'Mar 26, 2026', img:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format' }
         ];
 
         let currentMode = 'articles';

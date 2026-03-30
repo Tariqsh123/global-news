@@ -474,6 +474,7 @@
             display: flex;
             gap: 20px;
             margin: 30px 0;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--gray-border);
             flex-wrap: wrap;
         }
@@ -511,6 +512,7 @@
             margin-bottom: 8px;
             color: var(--text-muted);
             font-weight: 500;
+            font-size: 0.9rem;
         }
         .form-group label i { margin-right: 8px; color: var(--gold-primary); width: 24px; }
         .form-group input, .form-group select, .form-group textarea {
@@ -533,19 +535,78 @@
             resize: vertical;
             min-height: 150px;
         }
-        .submit-btn {
+        .image-upload-area {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .image-url-input {
+            flex: 2;
+            min-width: 200px;
+        }
+        .upload-file-btn {
+            background: linear-gradient(135deg, #2A3448 0%, #1E2638 100%);
+            border: 1px solid var(--gray-border);
+            padding: 12px 24px;
+            border-radius: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+        .upload-file-btn i {
+            font-size: 1.1rem;
+        }
+        .upload-file-btn:hover {
             background: var(--gold-primary);
             color: #0A0C12;
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+        .image-preview {
+            margin-top: 12px;
+            max-width: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #0A0C12;
+            border: 2px solid var(--gold-primary);
+            display: none;
+            position: relative;
+        }
+        .image-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-preview.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+            color: #0A0C12;
             border: none;
-            padding: 14px 32px;
+            padding: 0;
+            padding: 10px 20px;
             border-radius: 60px;
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 280px;
         }
         .submit-btn i { margin-right: 8px; }
-        .submit-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3); }
 
         /* Items List */
         .items-list {
@@ -555,14 +616,14 @@
             margin: 30px 0;
         }
         .item-card {
-            background: #1A2332;
+            background: linear-gradient(135deg, #1A2332 0%, #131C2A 100%);
             border-radius: 24px;
             padding: 24px;
             border: 1px solid var(--gray-border);
             position: relative;
             transition: 0.3s;
         }
-        .item-card:hover { border-color: var(--gold-primary); transform: translateY(-3px); }
+        .item-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .item-status {
             position: absolute;
             top: 20px;
@@ -633,8 +694,8 @@
             border: 1px solid var(--gray-border);
         }
         .locked-content i {
-            font-size: 4rem;
-            color: var(--gold-primary);
+            font-size: small;
+            color: var(--navy-bg);
             margin-bottom: 20px;
         }
 
@@ -718,6 +779,8 @@
             .contact-info-footer p { justify-content: center; }
             .content-type-tabs { gap: 12px; }
             .content-type-tab { padding: 8px 20px; font-size: 0.9rem; }
+            .image-upload-area { flex-direction: column; align-items: stretch; }
+            .upload-file-btn { justify-content: center; }
         }
     </style>
 </head>
@@ -735,7 +798,7 @@
                 <li><a href="ai-and-tech.html"> AI & Tech</a></li>
                 <li><a href="economy.html"> Economy</a></li>
                 <li><a href="research.html"> Research</a></li>
-                <li><a href="publish.html" class="active"> Publish</a></li>
+                <li><a href="publish.html"  > Publish</a></li>
             </ul>
             <div class="nav-search">
                 <input type="text" id="navbarSearchInput" placeholder="Search articles...">
@@ -757,7 +820,7 @@
             <li><a href="ai-and-tech.html"> AI & Tech</a></li>
             <li><a href="economy.html"> Economy</a></li>
             <li><a href="research.html"> Research</a></li>
-            <li><a href="publish.html" class="active"> Publish</a></li>
+            <li><a href="publish.html"  > Publish</a></li>
             <li><a href="account.html"> Account</a></li>
         </ul>
         <div class="mobile-search">
@@ -849,10 +912,9 @@
     <script>
         AOS.init({ duration: 700, once: true });
 
-        // Data Management
         let currentUser = null;
-        let userArticles = [];      // Full articles with description
-        let userNews = [];          // Simple news with headline only
+        let userArticles = [];
+        let userNews = [];
 
         function loadData() {
             const savedUser = localStorage.getItem('gber_currentUser');
@@ -884,7 +946,7 @@
             renderDashboard();
         }
 
-        let currentContentType = 'articles'; // 'articles' or 'news'
+        let currentContentType = 'articles';
         let currentTab = 'submit';
 
         function renderDashboard() {
@@ -933,6 +995,15 @@
             renderTabContent();
         }
 
+        function convertFileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
         function renderTabContent() {
             const tabContent = document.getElementById('tabContent');
             if (currentTab === 'submit') {
@@ -942,8 +1013,8 @@
                             <h2 style="margin-bottom: 24px;"><i class="fas fa-pen-fancy"></i> Submit Your Article</h2>
                             <form id="articleForm">
                                 <div class="form-group"><label><i class="fas fa-heading"></i> Article Title *</label><input type="text" id="itemTitle" placeholder="Enter a compelling title" required></div>
-                                <div class="form-group"><label><i class="fas fa-tag"></i> Category *</label><select id="itemCategory" required><option value="">Select Category</option><option value="Business">📊 Business & Strategy</option><option value="Education">🎓 Education Innovation</option><option value="AI & Tech">🤖 AI & Future Tech</option><option value="Economy">📈 Global Economy</option><option value="Leadership">👑 Leadership & Policy</option><option value="Research">🔬 Research & Methodology</option></select></div>
-                                <div class="form-group"><label><i class="fas fa-image"></i> Featured Image URL</label><input type="text" id="itemImage" placeholder="https://images.unsplash.com/..."></div>
+                                <div class="form-group"><label><i class="fas fa-tag"></i> Category *</label><select id="itemCategory" required><option value="">Select Category</option><option value="Business">Business & Strategy</option><option value="Education">Education Innovation</option><option value="AI & Tech">AI & Future Tech</option><option value="Economy">Global Economy</option><option value="Leadership">Leadership & Policy</option><option value="Research">Research & Methodology</option></select></div>
+                                <div class="form-group"><label><i class="fas fa-image"></i> Featured Image * (URL or Upload)</label><div class="image-upload-area"><div class="image-url-input"><input type="text" id="itemImage" placeholder="https://example.com/image.jpg"></div><button type="button" class="upload-file-btn" id="articleUploadBtn"><i class="fas fa-cloud-upload-alt"></i> Upload Image</button></div><div class="image-preview" id="articleImagePreview"></div></div>
                                 <div class="form-group"><label><i class="fas fa-align-left"></i> Abstract / Summary *</label><textarea id="itemAbstract" placeholder="Brief summary of your article (150-200 words)" required></textarea></div>
                                 <div class="form-group"><label><i class="fas fa-file-alt"></i> Full Content *</label><textarea id="itemContent" placeholder="Write your full article content here..." rows="8" required></textarea></div>
                                 <div class="form-group"><label><i class="fas fa-tags"></i> Keywords (comma separated)</label><input type="text" id="itemKeywords" placeholder="e.g., artificial intelligence, education, future skills"></div>
@@ -951,6 +1022,33 @@
                             </form>
                         </div>
                     `;
+                    
+                    const articleUploadBtn = document.getElementById('articleUploadBtn');
+                    const fileInput = document.createElement('input');
+                    fileInput.type = 'file';
+                    fileInput.accept = 'image/*';
+                    fileInput.style.display = 'none';
+                    document.body.appendChild(fileInput);
+                    
+                    articleUploadBtn.addEventListener('click', () => {
+                        fileInput.click();
+                    });
+                    
+                    fileInput.addEventListener('change', async (e) => {
+                        const file = e.target.files[0];
+                        if (file && file.type.startsWith('image/')) {
+                            const base64 = await convertFileToBase64(file);
+                            const imageInput = document.getElementById('itemImage');
+                            imageInput.value = base64;
+                            const preview = document.getElementById('articleImagePreview');
+                            preview.innerHTML = `<img src="${base64}" alt="Preview">`;
+                            preview.classList.add('active');
+                        } else if (file) {
+                            alert('Please select a valid image file (JPEG, PNG, etc.)');
+                        }
+                        fileInput.value = '';
+                    });
+                    
                     document.getElementById('articleForm').addEventListener('submit', handleArticleSubmit);
                 } else {
                     tabContent.innerHTML = `
@@ -958,20 +1056,47 @@
                             <h2 style="margin-bottom: 24px;"><i class="fas fa-bell"></i> Submit Your News</h2>
                             <form id="newsForm">
                                 <div class="form-group"><label><i class="fas fa-heading"></i> News Headline *</label><input type="text" id="itemHeadline" placeholder="Enter a concise, attention-grabbing headline" required></div>
-                                <div class="form-group"><label><i class="fas fa-tag"></i> Category *</label><select id="itemCategory" required><option value="">Select Category</option><option value="Business">📊 Business News</option><option value="Education">🎓 Education News</option><option value="AI & Tech">🤖 AI & Tech News</option><option value="Economy">📈 Economy News</option><option value="Leadership">👑 Leadership News</option></select></div>
-                                <div class="form-group"><label><i class="fas fa-image"></i> News Image URL *</label><input type="text" id="itemImage" placeholder="https://images.unsplash.com/..." required></div>
+                                <div class="form-group"><label><i class="fas fa-tag"></i> Category *</label><select id="itemCategory" required><option value="">Select Category</option><option value="Business">Business News</option><option value="Education">Education News</option><option value="AI & Tech">AI & Tech News</option><option value="Economy">Economy News</option><option value="Leadership">Leadership News</option></select></div>
+                                <div class="form-group"><label><i class="fas fa-image"></i> News Image * (URL or Upload)</label><div class="image-upload-area"><div class="image-url-input"><input type="text" id="itemImage" placeholder="https://example.com/news-image.jpg" required></div><button type="button" class="upload-file-btn" id="newsUploadBtn"><i class="fas fa-cloud-upload-alt"></i> Upload Image</button></div><div class="image-preview" id="newsImagePreview"></div></div>
                                 <div class="form-group"><label><i class="fas fa-align-left"></i> Brief Summary (optional)</label><textarea id="itemSummary" placeholder="A short description of the news (optional)" rows="3"></textarea></div>
                                 <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit News for Review</button>
                             </form>
                         </div>
                     `;
+                    
+                    const newsUploadBtn = document.getElementById('newsUploadBtn');
+                    const newsFileInput = document.createElement('input');
+                    newsFileInput.type = 'file';
+                    newsFileInput.accept = 'image/*';
+                    newsFileInput.style.display = 'none';
+                    document.body.appendChild(newsFileInput);
+                    
+                    newsUploadBtn.addEventListener('click', () => {
+                        newsFileInput.click();
+                    });
+                    
+                    newsFileInput.addEventListener('change', async (e) => {
+                        const file = e.target.files[0];
+                        if (file && file.type.startsWith('image/')) {
+                            const base64 = await convertFileToBase64(file);
+                            const imageInput = document.getElementById('itemImage');
+                            imageInput.value = base64;
+                            const preview = document.getElementById('newsImagePreview');
+                            preview.innerHTML = `<img src="${base64}" alt="Preview">`;
+                            preview.classList.add('active');
+                        } else if (file) {
+                            alert('Please select a valid image file (JPEG, PNG, etc.)');
+                        }
+                        newsFileInput.value = '';
+                    });
+                    
                     document.getElementById('newsForm').addEventListener('submit', handleNewsSubmit);
                 }
             } else {
                 if (currentContentType === 'articles') {
                     const myItems = userArticles.filter(a => a.authorId === currentUser.id);
                     if (myItems.length === 0) {
-                        tabContent.innerHTML = `<div class="locked-content" style="padding: 60px;"><i class="fas fa-newspaper"></i><h3>No Articles Yet</h3><p>You haven't submitted any articles. Start by publishing your first research!</p><button class="submit-btn" id="startPublishBtn" style="margin-top: 20px;"><i class="fas fa-plus-circle"></i> Write an Article</button></div>`;
+                        tabContent.innerHTML = `<div class="locked-content" style="padding: 60px;"><i class="fas fa-newspaper" style="color:#D4AF37"></i><h3>No Articles Yet</h3><p>You haven't submitted any articles. Start by publishing your first research!</p></div>`;
                         document.getElementById('startPublishBtn')?.addEventListener('click', () => { currentTab = 'submit'; renderDashboard(); });
                         return;
                     }
@@ -987,7 +1112,7 @@
                 } else {
                     const myItems = userNews.filter(n => n.authorId === currentUser.id);
                     if (myItems.length === 0) {
-                        tabContent.innerHTML = `<div class="locked-content" style="padding: 60px;"><i class="fas fa-bell"></i><h3>No News Yet</h3><p>You haven't submitted any news. Share breaking updates with our community!</p><button class="submit-btn" id="startNewsBtn" style="margin-top: 20px;"><i class="fas fa-plus-circle"></i> Submit News</button></div>`;
+                        tabContent.innerHTML = `<div class="locked-content" style="padding: 60px;"><i class="fas fa-bell" style="color:#D4AF37"></i><h3>No News Yet</h3><p>You haven't submitted any news. Share breaking updates with our community!</p></div>`;
                         document.getElementById('startNewsBtn')?.addEventListener('click', () => { currentTab = 'submit'; renderDashboard(); });
                         return;
                     }
@@ -1019,6 +1144,11 @@
                             document.getElementById('itemAbstract').value = article.abstract;
                             document.getElementById('itemContent').value = article.content;
                             document.getElementById('itemKeywords').value = article.keywords || '';
+                            if(article.image && document.getElementById('articleImagePreview')) {
+                                const preview = document.getElementById('articleImagePreview');
+                                preview.innerHTML = `<img src="${article.image}" alt="Preview">`;
+                                preview.classList.add('active');
+                            }
                             window.editingItemId = id;
                         }, 100);
                     }
@@ -1049,6 +1179,11 @@
                             document.getElementById('itemCategory').value = news.category;
                             document.getElementById('itemImage').value = news.image;
                             document.getElementById('itemSummary').value = news.summary || '';
+                            if(news.image && document.getElementById('newsImagePreview')) {
+                                const preview = document.getElementById('newsImagePreview');
+                                preview.innerHTML = `<img src="${news.image}" alt="Preview">`;
+                                preview.classList.add('active');
+                            }
                             window.editingItemId = id;
                         }, 100);
                     }
@@ -1069,34 +1204,30 @@
         function handleArticleSubmit(e) {
             e.preventDefault();
             if (!currentUser) { alert('Please login first'); return; }
-            
             const title = document.getElementById('itemTitle').value.trim();
             const category = document.getElementById('itemCategory').value;
             const image = document.getElementById('itemImage').value.trim();
             const abstract = document.getElementById('itemAbstract').value.trim();
             const content = document.getElementById('itemContent').value.trim();
             const keywords = document.getElementById('itemKeywords').value.trim();
-            
             if (!title || !category || !abstract || !content) { alert('Please fill all required fields'); return; }
-            
+            const finalImage = image || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format';
             if (window.editingItemId) {
                 const index = userArticles.findIndex(a => a.id === window.editingItemId);
                 if (index !== -1) {
-                    userArticles[index] = { ...userArticles[index], title, category, image, abstract, content, keywords, updatedAt: new Date().toLocaleDateString() };
+                    userArticles[index] = { ...userArticles[index], title, category, image: finalImage, abstract, content, keywords, updatedAt: new Date().toLocaleDateString() };
                     alert('✅ Article updated successfully!');
                 }
                 delete window.editingItemId;
             } else {
-                const newItem = {
-                    id: Date.now(), authorId: currentUser.id, authorName: currentUser.name, title, category,
-                    image: image || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format',
-                    abstract, content, keywords, status: 'pending', date: new Date().toLocaleDateString()
-                };
+                const newItem = { id: Date.now(), authorId: currentUser.id, authorName: currentUser.name, title, category, image: finalImage, abstract, content, keywords, status: 'pending', date: new Date().toLocaleDateString() };
                 userArticles.unshift(newItem);
                 alert('✅ Article submitted successfully! Our editorial team will review it within 48 hours.');
             }
             saveData();
             document.getElementById('articleForm')?.reset();
+            const preview = document.getElementById('articleImagePreview');
+            if(preview) preview.classList.remove('active');
             currentTab = 'myitems';
             renderDashboard();
         }
@@ -1104,14 +1235,11 @@
         function handleNewsSubmit(e) {
             e.preventDefault();
             if (!currentUser) { alert('Please login first'); return; }
-            
             const headline = document.getElementById('itemHeadline').value.trim();
             const category = document.getElementById('itemCategory').value;
             const image = document.getElementById('itemImage').value.trim();
             const summary = document.getElementById('itemSummary').value.trim();
-            
-            if (!headline || !category || !image) { alert('Please fill all required fields (Headline, Category, and Image URL)'); return; }
-            
+            if (!headline || !category || !image) { alert('Please fill all required fields (Headline, Category, and Image)'); return; }
             if (window.editingItemId) {
                 const index = userNews.findIndex(n => n.id === window.editingItemId);
                 if (index !== -1) {
@@ -1120,22 +1248,20 @@
                 }
                 delete window.editingItemId;
             } else {
-                const newItem = {
-                    id: Date.now(), authorId: currentUser.id, authorName: currentUser.name, headline, category,
-                    image, summary, status: 'pending', date: new Date().toLocaleDateString()
-                };
+                const newItem = { id: Date.now(), authorId: currentUser.id, authorName: currentUser.name, headline, category, image, summary, status: 'pending', date: new Date().toLocaleDateString() };
                 userNews.unshift(newItem);
                 alert('✅ News submitted successfully! Our editorial team will review it within 24 hours.');
             }
             saveData();
             document.getElementById('newsForm')?.reset();
+            const preview = document.getElementById('newsImagePreview');
+            if(preview) preview.classList.remove('active');
             currentTab = 'myitems';
             renderDashboard();
         }
 
         function escapeHtml(text) { const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
 
-        // Auth Functions
         let users = JSON.parse(localStorage.getItem('gber_users') || '[]');
         function saveUsers() { localStorage.setItem('gber_users', JSON.stringify(users)); }
         function login(email, password) {
@@ -1153,7 +1279,6 @@
             alert(`🎉 Welcome to GBER, ${name}!`); return true;
         }
 
-        // Event Listeners
         document.getElementById('userIconBtn').addEventListener('click', (e) => {
             if (currentUser) { if (confirm(`Logged in as ${currentUser.name}\nClick OK to logout`)) { currentUser = null; saveData(); alert('👋 Logged out successfully'); } }
             else { e.preventDefault(); document.getElementById('authModal').classList.add('active'); }
@@ -1170,7 +1295,6 @@
         document.getElementById('loginBtn').addEventListener('click', () => login(document.getElementById('loginEmail').value, document.getElementById('loginPassword').value));
         document.getElementById('registerBtn').addEventListener('click', () => register(document.getElementById('regName').value, document.getElementById('regEmail').value, document.getElementById('regPassword').value));
 
-        // Mobile menu
         const hamburger = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('menuOverlay');
